@@ -1,0 +1,12 @@
+{
+  "package": "VAT_Atlas_Dev_Assets_v0.3",
+  "createdAt": "2026-05-14T18:04:15.613791+00:00",
+  "pageCount": 21,
+  "referenceImageCount": 21,
+  "visualDraftCount": 22,
+  "glossaryCount": 40,
+  "legalRefCount": 25,
+  "scenarioCount": 17,
+  "specSource": "spec_v0.2.md",
+  "status": "developer-handoff-ready; tax/legal review still required before publication"
+}

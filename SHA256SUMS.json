@@ -1,0 +1,572 @@
+[
+  {
+    "path": "README.md",
+    "sha256": "06984877d8e2b21b3b62bf22829605299a142a304d8bf9655541f4b589586c5a",
+    "bytes": 1910
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/contact-sheets/vat_atlas_reference_pages_contact_sheet_v0.3.png",
+    "sha256": "4eb8078ff81e0f8f6a63f9bbeeb5fac571049d5d1d50b503a613199b653f3a58",
+    "bytes": 461209
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/generated-drafts/09-04-generated.png",
+    "sha256": "cfbc7774a5a62adc4cdb313b6d89ebfa113daca2fdac6c96815917246006f8f4",
+    "bytes": 2120885
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/generated-drafts/09-05-generated.png",
+    "sha256": "27da779ce8c9542fccd0fd0fe0f0111e52a7674ae6f5902d8ecceaacaf99d747",
+    "bytes": 2497189
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/generated-drafts/09-06-generated.png",
+    "sha256": "a567cef7c9a8906f79cd7acfc04e1bacd214138b1abec3ef2dcbcc9458ec6d10",
+    "bytes": 3254883
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/generated-drafts/09-07-generated-a.png",
+    "sha256": "f79ad929bbc3bff3e860871d0aba326c700f1348e2c51d277fd6d776f3272a49",
+    "bytes": 2763141
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/generated-drafts/09-07-generated-b.png",
+    "sha256": "2d71597b3266e269c75a8958e91209fbc52fc95dec4752f5644bcfe0c501a694",
+    "bytes": 2671306
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/generated-drafts/cover-generated-style.png",
+    "sha256": "74ef0c95c73a163e2fd96c47d94529b37651af10681c7c66186952a6b79f0066",
+    "bytes": 3079360
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/generated-drafts/legacy-ch09-v01/VAT_Atlas_09-01_Drilldown_统一给付_单一交易.png",
+    "sha256": "c92e27721f05fc04d99bc6ff36540b58173df1036da91321fb2f8f0bb6d5dfcb",
+    "bytes": 1082758
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/generated-drafts/legacy-ch09-v01/VAT_Atlas_09-02_Drilldown_主给付_从给付.png",
+    "sha256": "5de7aac138235862276ae7d0b75bc9d7c3317d94c2629dd1eb05b0357764a10c",
+    "bytes": 1065623
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/generated-drafts/legacy-ch09-v01/VAT_Atlas_09-03_Drilldown_工程供货与工程服务边界.png",
+    "sha256": "905372f33d967d3d2dacf2aaafd635073634c7dd207f514a542fa073fec637fe",
+    "bytes": 1132981
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/generated-drafts/legacy-ch09-v01/VAT_Atlas_09-04_Drilldown_无偿价值转移与最低计税基础.png",
+    "sha256": "b2514ba3fef89af04969e492211a4520a0ad2f7ae8326c2db0a583b43ce45677",
+    "bytes": 1081904
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/generated-drafts/legacy-ch09-v01/VAT_Atlas_09-05_Drilldown_损害赔偿还是对价.png",
+    "sha256": "9103f337c8da62277a1ea3fde8a426dd8c6d80cce27d12bd72f0cc918fedb03e",
+    "bytes": 1092392
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/generated-drafts/legacy-ch09-v01/VAT_Atlas_09-06_Drilldown_委托买卖交易.png",
+    "sha256": "9d0d5e7160ac21d3508ab42f907c73e712af25d29b77f858af2eae91c4fab8e6",
+    "bytes": 1049550
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/generated-drafts/legacy-ch09-v01/VAT_Atlas_09-07_Drilldown_车辆保养_换机油与质保维修.png",
+    "sha256": "9926f91abde99fecb0a55946aa8086a49adf78726d99fb041caed1ca5d186c2e",
+    "bytes": 1136808
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/generated-drafts/legacy-ch09-v01/VAT_Atlas_Chapter09_Drilldown_contact_sheet.png",
+    "sha256": "d327363747467c7353c147e432c9aafdfe508ddbc28f544baf0c4be0b95b5076",
+    "bytes": 878864
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/generated-drafts/misc-domestic-b2b-style.png",
+    "sha256": "aa83297d2f89d0879cb65444d591108095e321d9637b5d97b9a2258125bcd64c",
+    "bytes": 2203896
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/generated-drafts/sc-02-generated.png",
+    "sha256": "2e2e638de6946a8ed005e86723baaeb04b3d37ba503cad9cc2dffe62e91864cb",
+    "bytes": 2403258
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/generated-drafts/sc-04-generated.png",
+    "sha256": "838f123f016fc17a0b7e5a1ae8b7578363d502dd3cefbb95088de1b53dc594fc",
+    "bytes": 2360432
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/generated-drafts/sc-05-generated.png",
+    "sha256": "3ba59ab260c8181da6b4c8d88ca3d1b57ced8e76cfffa5bfb3b37ae1fb7a7eed",
+    "bytes": 2287328
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/generated-drafts/sc-07-generated-needs-label-fix.png",
+    "sha256": "6d540b7adff636e65d3339a620a863108d6945a8a5783fca6ed7e869db901ed5",
+    "bytes": 2483655
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/generated-drafts/sc-08-generated.png",
+    "sha256": "423d2a5c4027ee27443f07cf539a64fb80f102851f795f719d3d2905e840ba7f",
+    "bytes": 2516670
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/generated-drafts/transaction-classification-generated.png",
+    "sha256": "0ecbc900c327a75b5383aeaf596125a92d580f9d2e5521ba8953d4653d3fc696",
+    "bytes": 2269845
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/generated-drafts/vat-framework-generated.png",
+    "sha256": "6f612c6994018445f7dc59871016cc87baf90a9f3f92ab00e8560d4e33fb97e8",
+    "bytes": 2210230
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/reference-pages/09-01-single-supply_text-layer_v0.3.png",
+    "sha256": "863df98a4d3b4705d86adff32979e79f1b72876227a58818c93ffd5d25143b74",
+    "bytes": 181413
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/reference-pages/09-02-main-ancillary_text-layer_v0.3.png",
+    "sha256": "4874bfd4eeb4710e942373346da2a5ebcb0233238dec2b86164eadbc10e42e56",
+    "bytes": 177321
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/reference-pages/09-03-work-supply-service_text-layer_v0.3.png",
+    "sha256": "ea08c938f5cd6e96462f6aa0f05d05382f5ae1ecfcc3aa284de1b422b878bd90",
+    "bytes": 177557
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/reference-pages/09-04-deemed-supply-min-base_text-layer_v0.3.png",
+    "sha256": "0d40d6280501cd3a215196409129490bc1b93a00a5914b9b02d76dfb2d1a5dcb",
+    "bytes": 195155
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/reference-pages/09-05-damages-consideration_text-layer_v0.3.png",
+    "sha256": "2fdbf3ccca0c7de698902adcda723167b857d12754fdbd2f0b5dc124adbeb302",
+    "bytes": 184466
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/reference-pages/09-06-commission-transaction_text-layer_v0.3.png",
+    "sha256": "0697819af2fddc7bd0eda00cbe82c415c7ae70812304a5b1a3c622930f48c7ca",
+    "bytes": 200644
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/reference-pages/09-07-vehicle-maintenance-case_text-layer_v0.3.png",
+    "sha256": "c8dc8da14170b23a4cee1ffe4693278af48ebadd286fd0474d856aaa8a284d80",
+    "bytes": 193884
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/reference-pages/appendix-goods-quick-reference_text-layer_v0.3.png",
+    "sha256": "0c59c9aa555856e515f344a7ddf302da24bf77f2734c4ba368cb0184d5e012a1",
+    "bytes": 182476
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/reference-pages/cover_text-layer_v0.3.png",
+    "sha256": "14829b99aa36ec96378da64680883c02a28484b7ba2fe3c2d98609f542226f69",
+    "bytes": 180688
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/reference-pages/glossary_text-layer_v0.3.png",
+    "sha256": "c9112261aad8d9087f50bcbeead90275465370e391d631e12a47d56c9dec75d2",
+    "bytes": 172908
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/reference-pages/sc-01-domestic-b2b_text-layer_v0.3.png",
+    "sha256": "adfd0dbd56ef52feef8ead44592f4957783151e215c68c597312681ca4692324",
+    "bytes": 166019
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/reference-pages/sc-02-eu-goods_text-layer_v0.3.png",
+    "sha256": "3e4858c06e747d50abe126c65a9c228e66e008e0a9db7f70405bd2102dde75c8",
+    "bytes": 180524
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/reference-pages/sc-03-eu-b2b-services_text-layer_v0.3.png",
+    "sha256": "e32f4760a995ea48e270310917790953826aea54984c25321477c7febe409d65",
+    "bytes": 186427
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/reference-pages/sc-04-reverse-charge_text-layer_v0.3.png",
+    "sha256": "f656945385e113abf11866cb9cad602ecb83b7f890bc0d0ded21fe69744ce1ab",
+    "bytes": 179272
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/reference-pages/sc-05-import-export_text-layer_v0.3.png",
+    "sha256": "f5ee0ed1bf2c21d73e2e95c713867eb6aa1311575edbebaa689abee1d067c0cf",
+    "bytes": 176996
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/reference-pages/sc-06-chain-transaction_text-layer_v0.3.png",
+    "sha256": "91f8acefdd2d476fa118bcad5065a8bac0a51979d07b0da3f56ffd6467113d5b",
+    "bytes": 174079
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/reference-pages/sc-07-triangular-trade_text-layer_v0.3.png",
+    "sha256": "c6657ffe9c8e0151997d332fc2196a5ffbd3e7201a10a42ddb8d82c0fa045ee2",
+    "bytes": 189378
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/reference-pages/sc-08-invoice-reporting_text-layer_v0.3.png",
+    "sha256": "9deaebb24b788fe7f459f5b17c41bacdb7f88bf2010ba45a4de43836b7729eb5",
+    "bytes": 167208
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/reference-pages/toc_text-layer_v0.3.png",
+    "sha256": "5fc07f9c18f0a81efca8be4cb6101eac73dac8ccab9afa2310d455d7dc5e6e30",
+    "bytes": 152648
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/reference-pages/transaction-classification_text-layer_v0.3.png",
+    "sha256": "92d90fb57753eb2d5521e20b3ee044f08702a3bed28fb8c34c1a0f87b4ee5c28",
+    "bytes": 163181
+  },
+  {
+    "path": "books/de-eu-vat/assets/images/reference-pages/vat-framework_text-layer_v0.3.png",
+    "sha256": "7249d7217b1eaa9f0b5cf72471826f04d025462cbc1658cc86d5661cb7c0e143",
+    "bytes": 175189
+  },
+  {
+    "path": "books/de-eu-vat/assets/source-images-map.json",
+    "sha256": "042add58c957a49b2fe7cb8559dd02a2d9a2f93c83a8d30390b5d1691ca6a40d",
+    "bytes": 6342
+  },
+  {
+    "path": "books/de-eu-vat/contents.ts",
+    "sha256": "b54cc2059e600cb8a404f57a693d98ccb5050e0a03e30aa8324fb3af0258c621",
+    "bytes": 67237
+  },
+  {
+    "path": "books/de-eu-vat/copy/TERMINOLOGY_LOCK.md",
+    "sha256": "c2f2c1e8bced34479813ca353b0c25057b6662b7a8ee917dc92d3acb423f73a0",
+    "bytes": 1466
+  },
+  {
+    "path": "books/de-eu-vat/copy/VAT_Atlas_Page_Copy_Locked_v0.3.md",
+    "sha256": "4986bc068ea78eae0aaa49c41b3578089db7968d2e04417ea336049e0d0153b6",
+    "bytes": 22110
+  },
+  {
+    "path": "books/de-eu-vat/copy/page-copy/09-01-single-supply.md",
+    "sha256": "b2be4a2dc796642f5f111bf412ea3eea52f6e4755e1581b1254bcb0c40501697",
+    "bytes": 1032
+  },
+  {
+    "path": "books/de-eu-vat/copy/page-copy/09-02-main-ancillary.md",
+    "sha256": "325b69a4ba27053868a5b8a8b6186360c1c4eca0f92642b16079e309b6607358",
+    "bytes": 1041
+  },
+  {
+    "path": "books/de-eu-vat/copy/page-copy/09-03-work-supply-service.md",
+    "sha256": "817f48e1c06bbbfd9283077dc69affe61b483ba372d8d8a113de7bb644fc008a",
+    "bytes": 1078
+  },
+  {
+    "path": "books/de-eu-vat/copy/page-copy/09-04-deemed-supply-min-base.md",
+    "sha256": "142511387339166e5b93ea45cfb5b7089ab48ff25453bd68d2a9ec7391eaa610",
+    "bytes": 1128
+  },
+  {
+    "path": "books/de-eu-vat/copy/page-copy/09-05-damages-consideration.md",
+    "sha256": "cfe31453dbccb9b8378978fcb94d107ab2f5b80b62b25a815bc124cf4fac31ba",
+    "bytes": 1064
+  },
+  {
+    "path": "books/de-eu-vat/copy/page-copy/09-06-commission-transaction.md",
+    "sha256": "76bab71c8d7cd3d895cfab773717096d204f2a637a33403763b043247e22d9df",
+    "bytes": 1141
+  },
+  {
+    "path": "books/de-eu-vat/copy/page-copy/09-07-vehicle-maintenance-case.md",
+    "sha256": "2857b96800923c4434703246182f82de569a6d65abb1909ebc5d4d976cd55db9",
+    "bytes": 1098
+  },
+  {
+    "path": "books/de-eu-vat/copy/page-copy/appendix-goods-quick-reference.md",
+    "sha256": "f5170174ee269809ec7e9d441be118a014d3f82fb784868172d9f0a7b34c8e1e",
+    "bytes": 1093
+  },
+  {
+    "path": "books/de-eu-vat/copy/page-copy/cover.md",
+    "sha256": "71393744b31dc60e5ea445d0920d285025680baa8e742829f47f4b48d0466694",
+    "bytes": 995
+  },
+  {
+    "path": "books/de-eu-vat/copy/page-copy/glossary.md",
+    "sha256": "78dfc6d6e68c77d867158d3a0f265e2d46d068682e9df67ad3e5287f0348bf10",
+    "bytes": 1047
+  },
+  {
+    "path": "books/de-eu-vat/copy/page-copy/sc-01-domestic-b2b.md",
+    "sha256": "b6ec3426c89a70c5a97d46f1b8f763d039050539e1dbcb4bd0fe59780dea8eb4",
+    "bytes": 957
+  },
+  {
+    "path": "books/de-eu-vat/copy/page-copy/sc-02-eu-goods.md",
+    "sha256": "e04bd6e5331e5a1e28773790c54d3d69632fcc650e6cf042ccf5c45484273926",
+    "bytes": 1006
+  },
+  {
+    "path": "books/de-eu-vat/copy/page-copy/sc-03-eu-b2b-services.md",
+    "sha256": "442f8f36bd2a873773c4eebe776b89680bcbcfff4d3f223efd79efcce9816b5f",
+    "bytes": 1061
+  },
+  {
+    "path": "books/de-eu-vat/copy/page-copy/sc-04-reverse-charge.md",
+    "sha256": "74ca97e116cbaa3cc766f855d283085962e3089eeff11d574787235b150b9644",
+    "bytes": 1040
+  },
+  {
+    "path": "books/de-eu-vat/copy/page-copy/sc-05-import-export.md",
+    "sha256": "d7d6ccdbf7cac806955cd4b1717c18d635b2b0e3133dd9ebfc6e06e7ddc826de",
+    "bytes": 1063
+  },
+  {
+    "path": "books/de-eu-vat/copy/page-copy/sc-06-chain-transaction.md",
+    "sha256": "1f86e5a755d5bbf3ad3fbf21afd9135d0059130ca6f5e8fe4582c40adba65547",
+    "bytes": 984
+  },
+  {
+    "path": "books/de-eu-vat/copy/page-copy/sc-07-triangular-trade.md",
+    "sha256": "a775274607eb6dc2ccdaf54065f869f727eb907d23b41984f563c8d041e4702d",
+    "bytes": 1194
+  },
+  {
+    "path": "books/de-eu-vat/copy/page-copy/sc-08-invoice-reporting.md",
+    "sha256": "ed431890b65332ade533600906f4fef64444daff95abd08cfa956acbc1bbbe7e",
+    "bytes": 979
+  },
+  {
+    "path": "books/de-eu-vat/copy/page-copy/toc.md",
+    "sha256": "9553c805d48eb6495eeae12cd4cb960a8e18091ec540dada20194f1b20882980",
+    "bytes": 933
+  },
+  {
+    "path": "books/de-eu-vat/copy/page-copy/transaction-classification.md",
+    "sha256": "54f7b9fc0c6d674711f45b8b555a1c6200d3e87efd578b711865e6d1d6cf5edf",
+    "bytes": 930
+  },
+  {
+    "path": "books/de-eu-vat/copy/page-copy/vat-framework.md",
+    "sha256": "4d0b5689b371fb875be1624e8492cee343bb631531884e6ddf6284abf8ae030c",
+    "bytes": 1007
+  },
+  {
+    "path": "books/de-eu-vat/data/contents.json",
+    "sha256": "8e15c5c49f3423434bc3f085222f593557ddb770eb226c5ba1236c9ce2f5df4c",
+    "bytes": 67129
+  },
+  {
+    "path": "books/de-eu-vat/data/glossary.json",
+    "sha256": "9e6226bb6800ac6851fda41bbb8f73f06799e8a87f9dc9fcf3dfe4e0f1405648",
+    "bytes": 19658
+  },
+  {
+    "path": "books/de-eu-vat/data/imageAssets.json",
+    "sha256": "b22071184637f4004a1589eccc2ea8138a036f572f3ef3352222f1e8a0f3da3d",
+    "bytes": 12342
+  },
+  {
+    "path": "books/de-eu-vat/data/legalRefs.json",
+    "sha256": "6b65839b8cfff8897281640cd0c3691bcd3077857dfb1dcd0be57c76f5197dd0",
+    "bytes": 7263
+  },
+  {
+    "path": "books/de-eu-vat/data/manifest.json",
+    "sha256": "4521d03bbe10ee1ac94912021506fde966fd2c17ef774285e9a9dcb343eb2ba4",
+    "bytes": 50770
+  },
+  {
+    "path": "books/de-eu-vat/data/notes.json",
+    "sha256": "17875e4860b65c229612296501c7092bbb4f435c6cf45e1a37fa66790abc42a3",
+    "bytes": 13155
+  },
+  {
+    "path": "books/de-eu-vat/data/overlays.index.json",
+    "sha256": "55852645c20408df5ffa9ca442157f312b69acbc2bb05438694303a1a0c52b8a",
+    "bytes": 42772
+  },
+  {
+    "path": "books/de-eu-vat/data/pages.json",
+    "sha256": "6f72838906d49983951e39b12c24d3516e892cc40a9da963f2746022be555f95",
+    "bytes": 44549
+  },
+  {
+    "path": "books/de-eu-vat/data/scenarios.json",
+    "sha256": "5bc2c2e9b63398704d2e186d1a7d8f4b1aabc9bbd7336aa139be8a97dcfa9609",
+    "bytes": 30477
+  },
+  {
+    "path": "books/de-eu-vat/glossary.ts",
+    "sha256": "ff96aca5289df62157c51e918ec1fa7ec598fb2bf638fccb80c5023553366eca",
+    "bytes": 19766
+  },
+  {
+    "path": "books/de-eu-vat/imageAssets.ts",
+    "sha256": "54eb9965ffd18f3080bac73828fb177886110b3e6dcf81ccd89a4f38a3760ef7",
+    "bytes": 12456
+  },
+  {
+    "path": "books/de-eu-vat/legalRefs.ts",
+    "sha256": "1b07c0d59cb585016fc5e4f7bbeb0f002089af94dd011fc6f286ad8410dc7577",
+    "bytes": 7373
+  },
+  {
+    "path": "books/de-eu-vat/manifest.json",
+    "sha256": "4521d03bbe10ee1ac94912021506fde966fd2c17ef774285e9a9dcb343eb2ba4",
+    "bytes": 50770
+  },
+  {
+    "path": "books/de-eu-vat/manifest.ts",
+    "sha256": "220186af62e41b6fe5b0536ab25b21c293a84f2a7bb55315782cfc5f188cfcc0",
+    "bytes": 50894
+  },
+  {
+    "path": "books/de-eu-vat/notes.ts",
+    "sha256": "f5feea55887156cee28c3cd4409e35466c98b1f166a31225d4917b1a35e33e1d",
+    "bytes": 13257
+  },
+  {
+    "path": "books/de-eu-vat/overlays/09-01-single-supply.overlay.json",
+    "sha256": "194b690f864a59bd20b119099d128001d415f7a7a416ff826901e605d6f0ea6e",
+    "bytes": 1859
+  },
+  {
+    "path": "books/de-eu-vat/overlays/09-02-main-ancillary.overlay.json",
+    "sha256": "a9366d7af6890ebf8b498e969b483d714cac4a6ec032fdf963c736af91372812",
+    "bytes": 1866
+  },
+  {
+    "path": "books/de-eu-vat/overlays/09-03-work-supply-service.overlay.json",
+    "sha256": "c2d3d5406074136dbd345a7f54d4782e8833cfe581cf0a6f336874f34a04644a",
+    "bytes": 1901
+  },
+  {
+    "path": "books/de-eu-vat/overlays/09-04-deemed-supply-min-base.overlay.json",
+    "sha256": "b57ae6e852e48b4c93b372b2d6f9fda97e3d4d1c4126d9ae4ad4dc55df245e5f",
+    "bytes": 1922
+  },
+  {
+    "path": "books/de-eu-vat/overlays/09-05-damages-consideration.overlay.json",
+    "sha256": "5d73b8e4b5576dc1e008c36480e7967f0f3fcc807c1030e1c18f4675a5d7d673",
+    "bytes": 1915
+  },
+  {
+    "path": "books/de-eu-vat/overlays/09-06-commission-transaction.overlay.json",
+    "sha256": "d98bc7c30d76a711299ac943bf30919fb1ce87fbceec11a14db640d8084b1727",
+    "bytes": 1922
+  },
+  {
+    "path": "books/de-eu-vat/overlays/09-07-vehicle-maintenance-case.overlay.json",
+    "sha256": "90e6c050267e59fbd8e60c2ad2d8470eb4791df5aba698a14b53d16442d20028",
+    "bytes": 1936
+  },
+  {
+    "path": "books/de-eu-vat/overlays/appendix-goods-quick-reference.overlay.json",
+    "sha256": "51d712b2017076a9c86aeba7ee5584f41a31dd31fdd318f2f8c576e61c97a21e",
+    "bytes": 1936
+  },
+  {
+    "path": "books/de-eu-vat/overlays/cover.overlay.json",
+    "sha256": "0bbc16076a55eea6cfe2de33cca0d8bebeb0d198d9fbd6471a3af4daf914eb2a",
+    "bytes": 1761
+  },
+  {
+    "path": "books/de-eu-vat/overlays/glossary.overlay.json",
+    "sha256": "4b511d1a9b3df202aa5ff742593ac051f854de7fa7f3b45818374f0e19cf5c37",
+    "bytes": 1782
+  },
+  {
+    "path": "books/de-eu-vat/overlays/sc-01-domestic-b2b.overlay.json",
+    "sha256": "932b32fb86ff38398a14221dab674608b8f73e9755e018ff76e8b8e9481d19a2",
+    "bytes": 1852
+  },
+  {
+    "path": "books/de-eu-vat/overlays/sc-02-eu-goods.overlay.json",
+    "sha256": "097a62ab2e14ab567c7d170c50b390a2761d5753e1c998f233feff25fd4fe358",
+    "bytes": 1824
+  },
+  {
+    "path": "books/de-eu-vat/overlays/sc-03-eu-b2b-services.overlay.json",
+    "sha256": "e876c9d183bacace580c0d1750da8968363565f066f7a9435566e9497461349a",
+    "bytes": 1873
+  },
+  {
+    "path": "books/de-eu-vat/overlays/sc-04-reverse-charge.overlay.json",
+    "sha256": "75a256b81bef7962b8436e720101c5d31de9dc1e090fac43c914fa7431e0b6a7",
+    "bytes": 1866
+  },
+  {
+    "path": "books/de-eu-vat/overlays/sc-05-import-export.overlay.json",
+    "sha256": "93777af5cce7eb99fa4170d2562044e6c5a006078ea955937b5a9f818b98f8df",
+    "bytes": 1859
+  },
+  {
+    "path": "books/de-eu-vat/overlays/sc-06-chain-transaction.overlay.json",
+    "sha256": "e5f821bc71b5022c6e5c660b13593d85754cc9816bf263075879245ecb637e08",
+    "bytes": 1887
+  },
+  {
+    "path": "books/de-eu-vat/overlays/sc-07-triangular-trade.overlay.json",
+    "sha256": "6b2ad5c6d4fcecc8f9c13610e6073b461ff8448807030d72387756d40984f6df",
+    "bytes": 1880
+  },
+  {
+    "path": "books/de-eu-vat/overlays/sc-08-invoice-reporting.overlay.json",
+    "sha256": "be87e268f8b923390a7e80920f0eb79efa4bede121e58e01e7aef68857719bbf",
+    "bytes": 1887
+  },
+  {
+    "path": "books/de-eu-vat/overlays/toc.overlay.json",
+    "sha256": "128a0218021dacf859a18e057fadb81b889b0b17c34f57c6a8442da33eb11992",
+    "bytes": 1747
+  },
+  {
+    "path": "books/de-eu-vat/overlays/transaction-classification.overlay.json",
+    "sha256": "71974f4987ac9f300c431263b099912b0762f508af2b970e3cac2dd02f85ad03",
+    "bytes": 1908
+  },
+  {
+    "path": "books/de-eu-vat/overlays/vat-framework.overlay.json",
+    "sha256": "4d6d24fad27abdd5d262dc3c6f69317e5b39fce38376effe5fedf78ec8febf28",
+    "bytes": 1817
+  },
+  {
+    "path": "books/de-eu-vat/pages.ts",
+    "sha256": "77768bb34a90d20083e236220462278dd54c10e0f68f6081d80472677a22ae7f",
+    "bytes": 44651
+  },
+  {
+    "path": "books/de-eu-vat/prompts/VISUAL_PROMPTS.md",
+    "sha256": "bebacb273a09e35648bbf3315c88c6b4a5a434db7fa3e494f538ffda64d1f746",
+    "bytes": 1044
+  },
+  {
+    "path": "books/de-eu-vat/qa/VISUAL_AND_CONTENT_QA.md",
+    "sha256": "ebae5545a85e4c1576a7e5bf7c3ceb87dd8a654399e51a0b98c53fb582f99ec0",
+    "bytes": 1041
+  },
+  {
+    "path": "books/de-eu-vat/scenarios.ts",
+    "sha256": "d561249e6602b8c9db991994ff5d2396f8b675a9de6ad321fceb7285db0ada32",
+    "bytes": 30587
+  },
+  {
+    "path": "books/de-eu-vat/src-stubs/types.ts",
+    "sha256": "1bc19548baf32565b5bfca0ec2e1e40082a5630702096c38d3a014a2eea3d500",
+    "bytes": 659
+  },
+  {
+    "path": "docs/CODEX_HANDOFF.md",
+    "sha256": "06984877d8e2b21b3b62bf22829605299a142a304d8bf9655541f4b589586c5a",
+    "bytes": 1910
+  },
+  {
+    "path": "docs/VAT_Atlas_文案提纲包_v0.3_术语版.zip",
+    "sha256": "0e6eae4f4a8a90e8c442d1f027419317a7f94a22beefc1219d3c2d38a7f57146",
+    "bytes": 72419
+  },
+  {
+    "path": "docs/spec_v0.2.md",
+    "sha256": "ee3ec2710057117e85c36aae5ae82581a68dfde10b5943d211c170114f644e43",
+    "bytes": 35810
+  }
+]
