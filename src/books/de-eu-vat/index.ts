@@ -1,0 +1,9 @@
+export { vatAtlasManifest } from './manifest';
+export { pages } from './pages';
+export { imageAssets } from './imageAssets';
+export { glossary } from './glossary';
+export { legalRefs } from './legalRefs';
+export { scenarios } from './scenarios';
+export { contents } from './contents';
+export { notes } from './notes';
+export { vatAtlasOverlays } from './overlays/index.js';
