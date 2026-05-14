@@ -44,7 +44,7 @@ export function PageViewport({ registry, readerState }: PageViewportProps) {
   return (
     <main className="flex-1 flex items-center justify-center overflow-auto p-2">
       <div className="relative inline-block max-h-full">
-        <PageRenderer page={currentPage} imageAsset={imageAsset} locale="zh-CN" />
+        <PageRenderer page={currentPage} imageAsset={imageAsset} locale="zh-CN" registry={registry} />
 
         {overlayConfig && interactionMode === 'read' && (
           <HotspotLayer
