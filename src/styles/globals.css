@@ -18,3 +18,10 @@ body {
   color: var(--color-text);
   font-family: "Inter", "Noto Sans SC", system-ui, sans-serif;
 }
+
+.term {
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-underline-offset: 4px;
+  cursor: help;
+}
