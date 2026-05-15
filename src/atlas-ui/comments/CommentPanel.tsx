@@ -5,7 +5,9 @@ import { CommentComposer } from './CommentComposer';
 type CommentPanelProps = {
   threads: CommentThread[];
   selectedThreadId: string | null;
+  highlightedThreadId: string | null;
   onSelectThread: (threadId: string | null) => void;
+  onHoverThread: (threadId: string | null) => void;
   onAddMessage: (threadId: string, text: string) => void;
   onResolve: (threadId: string) => void;
   onReopen: (threadId: string) => void;
@@ -120,7 +122,9 @@ function MessageItem({
 export function CommentPanel({
   threads,
   selectedThreadId,
+  highlightedThreadId,
   onSelectThread,
+  onHoverThread,
   onAddMessage,
   onResolve,
   onReopen,
@@ -155,10 +159,16 @@ export function CommentPanel({
           return (
             <div
               key={thread.threadId}
-              className={`border-b border-stone-800 ${isSelected ? 'bg-stone-900' : ''}`}
+              className={`border-b border-stone-800 transition-colors ${
+                highlightedThreadId === thread.threadId
+                  ? 'bg-blue-900/30 border-l-2 border-l-blue-400'
+                  : isSelected ? 'bg-stone-900' : ''
+              }`}
             >
               <button
                 onClick={() => onSelectThread(isSelected ? null : thread.threadId)}
+                onMouseEnter={() => onHoverThread(thread.threadId)}
+                onMouseLeave={() => onHoverThread(null)}
                 className="w-full text-left p-3 hover:bg-stone-900 transition-colors"
               >
                 <div className="flex items-center gap-2 mb-1">

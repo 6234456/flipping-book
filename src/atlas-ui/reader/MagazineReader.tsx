@@ -51,6 +51,7 @@ export function MagazineReader({ registry, initialPageId }: MagazineReaderProps)
   );
 
   const [selectedThreadId, setSelectedThreadId] = useState<string | null>(null);
+  const [highlightedThreadId, setHighlightedThreadId] = useState<string | null>(null);
 
   // Notes drawer state
   const [notesOpen, setNotesOpen] = useState(false);
@@ -196,7 +197,9 @@ export function MagazineReader({ registry, initialPageId }: MagazineReaderProps)
         // Comments
         commentThreads={currentPageThreads}
         selectedThreadId={selectedThreadId}
+        highlightedThreadId={highlightedThreadId}
         onSelectThread={setSelectedThreadId}
+        onHoverThread={setHighlightedThreadId}
         onAddMessage={handleAddMessage}
         onResolve={handleResolve}
         onReopen={handleReopen}

@@ -22,7 +22,9 @@ function PageContent({
   onNavigate,
   commentThreads,
   selectedThreadId,
+  highlightedThreadId,
   onSelectThread,
+  onHoverThread,
   onCreateAnchor,
 }: {
   page: PageManifest;
@@ -82,6 +84,8 @@ function PageContent({
           {(interactionMode === 'read' || interactionMode === 'comment') && (
             <CommentPinLayer
               threads={commentThreads}
+              highlightedThreadId={highlightedThreadId}
+              onHoverThread={onHoverThread}
               onClickThread={(id) => onSelectThread(id === selectedThreadId ? null : id)}
             />
           )}
@@ -152,7 +156,9 @@ type PageViewportProps = {
   readerState: ReaderState;
   commentThreads: CommentThread[];
   selectedThreadId: string | null;
+  highlightedThreadId: string | null;
   onSelectThread: (threadId: string | null) => void;
+  onHoverThread: (threadId: string | null) => void;
   onCreateAnchor: (anchor: AnnotationAnchor) => void;
 };
 
@@ -161,7 +167,9 @@ export function PageViewport({
   readerState,
   commentThreads,
   selectedThreadId,
+  highlightedThreadId,
   onSelectThread,
+  onHoverThread,
   onCreateAnchor,
 }: PageViewportProps) {
   const { currentPage, interactionMode } = readerState;
@@ -192,7 +200,9 @@ export function PageViewport({
       onNavigate={handleNavigate}
       commentThreads={commentThreads}
       selectedThreadId={selectedThreadId}
+      highlightedThreadId={highlightedThreadId}
       onSelectThread={onSelectThread}
+      onHoverThread={onHoverThread}
       onCreateAnchor={onCreateAnchor}
     />
   );

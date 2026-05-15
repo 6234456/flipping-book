@@ -18,7 +18,9 @@ type ReaderShellProps = {
   // Comments
   commentThreads: CommentThread[];
   selectedThreadId: string | null;
+  highlightedThreadId: string | null;
   onSelectThread: (threadId: string | null) => void;
+  onHoverThread: (threadId: string | null) => void;
   onAddMessage: (threadId: string, text: string) => void;
   onResolve: (threadId: string) => void;
   onReopen: (threadId: string) => void;
@@ -42,7 +44,9 @@ export function ReaderShell({
   onToggleNotes,
   commentThreads,
   selectedThreadId,
+  highlightedThreadId,
   onSelectThread,
+  onHoverThread,
   onAddMessage,
   onResolve,
   onReopen,
@@ -150,7 +154,9 @@ export function ReaderShell({
           readerState={readerState}
           commentThreads={commentThreads}
           selectedThreadId={selectedThreadId}
+          highlightedThreadId={highlightedThreadId}
           onSelectThread={onSelectThread}
+          onHoverThread={onHoverThread}
           onCreateAnchor={onCreateAnchor}
         />
 
@@ -167,7 +173,9 @@ export function ReaderShell({
           <CommentPanel
             threads={commentThreads}
             selectedThreadId={selectedThreadId}
+            highlightedThreadId={highlightedThreadId}
             onSelectThread={onSelectThread}
+            onHoverThread={onHoverThread}
             onAddMessage={onAddMessage}
             onResolve={onResolve}
             onReopen={onReopen}
