@@ -33,7 +33,9 @@ function PageContent({
   onNavigate: (target: HotspotTarget) => void;
   commentThreads: CommentThread[];
   selectedThreadId: string | null;
+  highlightedThreadId: string | null;
   onSelectThread: (threadId: string | null) => void;
+  onHoverThread: (threadId: string | null) => void;
   onCreateAnchor: (anchor: AnnotationAnchor) => void;
 }) {
   const spreadMode = useSpreadMode(page, registry.manifest.reader);
@@ -56,96 +58,94 @@ function PageContent({
   const effectiveImageVersion = page.image?.version ?? '';
 
   const zoomLabel = zoom === 'fit-page' ? '适应页面' : zoom === 'fit-width' ? '适应宽度' : '实际大小';
+  const isFitPage = zoom === 'fit-page';
+
+  const overlayConfig = page.overlay
+    ? registry.getOverlay(page.overlay.overlayId)
+    : undefined;
+
+  function renderPins() {
+    return (
+      <CommentPinLayer
+        threads={commentThreads}
+        highlightedThreadId={highlightedThreadId}
+        onHoverThread={onHoverThread}
+        onClickThread={(id) => onSelectThread(id === selectedThreadId ? null : id)}
+      />
+    );
+  }
 
   // Spread mode
   if (page.spreadImages && spreadMode.mode === 'spread') {
+    const mainClass = isFitPage
+      ? 'flex-1 flex flex-col overflow-hidden'
+      : 'flex-1 flex flex-col items-center overflow-auto';
+
     return (
-      <main className="flex-1 flex flex-col items-center overflow-auto bg-stone-900">
-        {/* Zoom bar */}
-        <div className="sticky top-0 z-50 flex items-center gap-1 px-2 py-1 bg-stone-900/90 backdrop-blur border-b border-stone-800 self-start">
-          <button
-            onClick={cycleZoom}
-            className="px-2 py-0.5 rounded text-xs bg-stone-800 text-stone-400 hover:text-stone-200"
-            title="切换缩放模式"
-          >
+      <main className={`${mainClass} bg-stone-900`}>
+        <div className="z-50 flex items-center gap-1 px-2 py-1 bg-stone-900/90 backdrop-blur shrink-0">
+          <button onClick={cycleZoom} className="px-2 py-0.5 rounded text-xs bg-stone-800 text-stone-400 hover:text-stone-200" title="切换缩放模式">
             🔍 {zoomLabel}
           </button>
         </div>
-        <div className="relative">
-          <SpreadPageRenderer
-            page={page}
-            spreadImages={page.spreadImages}
-            registry={registry}
-            locale="zh-CN"
-            spreadMode={spreadMode.mode}
-            interactionMode={interactionMode}
-            onNavigate={onNavigate}
-          />
-          {(interactionMode === 'read' || interactionMode === 'comment') && (
-            <CommentPinLayer
-              threads={commentThreads}
-              highlightedThreadId={highlightedThreadId}
-              onHoverThread={onHoverThread}
-              onClickThread={(id) => onSelectThread(id === selectedThreadId ? null : id)}
+        <div className={`relative ${isFitPage ? 'flex-1 flex items-center justify-center p-2 overflow-hidden' : ''}`}>
+          <div className="relative">
+            <SpreadPageRenderer
+              page={page}
+              spreadImages={page.spreadImages}
+              registry={registry}
+              locale="zh-CN"
+              spreadMode={spreadMode.mode}
+              interactionMode={interactionMode}
+              onNavigate={onNavigate}
             />
-          )}
+            {(interactionMode === 'read' || interactionMode === 'comment') && renderPins()}
+          </div>
         </div>
       </main>
     );
   }
 
   // Single page mode
-  const overlayConfig = page.overlay
-    ? registry.getOverlay(page.overlay.overlayId)
-    : undefined;
+  const mainClass = isFitPage
+    ? 'flex-1 flex flex-col overflow-hidden'
+    : 'flex-1 flex flex-col items-center overflow-auto';
 
   return (
-    <main className="flex-1 flex flex-col items-center overflow-auto bg-stone-900">
+    <main className={`${mainClass} bg-stone-900`}>
       {/* Zoom bar */}
-      <div className="sticky top-0 z-50 flex items-center gap-1 px-2 py-1 bg-stone-900/90 backdrop-blur border-b border-stone-800 self-start">
-        <button
-          onClick={cycleZoom}
-          className="px-2 py-0.5 rounded text-xs bg-stone-800 text-stone-400 hover:text-stone-200"
-        >
+      <div className="z-50 flex items-center gap-1 px-2 py-1 bg-stone-900/90 backdrop-blur shrink-0">
+        <button onClick={cycleZoom} className="px-2 py-0.5 rounded text-xs bg-stone-800 text-stone-400 hover:text-stone-200">
           🔍 {zoomLabel}
         </button>
         {imageAsset && (
-          <span className="text-stone-500 text-xs">
-            {imageAsset.width}×{imageAsset.height}
-          </span>
+          <span className="text-stone-500 text-xs">{imageAsset.width}×{imageAsset.height}</span>
         )}
       </div>
 
-      {/* Page content with proper height constraint */}
-      <div className="relative" style={zoom === 'fit-page' ? { maxHeight: 'calc(100% - 32px)' } : undefined}>
-        <PageRenderer page={page} imageAsset={imageAsset} locale="zh-CN" registry={registry} zoom={zoom} />
+      {/* Page content: fit-page fills remaining height, constrains image */}
+      <div className={`relative ${isFitPage ? 'flex-1 flex items-center justify-center p-2 overflow-hidden' : ''}`}>
+        <div className="relative">
+          <PageRenderer page={page} imageAsset={imageAsset} locale="zh-CN" registry={registry} zoom={zoom} />
 
-        {overlayConfig && interactionMode === 'read' && (
-          <HotspotLayer
-            overlay={overlayConfig}
-            imageAsset={imageAsset}
-            onNavigate={onNavigate}
+          {overlayConfig && interactionMode === 'read' && (
+            <HotspotLayer overlay={overlayConfig} imageAsset={imageAsset} onNavigate={onNavigate} />
+          )}
+
+          {(interactionMode === 'read' || interactionMode === 'comment') && renderPins()}
+
+          <CommentCaptureLayer
+            pageId={page.pageId}
+            imageAssetId={effectiveImageAssetId}
+            imageVersion={effectiveImageVersion}
+            active={interactionMode === 'comment'}
+            onCreateAnchor={onCreateAnchor}
           />
-        )}
 
-        {(interactionMode === 'read' || interactionMode === 'comment') && (
-          <CommentPinLayer
-            threads={commentThreads}
-            onClickThread={(id) => onSelectThread(id === selectedThreadId ? null : id)}
-          />
-        )}
-
-        <CommentCaptureLayer
-          pageId={page.pageId}
-          imageAssetId={effectiveImageAssetId}
-          imageVersion={effectiveImageVersion}
-          active={interactionMode === 'comment'}
-          onCreateAnchor={onCreateAnchor}
-        />
-
-        {overlayConfig && interactionMode === 'debugOverlay' && (
-          <DebugOverlay overlay={overlayConfig} imageAsset={imageAsset} />
-        )}
+          {overlayConfig && interactionMode === 'debugOverlay' && (
+            <DebugOverlay overlay={overlayConfig} imageAsset={imageAsset} />
+          )}
+        </div>
       </div>
     </main>
   );

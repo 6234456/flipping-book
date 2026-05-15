@@ -27,7 +27,7 @@ export function CoverPageTemplate({ page, imageAsset, locale, zoom = 'fit-width'
         <img
           src={imageAsset.src}
           alt={imageAsset.alt?.[locale] ?? page.title?.[locale] ?? ''}
-          className="max-h-full max-w-full object-contain"
+          className="block max-h-[calc(100dvh-120px)] max-w-full object-contain"
           draggable={false}
         />
       );
