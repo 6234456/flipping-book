@@ -80,7 +80,7 @@ function PageContent({
             🔍 {zoomLabel}
           </button>
         </div>
-        <div className={`relative ${isFitPage ? 'flex-1 flex items-center justify-center p-2 overflow-hidden' : ''}`}>
+        <div className={`relative ${isFitPage ? 'flex-1 flex items-center justify-center overflow-hidden' : ''}`}>
           <div className="relative">
             <SpreadPageRenderer
               page={page}
@@ -116,7 +116,7 @@ function PageContent({
       </div>
 
       {/* Page content: fit-page fills remaining height, constrains image */}
-      <div className={`relative ${isFitPage ? 'flex-1 flex items-center justify-center p-2 overflow-hidden' : ''}`}>
+      <div className={`relative ${isFitPage ? 'flex-1 flex items-center justify-center overflow-hidden' : ''}`}>
         <div className="relative">
           <PageRenderer page={page} imageAsset={imageAsset} locale="zh-CN" registry={registry} zoom={zoom} />
 
