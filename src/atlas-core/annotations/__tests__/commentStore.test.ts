@@ -159,4 +159,62 @@ describe('commentStore', () => {
     expect(result.imported).toBe(0);
     expect(result.skipped).toBe(0);
   });
+
+  it('deletes a thread', () => {
+    const thread = store.createThread({
+      bookId: 'test-book', pageId: 'page-1',
+      anchor: { kind: 'imagePoint', pageId: 'page-1', imageAssetId: 'img-1', imageVersion: 'v1', x: 10, y: 10 },
+      category: 'question', createdBy: 'user-1',
+    });
+    expect(store.getAll()).toHaveLength(1);
+    store.deleteThread(thread.threadId);
+    expect(store.getAll()).toHaveLength(0);
+  });
+
+  it('deleteThread returns false for unknown thread', () => {
+    expect(store.deleteThread('nonexistent')).toBe(false);
+  });
+
+  it('edits a message body', () => {
+    const thread = store.createThread({
+      bookId: 'test-book', pageId: 'page-1',
+      anchor: { kind: 'imagePoint', pageId: 'page-1', imageAssetId: 'img-1', imageVersion: 'v1', x: 10, y: 10 },
+      category: 'question', createdBy: 'user-1',
+    });
+    store.addMessage(thread.threadId, {
+      authorId: 'user-2',
+      body: [{ type: 'text', value: '原始内容' }],
+    });
+    const msgId = store.get(thread.threadId)!.messages[0].messageId;
+
+    const ok = store.editMessage(thread.threadId, msgId, [{ type: 'text', value: '修改后' }]);
+    expect(ok).toBe(true);
+    expect(store.get(thread.threadId)!.messages[0].body[0]).toMatchObject({ type: 'text', value: '修改后' });
+  });
+
+  it('deletes a message from a thread', () => {
+    const thread = store.createThread({
+      bookId: 'test-book', pageId: 'page-1',
+      anchor: { kind: 'imagePoint', pageId: 'page-1', imageAssetId: 'img-1', imageVersion: 'v1', x: 10, y: 10 },
+      category: 'question', createdBy: 'user-1',
+    });
+    store.addMessage(thread.threadId, {
+      authorId: 'user-2',
+      body: [{ type: 'text', value: '内容' }],
+    });
+    const msgId = store.get(thread.threadId)!.messages[0].messageId;
+
+    const ok = store.deleteMessage(thread.threadId, msgId);
+    expect(ok).toBe(true);
+    expect(store.get(thread.threadId)!.messages).toHaveLength(0);
+  });
+
+  it('deleteMessage returns false for unknown message', () => {
+    const thread = store.createThread({
+      bookId: 'test-book', pageId: 'page-1',
+      anchor: { kind: 'imagePoint', pageId: 'page-1', imageAssetId: 'img-1', imageVersion: 'v1', x: 10, y: 10 },
+      category: 'question', createdBy: 'user-1',
+    });
+    expect(store.deleteMessage(thread.threadId, 'nonexistent')).toBe(false);
+  });
 });

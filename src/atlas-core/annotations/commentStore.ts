@@ -108,6 +108,40 @@ export function createCommentStore(bookId: string) {
       }
     },
 
+    deleteThread(threadId: string): boolean {
+      const threads = load();
+      const idx = threads.findIndex((t) => t.threadId === threadId);
+      if (idx === -1) return false;
+      threads.splice(idx, 1);
+      save(threads);
+      return true;
+    },
+
+    editMessage(threadId: string, messageId: string, newBody: CommentMessage['body']): boolean {
+      const threads = load();
+      const thread = threads.find((t) => t.threadId === threadId);
+      if (!thread) return false;
+      const msg = thread.messages.find((m) => m.messageId === messageId);
+      if (!msg) return false;
+      msg.body = newBody;
+      msg.updatedAt = new Date().toISOString();
+      thread.updatedAt = new Date().toISOString();
+      save(threads);
+      return true;
+    },
+
+    deleteMessage(threadId: string, messageId: string): boolean {
+      const threads = load();
+      const thread = threads.find((t) => t.threadId === threadId);
+      if (!thread) return false;
+      const idx = thread.messages.findIndex((m) => m.messageId === messageId);
+      if (idx === -1) return false;
+      thread.messages.splice(idx, 1);
+      thread.updatedAt = new Date().toISOString();
+      save(threads);
+      return true;
+    },
+
     /** Export all comments as a JSON string */
     exportJSON(): string {
       return JSON.stringify(load(), null, 2);

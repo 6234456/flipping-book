@@ -28,6 +28,10 @@ type ReaderShellProps = {
   // Export/Import
   onExportComments: () => void;
   onImportComments: () => void;
+  // Delete/Edit
+  onDeleteThread: (threadId: string) => void;
+  onEditMessage: (threadId: string, messageId: string, text: string) => void;
+  onDeleteMessage: (threadId: string, messageId: string) => void;
 };
 
 export function ReaderShell({
@@ -47,6 +51,9 @@ export function ReaderShell({
   onToggleComments,
   onExportComments,
   onImportComments,
+  onDeleteThread,
+  onEditMessage,
+  onDeleteMessage,
 }: ReaderShellProps) {
   const { manifest } = registry;
   const { currentPage, interactionMode } = readerState;
@@ -164,6 +171,9 @@ export function ReaderShell({
             onAddMessage={onAddMessage}
             onResolve={onResolve}
             onReopen={onReopen}
+            onDeleteThread={onDeleteThread}
+            onEditMessage={onEditMessage}
+            onDeleteMessage={onDeleteMessage}
             open={commentsOpen}
             onToggle={onToggleComments}
           />

@@ -95,6 +95,31 @@ export function MagazineReader({ registry, initialPageId }: MagazineReaderProps)
     [commentStore, refreshThreads],
   );
 
+  const handleDeleteThread = useCallback(
+    (threadId: string) => {
+      commentStore.deleteThread(threadId);
+      setSelectedThreadId(null);
+      refreshThreads();
+    },
+    [commentStore, refreshThreads],
+  );
+
+  const handleEditMessage = useCallback(
+    (threadId: string, messageId: string, text: string) => {
+      commentStore.editMessage(threadId, messageId, [{ type: 'text', value: text }]);
+      refreshThreads();
+    },
+    [commentStore, refreshThreads],
+  );
+
+  const handleDeleteMessage = useCallback(
+    (threadId: string, messageId: string) => {
+      commentStore.deleteMessage(threadId, messageId);
+      refreshThreads();
+    },
+    [commentStore, refreshThreads],
+  );
+
   const handleResolve = useCallback(
     (threadId: string) => {
       commentStore.resolve(threadId);
@@ -175,6 +200,9 @@ export function MagazineReader({ registry, initialPageId }: MagazineReaderProps)
         onAddMessage={handleAddMessage}
         onResolve={handleResolve}
         onReopen={handleReopen}
+        onDeleteThread={handleDeleteThread}
+        onEditMessage={handleEditMessage}
+        onDeleteMessage={handleDeleteMessage}
         onCreateAnchor={handleCreateAnchor}
         commentsOpen={commentsOpen}
         onToggleComments={() => { setCommentsOpen((o) => !o); setNotesOpen(false); }}
