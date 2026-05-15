@@ -1,6 +1,8 @@
 import { describe, it, expect } from 'vitest';
-import { validateManifest } from '../validateManifest';
+import { validateManifest, validateImageRefs, validateOverlayRefs, validateAll } from '../validateManifest';
 import type { BookManifest } from '../../types/manifest';
+import type { ImageAsset } from '../../types/image';
+import type { OverlayConfig } from '../../types/overlay';
 
 function makeManifest(readingOrder: string[], pages: BookManifest['pages']): BookManifest {
   return {
@@ -28,6 +30,18 @@ function makeManifest(readingOrder: string[], pages: BookManifest['pages']): Boo
     pages,
     readingOrder,
     registries: { imageAssets: "", overlays: "", glossary: "" },
+  };
+}
+
+function makePage(pageId: string) {
+  return {
+    pageId, slug: `/${pageId}`, type: "imageOverlay" as const,
+    title: { "zh-CN": pageId },
+    layout: {
+      mode: "single" as const, format: "magazine-portrait" as const,
+      size: { preset: "magazine-portrait-1000" as const, width: 1000, height: 1414 },
+      background: "image" as const,
+    },
   };
 }
 
@@ -69,5 +83,127 @@ describe('validateManifest', () => {
     const m = makeManifest([], []);
     const errors = validateManifest(m);
     expect(errors).toHaveLength(0);
+  });
+});
+
+// ============================================================
+describe('validateImageRefs', () => {
+  const images: ImageAsset[] = [{
+    assetId: "img-1", src: "/img/1.png", version: "v1",
+    width: 1000, height: 1414, format: "png",
+    visualSystem: "VAT_ATLAS_MAGAZINE_V2",
+    pageFormat: "single", sizePreset: "magazine-portrait-1000",
+    alt: { "zh-CN": "img" },
+  }];
+
+  it('returns no errors when all images exist', () => {
+    const page = { ...makePage("p1"), image: { assetId: "img-1", version: "v1" } };
+    const m = makeManifest(["p1"], [page]);
+    const errors = validateImageRefs(m, images);
+    expect(errors).toHaveLength(0);
+  });
+
+  it('detects missing image ref', () => {
+    const page = { ...makePage("p1"), image: { assetId: "img-missing", version: "v1" } };
+    const m = makeManifest(["p1"], [page]);
+    const errors = validateImageRefs(m, images);
+    expect(errors).toHaveLength(1);
+    expect(errors[0].kind).toBe('missing_image_ref');
+    expect(errors[0].pageId).toBe('p1');
+  });
+
+  it('detects missing spread image', () => {
+    const page = {
+      ...makePage("p1"),
+      layout: { ...makePage("p1").layout, mode: "spread" as const, format: "magazine-spread" as const, size: { preset: "magazine-spread-2000" as const, width: 2000, height: 1414 } },
+      spreadImages: { sourceMode: "single-spread-image" as const, spread: { assetId: "img-missing", version: "v1" } },
+    };
+    const m = makeManifest(["p1"], [page]);
+    const errors = validateImageRefs(m, images);
+    expect(errors).toHaveLength(1);
+  });
+
+  it('detects missing left/right images in two-page composition', () => {
+    const page = {
+      ...makePage("p1"),
+      layout: { ...makePage("p1").layout, mode: "spread" as const, format: "magazine-spread" as const, size: { preset: "magazine-spread-2000" as const, width: 2000, height: 1414 } },
+      spreadImages: {
+        sourceMode: "two-page-composition" as const,
+        left: { assetId: "img-missing", version: "v1" },
+        right: { assetId: "img-1", version: "v1" },
+      },
+    };
+    const m = makeManifest(["p1"], [page]);
+    const errors = validateImageRefs(m, images);
+    expect(errors).toHaveLength(1);
+    expect(errors[0].message).toContain('left');
+  });
+});
+
+// ============================================================
+describe('validateOverlayRefs', () => {
+  const images: ImageAsset[] = [{
+    assetId: "img-1", src: "/img/1.png", version: "v1",
+    width: 1000, height: 1414, format: "png",
+    visualSystem: "VAT_ATLAS_MAGAZINE_V2",
+    pageFormat: "single", sizePreset: "magazine-portrait-1000",
+    alt: { "zh-CN": "img" },
+  }];
+
+  const overlays: OverlayConfig[] = [{
+    overlayId: "ov-1",
+    imageAssetId: "img-1",
+    imageVersion: "v1",
+    coordinateSystem: "percentage",
+    hotspots: [],
+  }];
+
+  it('returns no errors when overlay matches', () => {
+    const page = {
+      ...makePage("p1"),
+      image: { assetId: "img-1", version: "v1" },
+      overlay: { overlayId: "ov-1", imageAssetId: "img-1", imageVersion: "v1" },
+    };
+    const m = makeManifest(["p1"], [page]);
+    const errors = validateOverlayRefs(m, overlays, images);
+    expect(errors).toHaveLength(0);
+  });
+
+  it('detects missing overlay ref', () => {
+    const page = {
+      ...makePage("p1"),
+      image: { assetId: "img-1", version: "v1" },
+      overlay: { overlayId: "ov-missing", imageAssetId: "img-1", imageVersion: "v1" },
+    };
+    const m = makeManifest(["p1"], [page]);
+    const errors = validateOverlayRefs(m, overlays, images);
+    expect(errors).toHaveLength(1);
+    expect(errors[0].kind).toBe('missing_overlay_ref');
+  });
+
+  it('detects image version mismatch', () => {
+    const page = {
+      ...makePage("p1"),
+      image: { assetId: "img-1", version: "v2" },
+      overlay: { overlayId: "ov-1", imageAssetId: "img-1", imageVersion: "v1" },
+    };
+    const m = makeManifest(["p1"], [page]);
+    const errors = validateOverlayRefs(m, overlays, images);
+    expect(errors).toHaveLength(1);
+    expect(errors[0].kind).toBe('image_version_mismatch');
+  });
+});
+
+// ============================================================
+describe('validateAll', () => {
+  it('combines all validation results', () => {
+    const page = { ...makePage("p1"), image: { assetId: "img-missing", version: "v1" } };
+    const m = makeManifest(["p1", "p2"], [page]);
+    const errors = validateAll(m, [], []);
+    expect(errors.length).toBeGreaterThanOrEqual(1);
+    // Should have missing_page_ref for p2
+    expect(errors.some((e) => e.kind === 'missing_page_ref')).toBe(true);
+    // Should have missing_image_ref for img-missing
+    expect(errors.some((e) => e.kind === 'missing_image_ref')).toBe(true);
   });
 });
