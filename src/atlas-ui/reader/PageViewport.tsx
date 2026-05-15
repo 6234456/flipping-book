@@ -1,4 +1,3 @@
-import { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import type { BookRegistry } from '../../atlas-core/registry';
 import type { ReaderState } from '../../atlas-core/reader';
@@ -20,6 +19,8 @@ function PageContent({
   registry,
   interactionMode,
   onNavigate,
+  zoom,
+  onCycleZoom,
   commentThreads,
   selectedThreadId,
   highlightedThreadId,
@@ -31,6 +32,8 @@ function PageContent({
   registry: BookRegistry;
   interactionMode: ReaderState['interactionMode'];
   onNavigate: (target: HotspotTarget) => void;
+  zoom: ZoomLevel;
+  onCycleZoom: () => void;
   commentThreads: CommentThread[];
   selectedThreadId: string | null;
   highlightedThreadId: string | null;
@@ -39,17 +42,6 @@ function PageContent({
   onCreateAnchor: (anchor: AnnotationAnchor) => void;
 }) {
   const spreadMode = useSpreadMode(page, registry.manifest.reader);
-  const [zoom, setZoom] = useState<ZoomLevel>(
-    (registry.manifest.reader.defaultZoom as ZoomLevel) ?? 'fit-page',
-  );
-
-  const cycleZoom = useCallback(() => {
-    setZoom((z) => {
-      if (z === 'fit-page') return 'fit-width';
-      if (z === 'fit-width') return 'actual-size';
-      return 'fit-page';
-    });
-  }, []);
 
   const imageAsset = page.image
     ? registry.getImage(page.image.assetId)
@@ -84,7 +76,7 @@ function PageContent({
     return (
       <main className={`${mainClass} bg-stone-900`}>
         <div className="z-50 flex items-center gap-1 px-2 py-1 bg-stone-900/90 backdrop-blur shrink-0">
-          <button onClick={cycleZoom} className="px-2 py-0.5 rounded text-xs bg-stone-800 text-stone-400 hover:text-stone-200" title="切换缩放模式">
+          <button onClick={onCycleZoom} className="px-2 py-0.5 rounded text-xs bg-stone-800 text-stone-400 hover:text-stone-200" title="切换缩放模式">
             🔍 {zoomLabel}
           </button>
         </div>
@@ -99,7 +91,7 @@ function PageContent({
               interactionMode={interactionMode}
               onNavigate={onNavigate}
             />
-            {(interactionMode === 'read' || interactionMode === 'comment') && renderPins()}
+            {interactionMode === 'comment' && renderPins()}
           </div>
         </div>
       </main>
@@ -115,7 +107,7 @@ function PageContent({
     <main className={`${mainClass} bg-stone-900`}>
       {/* Zoom bar */}
       <div className="z-50 flex items-center gap-1 px-2 py-1 bg-stone-900/90 backdrop-blur shrink-0">
-        <button onClick={cycleZoom} className="px-2 py-0.5 rounded text-xs bg-stone-800 text-stone-400 hover:text-stone-200">
+        <button onClick={onCycleZoom} className="px-2 py-0.5 rounded text-xs bg-stone-800 text-stone-400 hover:text-stone-200">
           🔍 {zoomLabel}
         </button>
         {imageAsset && (
@@ -132,7 +124,7 @@ function PageContent({
             <HotspotLayer overlay={overlayConfig} imageAsset={imageAsset} onNavigate={onNavigate} />
           )}
 
-          {(interactionMode === 'read' || interactionMode === 'comment') && renderPins()}
+          {interactionMode === 'comment' && renderPins()}
 
           <CommentCaptureLayer
             pageId={page.pageId}
@@ -154,6 +146,8 @@ function PageContent({
 type PageViewportProps = {
   registry: BookRegistry;
   readerState: ReaderState;
+  zoom: ZoomLevel;
+  onCycleZoom: () => void;
   commentThreads: CommentThread[];
   selectedThreadId: string | null;
   highlightedThreadId: string | null;
@@ -165,6 +159,8 @@ type PageViewportProps = {
 export function PageViewport({
   registry,
   readerState,
+  zoom,
+  onCycleZoom,
   commentThreads,
   selectedThreadId,
   highlightedThreadId,
@@ -198,6 +194,8 @@ export function PageViewport({
       registry={registry}
       interactionMode={interactionMode}
       onNavigate={handleNavigate}
+      zoom={zoom}
+      onCycleZoom={onCycleZoom}
       commentThreads={commentThreads}
       selectedThreadId={selectedThreadId}
       highlightedThreadId={highlightedThreadId}

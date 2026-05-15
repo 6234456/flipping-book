@@ -3,6 +3,7 @@ import { useReaderState, useKeyboardNavigation } from '../../atlas-core/reader';
 import type { BookRegistry } from '../../atlas-core/registry';
 import { createCommentStore } from '../../atlas-core/annotations/commentStore';
 import type { CommentThread, AnnotationAnchor } from '../../atlas-core/types/comments';
+import type { ZoomLevel } from '../renderers/ImageOverlayTemplate';
 import { ReaderShell } from './ReaderShell';
 
 type MagazineReaderProps = {
@@ -52,6 +53,16 @@ export function MagazineReader({ registry, initialPageId }: MagazineReaderProps)
 
   const [selectedThreadId, setSelectedThreadId] = useState<string | null>(null);
   const [highlightedThreadId, setHighlightedThreadId] = useState<string | null>(null);
+
+  // Global zoom state (survives page flips)
+  const [zoom, setZoom] = useState<ZoomLevel>('fit-page');
+  const cycleZoom = useCallback(() => {
+    setZoom((z) => {
+      if (z === 'fit-page') return 'fit-width';
+      if (z === 'fit-width') return 'actual-size';
+      return 'fit-page';
+    });
+  }, []);
 
   // Notes drawer state
   const [notesOpen, setNotesOpen] = useState(false);
@@ -190,6 +201,8 @@ export function MagazineReader({ registry, initialPageId }: MagazineReaderProps)
       <ReaderShell
         registry={registry}
         readerState={readerState}
+        zoom={zoom}
+        onCycleZoom={cycleZoom}
         // Notes
         noteIds={currentNoteIds}
         notesOpen={notesOpen}

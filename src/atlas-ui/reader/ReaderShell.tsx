@@ -2,6 +2,7 @@ import type { BookRegistry } from '../../atlas-core/registry';
 import type { ReaderState } from '../../atlas-core/reader';
 import type { CommentThread, AnnotationAnchor } from '../../atlas-core/types/comments';
 import type { NoteId } from '../../atlas-core/types/primitives';
+import type { ZoomLevel } from '../renderers/ImageOverlayTemplate';
 import { ReaderTopBar } from './ReaderTopBar';
 import { ReaderBottomBar } from './ReaderBottomBar';
 import { PageViewport } from './PageViewport';
@@ -11,6 +12,8 @@ import { CommentPanel } from '../comments/CommentPanel';
 type ReaderShellProps = {
   registry: BookRegistry;
   readerState: ReaderState;
+  zoom: ZoomLevel;
+  onCycleZoom: () => void;
   // Notes
   noteIds: NoteId[];
   notesOpen: boolean;
@@ -39,6 +42,8 @@ type ReaderShellProps = {
 export function ReaderShell({
   registry,
   readerState,
+  zoom,
+  onCycleZoom,
   noteIds,
   notesOpen,
   onToggleNotes,
@@ -152,6 +157,8 @@ export function ReaderShell({
         <PageViewport
           registry={registry}
           readerState={readerState}
+          zoom={zoom}
+          onCycleZoom={onCycleZoom}
           commentThreads={commentThreads}
           selectedThreadId={selectedThreadId}
           highlightedThreadId={highlightedThreadId}

@@ -35,7 +35,7 @@ export function ImageOverlayTemplate({ page, imageAsset, zoom = 'fit-width' }: I
       <img
         src={imageAsset.src}
         alt={imageAsset.alt?.['zh-CN'] ?? page.title?.['zh-CN'] ?? ''}
-        className="block max-h-[calc(100dvh-120px)] max-w-full object-contain"
+        className="block max-h-[calc(100dvh-110px)] max-w-full object-contain"
         draggable={false}
       />
     );
