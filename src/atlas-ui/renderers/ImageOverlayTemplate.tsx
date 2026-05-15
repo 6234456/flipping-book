@@ -1,13 +1,16 @@
 import type { PageManifest } from '../../atlas-core/types/page';
 import type { ImageAsset } from '../../atlas-core/types/image';
 
+export type ZoomLevel = 'fit-width' | 'fit-page' | 'actual-size';
+
 type ImageOverlayTemplateProps = {
   page: PageManifest;
   imageAsset?: ImageAsset;
   locale: string;
+  zoom?: ZoomLevel;
 };
 
-export function ImageOverlayTemplate({ page, imageAsset }: ImageOverlayTemplateProps) {
+export function ImageOverlayTemplate({ page, imageAsset, zoom = 'fit-width' }: ImageOverlayTemplateProps) {
   if (!imageAsset) {
     return (
       <div className="w-[1000px] h-[1414px] bg-stone-800 flex items-center justify-center text-stone-400">
@@ -16,12 +19,34 @@ export function ImageOverlayTemplate({ page, imageAsset }: ImageOverlayTemplateP
     );
   }
 
+  if (zoom === 'actual-size') {
+    return (
+      <img
+        src={imageAsset.src}
+        alt={imageAsset.alt?.['zh-CN'] ?? page.title?.['zh-CN'] ?? ''}
+        style={{ width: imageAsset.width, height: imageAsset.height }}
+        draggable={false}
+      />
+    );
+  }
+
+  if (zoom === 'fit-page') {
+    return (
+      <img
+        src={imageAsset.src}
+        alt={imageAsset.alt?.['zh-CN'] ?? page.title?.['zh-CN'] ?? ''}
+        className="max-h-full max-w-full object-contain"
+        draggable={false}
+      />
+    );
+  }
+
+  // fit-width (default): width fills container, height auto, scroll if needed
   return (
     <img
       src={imageAsset.src}
       alt={imageAsset.alt?.['zh-CN'] ?? page.title?.['zh-CN'] ?? ''}
-      className="block max-h-full w-auto"
-      style={{ width: '100%', height: 'auto' }}
+      className="w-full h-auto"
       draggable={false}
     />
   );

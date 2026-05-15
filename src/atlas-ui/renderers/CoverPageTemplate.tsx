@@ -1,20 +1,43 @@
 import type { PageManifest } from '../../atlas-core/types/page';
 import type { ImageAsset } from '../../atlas-core/types/image';
+import type { ZoomLevel } from './ImageOverlayTemplate';
 
 type CoverPageTemplateProps = {
   page: PageManifest;
   imageAsset?: ImageAsset;
   locale: string;
+  zoom?: ZoomLevel;
 };
 
-export function CoverPageTemplate({ page, imageAsset, locale }: CoverPageTemplateProps) {
+export function CoverPageTemplate({ page, imageAsset, locale, zoom = 'fit-width' }: CoverPageTemplateProps) {
   if (imageAsset) {
+    if (zoom === 'actual-size') {
+      return (
+        <img
+          src={imageAsset.src}
+          alt={imageAsset.alt?.[locale] ?? page.title?.[locale] ?? ''}
+          style={{ width: imageAsset.width, height: imageAsset.height }}
+          draggable={false}
+        />
+      );
+    }
+
+    if (zoom === 'fit-page') {
+      return (
+        <img
+          src={imageAsset.src}
+          alt={imageAsset.alt?.[locale] ?? page.title?.[locale] ?? ''}
+          className="max-h-full max-w-full object-contain"
+          draggable={false}
+        />
+      );
+    }
+
     return (
       <img
         src={imageAsset.src}
         alt={imageAsset.alt?.[locale] ?? page.title?.[locale] ?? ''}
-        className="block max-h-full w-auto"
-        style={{ width: '100%', height: 'auto' }}
+        className="w-full h-auto"
         draggable={false}
       />
     );

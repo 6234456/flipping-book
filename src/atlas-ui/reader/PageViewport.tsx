@@ -1,3 +1,4 @@
+import { useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import type { BookRegistry } from '../../atlas-core/registry';
 import type { ReaderState } from '../../atlas-core/reader';
@@ -12,6 +13,7 @@ import type { HotspotTarget } from '../../atlas-core/types/overlay';
 import type { CommentThread, AnnotationAnchor } from '../../atlas-core/types/comments';
 import { resolveTargetRoute } from '../../atlas-core/registry/resolveTarget';
 import type { PageManifest } from '../../atlas-core/types/page';
+import type { ZoomLevel } from '../renderers/ImageOverlayTemplate';
 
 function PageContent({
   page,
@@ -33,20 +35,41 @@ function PageContent({
   onCreateAnchor: (anchor: AnnotationAnchor) => void;
 }) {
   const spreadMode = useSpreadMode(page, registry.manifest.reader);
+  const [zoom, setZoom] = useState<ZoomLevel>(
+    (registry.manifest.reader.defaultZoom as ZoomLevel) ?? 'fit-page',
+  );
+
+  const cycleZoom = useCallback(() => {
+    setZoom((z) => {
+      if (z === 'fit-page') return 'fit-width';
+      if (z === 'fit-width') return 'actual-size';
+      return 'fit-page';
+    });
+  }, []);
 
   const imageAsset = page.image
     ? registry.getImage(page.image.assetId)
     : undefined;
-
-  // Determine image info for comment anchoring
   const effectiveImageAssetId = page.image?.assetId ?? '';
   const effectiveImageVersion = page.image?.version ?? '';
+
+  const zoomLabel = zoom === 'fit-page' ? '适应页面' : zoom === 'fit-width' ? '适应宽度' : '实际大小';
 
   // Spread mode
   if (page.spreadImages && spreadMode.mode === 'spread') {
     return (
-      <main className="flex-1 flex items-center justify-center overflow-auto p-2">
-        <div className="relative inline-block max-h-full">
+      <main className="flex-1 flex flex-col items-center overflow-auto bg-stone-900">
+        {/* Zoom bar */}
+        <div className="sticky top-0 z-50 flex items-center gap-1 px-2 py-1 bg-stone-900/90 backdrop-blur border-b border-stone-800 self-start">
+          <button
+            onClick={cycleZoom}
+            className="px-2 py-0.5 rounded text-xs bg-stone-800 text-stone-400 hover:text-stone-200"
+            title="切换缩放模式"
+          >
+            🔍 {zoomLabel}
+          </button>
+        </div>
+        <div className="relative">
           <SpreadPageRenderer
             page={page}
             spreadImages={page.spreadImages}
@@ -73,11 +96,26 @@ function PageContent({
     : undefined;
 
   return (
-    <main className="flex-1 flex items-center justify-center overflow-auto p-2">
-      <div className="relative inline-block max-h-full">
-        <PageRenderer page={page} imageAsset={imageAsset} locale="zh-CN" registry={registry} />
+    <main className="flex-1 flex flex-col items-center overflow-auto bg-stone-900">
+      {/* Zoom bar */}
+      <div className="sticky top-0 z-50 flex items-center gap-1 px-2 py-1 bg-stone-900/90 backdrop-blur border-b border-stone-800 self-start">
+        <button
+          onClick={cycleZoom}
+          className="px-2 py-0.5 rounded text-xs bg-stone-800 text-stone-400 hover:text-stone-200"
+        >
+          🔍 {zoomLabel}
+        </button>
+        {imageAsset && (
+          <span className="text-stone-500 text-xs">
+            {imageAsset.width}×{imageAsset.height}
+          </span>
+        )}
+      </div>
 
-        {/* Hotspots: only active in read mode */}
+      {/* Page content with proper height constraint */}
+      <div className="relative" style={zoom === 'fit-page' ? { maxHeight: 'calc(100% - 32px)' } : undefined}>
+        <PageRenderer page={page} imageAsset={imageAsset} locale="zh-CN" registry={registry} zoom={zoom} />
+
         {overlayConfig && interactionMode === 'read' && (
           <HotspotLayer
             overlay={overlayConfig}
@@ -86,7 +124,6 @@ function PageContent({
           />
         )}
 
-        {/* Comment pins: visible in read and comment modes */}
         {(interactionMode === 'read' || interactionMode === 'comment') && (
           <CommentPinLayer
             threads={commentThreads}
@@ -94,7 +131,6 @@ function PageContent({
           />
         )}
 
-        {/* Comment capture: only active in comment mode */}
         <CommentCaptureLayer
           pageId={page.pageId}
           imageAssetId={effectiveImageAssetId}
@@ -103,7 +139,6 @@ function PageContent({
           onCreateAnchor={onCreateAnchor}
         />
 
-        {/* Debug overlay */}
         {overlayConfig && interactionMode === 'debugOverlay' && (
           <DebugOverlay overlay={overlayConfig} imageAsset={imageAsset} />
         )}
