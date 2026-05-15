@@ -71,11 +71,11 @@ function PageContent({
   if (page.spreadImages && spreadMode.mode === 'spread') {
     const mainClass = isFitPage
       ? 'flex-1 flex flex-col overflow-hidden'
-      : 'flex-1 flex flex-col items-center overflow-auto';
+      : 'flex-1 flex flex-col overflow-auto';
 
     return (
       <main className={`${mainClass} bg-stone-900`}>
-        <div className="z-50 flex items-center gap-1 px-2 py-1 bg-stone-900/90 backdrop-blur shrink-0">
+        <div className="sticky top-0 z-50 flex items-center gap-1 px-2 py-1 bg-stone-900/90 backdrop-blur shrink-0">
           <button onClick={onCycleZoom} className="px-2 py-0.5 rounded text-xs bg-stone-800 text-stone-400 hover:text-stone-200" title="切换缩放模式">
             🔍 {zoomLabel}
           </button>
@@ -101,12 +101,12 @@ function PageContent({
   // Single page mode
   const mainClass = isFitPage
     ? 'flex-1 flex flex-col overflow-hidden'
-    : 'flex-1 flex flex-col items-center overflow-auto';
+    : 'flex-1 flex flex-col overflow-auto';
 
   return (
     <main className={`${mainClass} bg-stone-900`}>
       {/* Zoom bar */}
-      <div className="z-50 flex items-center gap-1 px-2 py-1 bg-stone-900/90 backdrop-blur shrink-0">
+      <div className="sticky top-0 z-50 flex items-center gap-1 px-2 py-1 bg-stone-900/90 backdrop-blur shrink-0">
         <button onClick={onCycleZoom} className="px-2 py-0.5 rounded text-xs bg-stone-800 text-stone-400 hover:text-stone-200">
           🔍 {zoomLabel}
         </button>
