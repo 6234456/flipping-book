@@ -1,11 +1,74 @@
 import { useNavigate } from 'react-router-dom';
 import type { BookRegistry } from '../../atlas-core/registry';
 import type { ReaderState } from '../../atlas-core/reader';
+import { useSpreadMode } from '../../atlas-core/reader/useSpreadMode';
 import { PageRenderer } from '../renderers/PageRenderer';
+import { SpreadPageRenderer } from '../renderers/SpreadPageRenderer';
 import { HotspotLayer } from '../overlay/HotspotLayer';
 import { DebugOverlay } from '../overlay/DebugOverlay';
 import type { HotspotTarget } from '../../atlas-core/types/overlay';
 import { resolveTargetRoute } from '../../atlas-core/registry/resolveTarget';
+import type { PageManifest } from '../../atlas-core/types/page';
+
+function PageContent({
+  page,
+  registry,
+  interactionMode,
+  onNavigate,
+}: {
+  page: PageManifest;
+  registry: BookRegistry;
+  interactionMode: ReaderState['interactionMode'];
+  onNavigate: (target: HotspotTarget) => void;
+}) {
+  const spreadMode = useSpreadMode(page, registry.manifest.reader);
+
+  // Spread mode
+  if (page.spreadImages && spreadMode.mode === 'spread') {
+    return (
+      <main className="flex-1 flex items-center justify-center overflow-auto p-2">
+        <SpreadPageRenderer
+          page={page}
+          spreadImages={page.spreadImages}
+          registry={registry}
+          locale="zh-CN"
+          spreadMode={spreadMode.mode}
+          interactionMode={interactionMode}
+          onNavigate={onNavigate}
+        />
+      </main>
+    );
+  }
+
+  // Single page mode
+  const imageAsset = page.image
+    ? registry.getImage(page.image.assetId)
+    : undefined;
+
+  const overlayConfig = page.overlay
+    ? registry.getOverlay(page.overlay.overlayId)
+    : undefined;
+
+  return (
+    <main className="flex-1 flex items-center justify-center overflow-auto p-2">
+      <div className="relative inline-block max-h-full">
+        <PageRenderer page={page} imageAsset={imageAsset} locale="zh-CN" registry={registry} />
+
+        {overlayConfig && interactionMode === 'read' && (
+          <HotspotLayer
+            overlay={overlayConfig}
+            imageAsset={imageAsset}
+            onNavigate={onNavigate}
+          />
+        )}
+
+        {overlayConfig && interactionMode === 'debugOverlay' && (
+          <DebugOverlay overlay={overlayConfig} imageAsset={imageAsset} />
+        )}
+      </div>
+    </main>
+  );
+}
 
 type PageViewportProps = {
   registry: BookRegistry;
@@ -24,14 +87,6 @@ export function PageViewport({ registry, readerState }: PageViewportProps) {
     );
   }
 
-  const imageAsset = currentPage.image
-    ? registry.getImage(currentPage.image.assetId)
-    : undefined;
-
-  const overlayConfig = currentPage.overlay
-    ? registry.getOverlay(currentPage.overlay.overlayId)
-    : undefined;
-
   function handleNavigate(target: HotspotTarget) {
     const route = resolveTargetRoute(target, registry.manifest.slug);
     if (route && target.kind !== 'external') {
@@ -42,22 +97,11 @@ export function PageViewport({ registry, readerState }: PageViewportProps) {
   }
 
   return (
-    <main className="flex-1 flex items-center justify-center overflow-auto p-2">
-      <div className="relative inline-block max-h-full">
-        <PageRenderer page={currentPage} imageAsset={imageAsset} locale="zh-CN" registry={registry} />
-
-        {overlayConfig && interactionMode === 'read' && (
-          <HotspotLayer
-            overlay={overlayConfig}
-            imageAsset={imageAsset}
-            onNavigate={handleNavigate}
-          />
-        )}
-
-        {overlayConfig && interactionMode === 'debugOverlay' && (
-          <DebugOverlay overlay={overlayConfig} imageAsset={imageAsset} />
-        )}
-      </div>
-    </main>
+    <PageContent
+      page={currentPage}
+      registry={registry}
+      interactionMode={interactionMode}
+      onNavigate={handleNavigate}
+    />
   );
 }
