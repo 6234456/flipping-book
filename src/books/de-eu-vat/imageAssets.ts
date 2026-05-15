@@ -2,7 +2,7 @@
 export const imageAssets = [
   {
     "assetId": "cover-text-layer-v03",
-    "src": "/books/de-eu-vat/assets/images/reference-pages/cover_text-layer_v0.3.png",
+    "src": "/books/de-eu-vat/assets/images/generated-drafts/cover-generated-style.png",
     "version": "v0.3-text-layer",
     "width": 1055,
     "height": 1491,
@@ -36,7 +36,7 @@ export const imageAssets = [
   },
   {
     "assetId": "vat-framework-text-layer-v03",
-    "src": "/books/de-eu-vat/assets/images/reference-pages/vat-framework_text-layer_v0.3.png",
+    "src": "/books/de-eu-vat/assets/images/generated-drafts/vat-framework-generated.png",
     "version": "v0.3-text-layer",
     "width": 1055,
     "height": 1491,
@@ -53,7 +53,7 @@ export const imageAssets = [
   },
   {
     "assetId": "transaction-classification-text-layer-v03",
-    "src": "/books/de-eu-vat/assets/images/reference-pages/transaction-classification_text-layer_v0.3.png",
+    "src": "/books/de-eu-vat/assets/images/generated-drafts/transaction-classification-generated.png",
     "version": "v0.3-text-layer",
     "width": 1055,
     "height": 1491,
@@ -121,7 +121,7 @@ export const imageAssets = [
   },
   {
     "assetId": "09-04-deemed-supply-min-base-text-layer-v03",
-    "src": "/books/de-eu-vat/assets/images/reference-pages/09-04-deemed-supply-min-base_text-layer_v0.3.png",
+    "src": "/books/de-eu-vat/assets/images/generated-drafts/09-04-generated.png",
     "version": "v0.3-text-layer",
     "width": 1055,
     "height": 1491,
@@ -138,7 +138,7 @@ export const imageAssets = [
   },
   {
     "assetId": "09-05-damages-consideration-text-layer-v03",
-    "src": "/books/de-eu-vat/assets/images/reference-pages/09-05-damages-consideration_text-layer_v0.3.png",
+    "src": "/books/de-eu-vat/assets/images/generated-drafts/09-05-generated.png",
     "version": "v0.3-text-layer",
     "width": 1055,
     "height": 1491,
@@ -155,7 +155,7 @@ export const imageAssets = [
   },
   {
     "assetId": "09-06-commission-transaction-text-layer-v03",
-    "src": "/books/de-eu-vat/assets/images/reference-pages/09-06-commission-transaction_text-layer_v0.3.png",
+    "src": "/books/de-eu-vat/assets/images/generated-drafts/09-06-generated.png",
     "version": "v0.3-text-layer",
     "width": 1055,
     "height": 1491,
@@ -172,7 +172,7 @@ export const imageAssets = [
   },
   {
     "assetId": "09-07-vehicle-maintenance-case-text-layer-v03",
-    "src": "/books/de-eu-vat/assets/images/reference-pages/09-07-vehicle-maintenance-case_text-layer_v0.3.png",
+    "src": "/books/de-eu-vat/assets/images/generated-drafts/09-07-generated-a.png",
     "version": "v0.3-text-layer",
     "width": 1055,
     "height": 1491,
@@ -189,7 +189,7 @@ export const imageAssets = [
   },
   {
     "assetId": "sc-01-domestic-b2b-text-layer-v03",
-    "src": "/books/de-eu-vat/assets/images/reference-pages/sc-01-domestic-b2b_text-layer_v0.3.png",
+    "src": "/books/de-eu-vat/assets/images/generated-drafts/misc-domestic-b2b-style.png",
     "version": "v0.3-text-layer",
     "width": 1055,
     "height": 1491,
@@ -206,7 +206,7 @@ export const imageAssets = [
   },
   {
     "assetId": "sc-02-eu-goods-text-layer-v03",
-    "src": "/books/de-eu-vat/assets/images/reference-pages/sc-02-eu-goods_text-layer_v0.3.png",
+    "src": "/books/de-eu-vat/assets/images/generated-drafts/sc-02-generated.png",
     "version": "v0.3-text-layer",
     "width": 1055,
     "height": 1491,
@@ -240,7 +240,7 @@ export const imageAssets = [
   },
   {
     "assetId": "sc-04-reverse-charge-text-layer-v03",
-    "src": "/books/de-eu-vat/assets/images/reference-pages/sc-04-reverse-charge_text-layer_v0.3.png",
+    "src": "/books/de-eu-vat/assets/images/generated-drafts/sc-04-generated.png",
     "version": "v0.3-text-layer",
     "width": 1055,
     "height": 1491,
@@ -257,7 +257,7 @@ export const imageAssets = [
   },
   {
     "assetId": "sc-05-import-export-text-layer-v03",
-    "src": "/books/de-eu-vat/assets/images/reference-pages/sc-05-import-export_text-layer_v0.3.png",
+    "src": "/books/de-eu-vat/assets/images/generated-drafts/sc-05-generated.png",
     "version": "v0.3-text-layer",
     "width": 1055,
     "height": 1491,
@@ -291,7 +291,7 @@ export const imageAssets = [
   },
   {
     "assetId": "sc-07-triangular-trade-text-layer-v03",
-    "src": "/books/de-eu-vat/assets/images/reference-pages/sc-07-triangular-trade_text-layer_v0.3.png",
+    "src": "/books/de-eu-vat/assets/images/generated-drafts/sc-07-generated-needs-label-fix.png",
     "version": "v0.3-text-layer",
     "width": 1055,
     "height": 1491,
@@ -308,7 +308,7 @@ export const imageAssets = [
   },
   {
     "assetId": "sc-08-invoice-reporting-text-layer-v03",
-    "src": "/books/de-eu-vat/assets/images/reference-pages/sc-08-invoice-reporting_text-layer_v0.3.png",
+    "src": "/books/de-eu-vat/assets/images/generated-drafts/sc-08-generated.png",
     "version": "v0.3-text-layer",
     "width": 1055,
     "height": 1491,
