@@ -81,7 +81,7 @@ function PageContent({
           </button>
         </div>
         <div className={`relative ${isFitPage ? 'flex-1 flex items-center justify-center overflow-hidden' : ''}`}>
-          <div className={`relative ${isFitPage ? 'h-full' : ''}`}>
+          <div className="relative">
             <SpreadPageRenderer
               page={page}
               spreadImages={page.spreadImages}
@@ -117,7 +117,7 @@ function PageContent({
 
       {/* Page content: fit-page fills remaining height, constrains image */}
       <div className={`relative ${isFitPage ? 'flex-1 flex items-center justify-center overflow-hidden' : ''}`}>
-        <div className={`relative ${isFitPage ? 'h-full' : ''}`}>
+        <div className="relative">
           <PageRenderer page={page} imageAsset={imageAsset} locale="zh-CN" registry={registry} zoom={zoom} />
 
           {overlayConfig && interactionMode === 'read' && (
