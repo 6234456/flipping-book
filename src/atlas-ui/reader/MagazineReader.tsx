@@ -1,4 +1,4 @@
-import { useState, useCallback, useMemo } from 'react';
+import { useState, useCallback, useMemo, useEffect, useRef } from 'react';
 import { useReaderState, useKeyboardNavigation } from '../../atlas-core/reader';
 import type { BookRegistry } from '../../atlas-core/registry';
 import { createCommentStore } from '../../atlas-core/annotations/commentStore';
@@ -11,10 +11,34 @@ type MagazineReaderProps = {
 };
 
 const ANONYMOUS_USER = 'anonymous';
+const LAST_PAGE_KEY = 'atlas-last-page';
 
 export function MagazineReader({ registry, initialPageId }: MagazineReaderProps) {
-  const readerState = useReaderState(registry, initialPageId);
+  // Restore last page from localStorage
+  const restoredPageId = useMemo(() => {
+    if (initialPageId) return initialPageId;
+    try {
+      const saved = localStorage.getItem(`${LAST_PAGE_KEY}-${registry.manifest.bookId}`);
+      return saved ?? undefined;
+    } catch {
+      return undefined;
+    }
+  }, [registry.manifest.bookId, initialPageId]);
+
+  const readerState = useReaderState(registry, restoredPageId);
   useKeyboardNavigation(readerState, registry.manifest.reader.enableKeyboardNavigation);
+
+  // Persist current page on change
+  useEffect(() => {
+    if (readerState.currentPage) {
+      try {
+        localStorage.setItem(
+          `${LAST_PAGE_KEY}-${registry.manifest.bookId}`,
+          readerState.currentPage.pageId,
+        );
+      } catch { /* ignore */ }
+    }
+  }, [registry.manifest.bookId, readerState.currentPage]);
 
   // Comment store
   const commentStore = useMemo(
@@ -31,6 +55,9 @@ export function MagazineReader({ registry, initialPageId }: MagazineReaderProps)
   // Notes drawer state
   const [notesOpen, setNotesOpen] = useState(false);
   const [commentsOpen, setCommentsOpen] = useState(false);
+
+  // File input ref for import
+  const fileInputRef = useRef<HTMLInputElement>(null);
 
   const currentPageThreads = useMemo(
     () => commentThreads.filter((t) => t.pageId === readerState.currentPage?.pageId),
@@ -84,27 +111,77 @@ export function MagazineReader({ registry, initialPageId }: MagazineReaderProps)
     [commentStore, refreshThreads],
   );
 
+  // Export
+  const handleExport = useCallback(() => {
+    const json = commentStore.exportJSON();
+    const blob = new Blob([json], { type: 'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `comments-${registry.manifest.bookId}-${new Date().toISOString().slice(0, 10)}.json`;
+    a.click();
+    URL.revokeObjectURL(url);
+  }, [commentStore, registry.manifest.bookId]);
+
+  // Import
+  const handleImportClick = useCallback(() => {
+    fileInputRef.current?.click();
+  }, []);
+
+  const handleImportFile = useCallback(
+    (e: React.ChangeEvent<HTMLInputElement>) => {
+      const file = e.target.files?.[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        const text = reader.result as string;
+        const result = commentStore.importJSON(text);
+        refreshThreads();
+        alert(`导入完成: ${result.imported} 条新评论, ${result.skipped} 条重复跳过`);
+      };
+      reader.readAsText(file);
+      // Reset file input
+      e.target.value = '';
+    },
+    [commentStore, refreshThreads],
+  );
+
   // Determine note IDs for current page
   const currentNoteIds = readerState.currentPage?.notes?.noteIds ?? [];
 
   return (
-    <ReaderShell
-      registry={registry}
-      readerState={readerState}
-      // Notes
-      noteIds={currentNoteIds}
-      notesOpen={notesOpen}
-      onToggleNotes={() => { setNotesOpen((o) => !o); setCommentsOpen(false); }}
-      // Comments
-      commentThreads={currentPageThreads}
-      selectedThreadId={selectedThreadId}
-      onSelectThread={setSelectedThreadId}
-      onAddMessage={handleAddMessage}
-      onResolve={handleResolve}
-      onReopen={handleReopen}
-      onCreateAnchor={handleCreateAnchor}
-      commentsOpen={commentsOpen}
-      onToggleComments={() => { setCommentsOpen((o) => !o); setNotesOpen(false); }}
-    />
+    <>
+      {/* Hidden file input for import */}
+      <input
+        ref={fileInputRef}
+        type="file"
+        accept=".json"
+        className="hidden"
+        onChange={handleImportFile}
+        aria-label="导入评论 JSON"
+      />
+
+      <ReaderShell
+        registry={registry}
+        readerState={readerState}
+        // Notes
+        noteIds={currentNoteIds}
+        notesOpen={notesOpen}
+        onToggleNotes={() => { setNotesOpen((o) => !o); setCommentsOpen(false); }}
+        // Comments
+        commentThreads={currentPageThreads}
+        selectedThreadId={selectedThreadId}
+        onSelectThread={setSelectedThreadId}
+        onAddMessage={handleAddMessage}
+        onResolve={handleResolve}
+        onReopen={handleReopen}
+        onCreateAnchor={handleCreateAnchor}
+        commentsOpen={commentsOpen}
+        onToggleComments={() => { setCommentsOpen((o) => !o); setNotesOpen(false); }}
+        // Export/Import
+        onExportComments={handleExport}
+        onImportComments={handleImportClick}
+      />
+    </>
   );
 }

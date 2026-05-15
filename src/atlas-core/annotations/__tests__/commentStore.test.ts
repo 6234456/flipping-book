@@ -106,4 +106,57 @@ describe('commentStore', () => {
     const store2 = createCommentStore('other-book');
     expect(store2.getAll()).toHaveLength(0);
   });
+
+  it('exports comments as JSON', () => {
+    store.createThread({
+      bookId: 'test-book', pageId: 'page-1',
+      anchor: { kind: 'imagePoint', pageId: 'page-1', imageAssetId: 'img-1', imageVersion: 'v1', x: 10, y: 10 },
+      category: 'question', createdBy: 'user-1',
+    });
+
+    const json = store.exportJSON();
+    const parsed = JSON.parse(json);
+    expect(Array.isArray(parsed)).toBe(true);
+    expect(parsed).toHaveLength(1);
+    expect(parsed[0].pageId).toBe('page-1');
+  });
+
+  it('imports comments and skips duplicates', () => {
+    store.createThread({
+      bookId: 'test-book', pageId: 'page-1',
+      anchor: { kind: 'imagePoint', pageId: 'page-1', imageAssetId: 'img-1', imageVersion: 'v1', x: 10, y: 10 },
+      category: 'question', createdBy: 'user-1',
+    });
+    const exported = store.exportJSON();
+
+    const store2 = createCommentStore('test-book');
+    const result = store2.importJSON(exported);
+    expect(result.skipped).toBe(1);
+    expect(result.imported).toBe(0);
+    expect(store2.getAll()).toHaveLength(1);
+  });
+
+  it('imports new comments', () => {
+    store.createThread({
+      bookId: 'test-book', pageId: 'page-1',
+      anchor: { kind: 'imagePoint', pageId: 'page-1', imageAssetId: 'img-1', imageVersion: 'v1', x: 10, y: 10 },
+      category: 'question', createdBy: 'user-1',
+    });
+    const json = store.exportJSON();
+
+    // Clear and re-import
+    localStorage.clear();
+    const store2 = createCommentStore('test-book');
+    expect(store2.getAll()).toHaveLength(0);
+
+    const result = store2.importJSON(json);
+    expect(result.imported).toBe(1);
+    expect(store2.getAll()).toHaveLength(1);
+  });
+
+  it('handles invalid JSON gracefully', () => {
+    const result = store.importJSON('not-valid-json');
+    expect(result.imported).toBe(0);
+    expect(result.skipped).toBe(0);
+  });
 });

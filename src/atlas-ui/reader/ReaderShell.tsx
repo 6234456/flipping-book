@@ -25,6 +25,9 @@ type ReaderShellProps = {
   onCreateAnchor: (anchor: AnnotationAnchor) => void;
   commentsOpen: boolean;
   onToggleComments: () => void;
+  // Export/Import
+  onExportComments: () => void;
+  onImportComments: () => void;
 };
 
 export function ReaderShell({
@@ -42,6 +45,8 @@ export function ReaderShell({
   onCreateAnchor,
   commentsOpen,
   onToggleComments,
+  onExportComments,
+  onImportComments,
 }: ReaderShellProps) {
   const { manifest } = registry;
   const { currentPage, interactionMode } = readerState;
@@ -49,7 +54,7 @@ export function ReaderShell({
   const featureFlags = manifest.featureFlags;
 
   return (
-    <div className="flex flex-col h-dvh bg-stone-900">
+    <div className="flex flex-col h-dvh bg-stone-900" role="application" aria-label="VAT Atlas 阅读器">
       {/* Top Bar */}
       {manifest.navigation?.showTopBar && (
         <ReaderTopBar
@@ -61,37 +66,59 @@ export function ReaderShell({
         />
       )}
 
-      {/* Toolbar with mode toggles */}
-      <div className="flex items-center gap-2 px-4 py-1 bg-stone-900 border-b border-stone-800 shrink-0">
+      {/* Toolbar */}
+      <nav className="flex items-center gap-2 px-4 py-1 bg-stone-900 border-b border-stone-800 shrink-0" aria-label="工具栏">
         {featureFlags?.notesDrawer && (
           <button
             onClick={onToggleNotes}
             className={`px-2 py-0.5 rounded text-xs ${notesOpen ? 'bg-stone-600 text-stone-100' : 'bg-stone-800 text-stone-400 hover:text-stone-200'}`}
+            aria-pressed={notesOpen}
+            aria-label="笔记面板"
           >
             📝 笔记
           </button>
         )}
         {featureFlags?.comments && (
-          <button
-            onClick={onToggleComments}
-            className={`px-2 py-0.5 rounded text-xs ${commentsOpen ? 'bg-stone-600 text-stone-100' : 'bg-stone-800 text-stone-400 hover:text-stone-200'}`}
-          >
-            💬 评论 ({commentThreads.length})
-          </button>
-        )}
-        {featureFlags?.comments && (
-          <button
-            onClick={() => readerState.setInteractionMode(
-              readerState.interactionMode === 'comment' ? 'read' : 'comment',
-            )}
-            className={`px-2 py-0.5 rounded text-xs ${
-              readerState.interactionMode === 'comment'
-                ? 'bg-blue-600 text-white'
-                : 'bg-stone-800 text-stone-400 hover:text-stone-200'
-            }`}
-          >
-            {readerState.interactionMode === 'comment' ? '🔍 评论模式' : '🖊 评论模式'}
-          </button>
+          <>
+            <button
+              onClick={onToggleComments}
+              className={`px-2 py-0.5 rounded text-xs ${commentsOpen ? 'bg-stone-600 text-stone-100' : 'bg-stone-800 text-stone-400 hover:text-stone-200'}`}
+              aria-pressed={commentsOpen}
+              aria-label={`评论面板 (${commentThreads.length} 条)`}
+            >
+              💬 评论 ({commentThreads.length})
+            </button>
+            <button
+              onClick={() => readerState.setInteractionMode(
+                readerState.interactionMode === 'comment' ? 'read' : 'comment',
+              )}
+              className={`px-2 py-0.5 rounded text-xs ${
+                readerState.interactionMode === 'comment'
+                  ? 'bg-blue-600 text-white'
+                  : 'bg-stone-800 text-stone-400 hover:text-stone-200'
+              }`}
+              aria-pressed={readerState.interactionMode === 'comment'}
+              aria-label="切换评论模式"
+            >
+              {readerState.interactionMode === 'comment' ? '🔍 评论中' : '🖊 评论模式'}
+            </button>
+            <button
+              onClick={onExportComments}
+              className="px-2 py-0.5 rounded text-xs bg-stone-800 text-stone-400 hover:text-stone-200"
+              aria-label="导出评论"
+              title="导出评论为 JSON"
+            >
+              📤
+            </button>
+            <button
+              onClick={onImportComments}
+              className="px-2 py-0.5 rounded text-xs bg-stone-800 text-stone-400 hover:text-stone-200"
+              aria-label="导入评论"
+              title="从 JSON 导入评论"
+            >
+              📥
+            </button>
+          </>
         )}
         {featureFlags?.debugOverlay && (
           <button
@@ -101,13 +128,15 @@ export function ReaderShell({
                 ? 'bg-orange-600 text-white'
                 : 'bg-stone-800 text-stone-400 hover:text-stone-200'
             }`}
+            aria-pressed={readerState.interactionMode === 'debugOverlay'}
+            aria-label="切换调试覆盖层"
           >
             🐛 Debug
           </button>
         )}
-      </div>
+      </nav>
 
-      {/* Main content area */}
+      {/* Main content */}
       <div className="flex-1 relative overflow-hidden">
         <PageViewport
           registry={registry}
@@ -118,7 +147,6 @@ export function ReaderShell({
           onCreateAnchor={onCreateAnchor}
         />
 
-        {/* Notes Drawer */}
         {featureFlags?.notesDrawer && noteIds.length > 0 && (
           <NotesDrawer
             noteIds={noteIds}
@@ -128,7 +156,6 @@ export function ReaderShell({
           />
         )}
 
-        {/* Comment Panel */}
         {featureFlags?.comments && (
           <CommentPanel
             threads={commentThreads}

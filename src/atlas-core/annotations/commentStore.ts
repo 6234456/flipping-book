@@ -107,5 +107,38 @@ export function createCommentStore(bookId: string) {
         save(threads);
       }
     },
+
+    /** Export all comments as a JSON string */
+    exportJSON(): string {
+      return JSON.stringify(load(), null, 2);
+    },
+
+    /** Import comments from a JSON string. Merges with existing, skipping duplicate threadIds. */
+    importJSON(json: string): { imported: number; skipped: number } {
+      try {
+        const incoming: CommentThread[] = JSON.parse(json);
+        if (!Array.isArray(incoming)) return { imported: 0, skipped: 0 };
+
+        const existing = load();
+        const existingIds = new Set(existing.map((t) => t.threadId));
+        let imported = 0;
+        let skipped = 0;
+
+        for (const thread of incoming) {
+          if (existingIds.has(thread.threadId)) {
+            skipped++;
+          } else {
+            existing.push(thread);
+            existingIds.add(thread.threadId);
+            imported++;
+          }
+        }
+
+        save(existing);
+        return { imported, skipped };
+      } catch {
+        return { imported: 0, skipped: 0 };
+      }
+    },
   };
 }
