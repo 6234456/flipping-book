@@ -1,8 +1,10 @@
+import { FileText, MessageSquare, MousePointerClick, Eye, Upload, Download, Bug } from 'lucide-react';
 import type { BookRegistry } from '../../atlas-core/registry';
 import type { ReaderState } from '../../atlas-core/reader';
 import type { CommentThread, AnnotationAnchor } from '../../atlas-core/types/comments';
 import type { NoteId } from '../../atlas-core/types/primitives';
 import type { ZoomLevel } from '../renderers/ImageOverlayTemplate';
+import { Button, Toggle } from '../primitives';
 import { ReaderTopBar } from './ReaderTopBar';
 import { ReaderBottomBar } from './ReaderBottomBar';
 import { PageViewport } from './PageViewport';
@@ -14,11 +16,9 @@ type ReaderShellProps = {
   readerState: ReaderState;
   zoom: ZoomLevel;
   onCycleZoom: () => void;
-  // Notes
   noteIds: NoteId[];
   notesOpen: boolean;
   onToggleNotes: () => void;
-  // Comments
   commentThreads: CommentThread[];
   selectedThreadId: string | null;
   highlightedThreadId: string | null;
@@ -30,10 +30,8 @@ type ReaderShellProps = {
   onCreateAnchor: (anchor: AnnotationAnchor) => void;
   commentsOpen: boolean;
   onToggleComments: () => void;
-  // Export/Import
   onExportComments: () => void;
   onImportComments: () => void;
-  // Delete/Edit
   onDeleteThread: (threadId: string) => void;
   onEditMessage: (threadId: string, messageId: string, text: string) => void;
   onDeleteMessage: (threadId: string, messageId: string) => void;
@@ -66,12 +64,12 @@ export function ReaderShell({
 }: ReaderShellProps) {
   const { manifest } = registry;
   const { currentPage, interactionMode } = readerState;
-
   const featureFlags = manifest.featureFlags;
+  const inCommentMode = interactionMode === 'comment';
+  const inDebugMode = interactionMode === 'debugOverlay';
 
   return (
-    <div className="flex flex-col h-dvh bg-stone-900" role="application" aria-label="VAT Atlas 阅读器">
-      {/* Top Bar */}
+    <div className="flex flex-col h-dvh bg-surface" role="application" aria-label="VAT Atlas 阅读器">
       {manifest.navigation?.showTopBar && (
         <ReaderTopBar
           title={manifest.title}
@@ -82,77 +80,80 @@ export function ReaderShell({
         />
       )}
 
-      {/* Toolbar */}
-      <nav className="flex items-center gap-2 px-4 py-1 bg-stone-900 border-b border-stone-800 shrink-0" aria-label="工具栏">
+      <nav
+        className="flex items-center gap-1 px-3 py-1.5 bg-page border-b border-border shrink-0"
+        aria-label="工具栏"
+      >
         {featureFlags?.notesDrawer && (
-          <button
-            onClick={onToggleNotes}
-            className={`px-2 py-0.5 rounded text-xs ${notesOpen ? 'bg-stone-600 text-stone-100' : 'bg-stone-800 text-stone-400 hover:text-stone-200'}`}
-            aria-pressed={notesOpen}
+          <Toggle
+            size="sm"
+            pressed={notesOpen}
+            onPressedChange={onToggleNotes}
+            leadingIcon={FileText}
             aria-label="笔记面板"
           >
-            📝 笔记
-          </button>
+            笔记
+          </Toggle>
         )}
         {featureFlags?.comments && (
           <>
-            <button
-              onClick={onToggleComments}
-              className={`px-2 py-0.5 rounded text-xs ${commentsOpen ? 'bg-stone-600 text-stone-100' : 'bg-stone-800 text-stone-400 hover:text-stone-200'}`}
-              aria-pressed={commentsOpen}
+            <Toggle
+              size="sm"
+              pressed={commentsOpen}
+              onPressedChange={onToggleComments}
+              leadingIcon={MessageSquare}
               aria-label={`评论面板 (${commentThreads.length} 条)`}
             >
-              💬 评论 ({commentThreads.length})
-            </button>
-            <button
-              onClick={() => readerState.setInteractionMode(
-                readerState.interactionMode === 'comment' ? 'read' : 'comment',
-              )}
-              className={`px-2 py-0.5 rounded text-xs ${
-                readerState.interactionMode === 'comment'
-                  ? 'bg-blue-600 text-white'
-                  : 'bg-stone-800 text-stone-400 hover:text-stone-200'
-              }`}
-              aria-pressed={readerState.interactionMode === 'comment'}
+              评论 ({commentThreads.length})
+            </Toggle>
+            <Toggle
+              size="sm"
+              pressed={inCommentMode}
+              onPressedChange={() =>
+                readerState.setInteractionMode(inCommentMode ? 'read' : 'comment')
+              }
+              leadingIcon={inCommentMode ? Eye : MousePointerClick}
               aria-label="切换评论模式"
             >
-              {readerState.interactionMode === 'comment' ? '🔍 评论中' : '🖊 评论模式'}
-            </button>
-            <button
+              评论模式
+            </Toggle>
+            <span className="w-px h-4 bg-divider mx-1" aria-hidden="true" />
+            <Button
+              variant="ghost"
+              size="sm"
+              iconOnly
+              leadingIcon={Upload}
               onClick={onExportComments}
-              className="px-2 py-0.5 rounded text-xs bg-stone-800 text-stone-400 hover:text-stone-200"
-              aria-label="导出评论"
+              aria-label="导出评论为 JSON"
               title="导出评论为 JSON"
-            >
-              📤
-            </button>
-            <button
+            />
+            <Button
+              variant="ghost"
+              size="sm"
+              iconOnly
+              leadingIcon={Download}
               onClick={onImportComments}
-              className="px-2 py-0.5 rounded text-xs bg-stone-800 text-stone-400 hover:text-stone-200"
-              aria-label="导入评论"
+              aria-label="从 JSON 导入评论"
               title="从 JSON 导入评论"
-            >
-              📥
-            </button>
+            />
           </>
         )}
         {featureFlags?.debugOverlay && (
-          <button
-            onClick={readerState.toggleDebugOverlay}
-            className={`px-2 py-0.5 rounded text-xs ${
-              readerState.interactionMode === 'debugOverlay'
-                ? 'bg-orange-600 text-white'
-                : 'bg-stone-800 text-stone-400 hover:text-stone-200'
-            }`}
-            aria-pressed={readerState.interactionMode === 'debugOverlay'}
-            aria-label="切换调试覆盖层"
-          >
-            🐛 Debug
-          </button>
+          <>
+            <span className="w-px h-4 bg-divider mx-1" aria-hidden="true" />
+            <Toggle
+              size="sm"
+              pressed={inDebugMode}
+              onPressedChange={readerState.toggleDebugOverlay}
+              leadingIcon={Bug}
+              aria-label="切换调试覆盖层"
+            >
+              Debug
+            </Toggle>
+          </>
         )}
       </nav>
 
-      {/* Main content */}
       <div className="flex-1 relative overflow-hidden">
         <PageViewport
           registry={registry}
@@ -195,7 +196,6 @@ export function ReaderShell({
         )}
       </div>
 
-      {/* Bottom Bar */}
       {manifest.navigation?.showBottomBar && (
         <ReaderBottomBar
           currentIndex={readerState.currentPageIndex}
