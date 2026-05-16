@@ -26,6 +26,7 @@ export function PageRenderer({ page, imageAsset, locale, registry, zoom }: PageR
           locale={locale}
           readingOrder={registry?.manifest.readingOrder}
           getPage={registry ? (id: string) => registry.getPage(id) : undefined}
+          bookSlug={registry?.manifest.slug ?? ''}
         />
       );
     case 'glossary':
@@ -43,9 +44,7 @@ export function PageRenderer({ page, imageAsset, locale, registry, zoom }: PageR
       return <ImageOverlayTemplate page={page} imageAsset={imageAsset} locale={locale} zoom={zoom} />;
     default:
       return (
-        <div className="text-stone-400 p-8">
-          未知页面类型: {page.type}
-        </div>
+        <div className="text-text-2 p-8">未知页面类型: {page.type}</div>
       );
   }
 }
