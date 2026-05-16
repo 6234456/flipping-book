@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { MagazineReader } from '../atlas-ui/reader/MagazineReader';
 import { createBookRegistry } from '../atlas-core/registry';
+import { ToastProvider, TooltipProvider } from '../atlas-ui/primitives';
 import type { BookManifest } from '../atlas-core/types/manifest';
 import type { ImageAsset } from '../atlas-core/types/image';
 import type { OverlayConfig } from '../atlas-core/types/overlay';
@@ -22,7 +23,6 @@ import { vatAtlasOverlays } from '../books/de-eu-vat/overlays/index.js';
 
 const emptyComments: CommentThread[] = [];
 
-// Phase 1: use type assertions; types will be tightened in stabilization phase
 const registry = createBookRegistry(
   vatAtlasManifest as unknown as BookManifest,
   imageAssets as unknown as ImageAsset[],
@@ -38,5 +38,11 @@ const registry = createBookRegistry(
 export function App() {
   const { pageId } = useParams<{ pageId?: string }>();
 
-  return <MagazineReader registry={registry} initialPageId={pageId} />;
+  return (
+    <TooltipProvider delayDuration={200}>
+      <ToastProvider>
+        <MagazineReader registry={registry} initialPageId={pageId} />
+      </ToastProvider>
+    </TooltipProvider>
+  );
 }
