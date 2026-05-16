@@ -1,11 +1,10 @@
-import { Tooltip } from './Tooltip';
-import type { GlossaryEntry } from '../../atlas-core/types/glossary';
 import { Link } from 'react-router-dom';
+import type { GlossaryEntry } from '../../atlas-core/types/glossary';
+import { Tooltip } from '../primitives';
 
 type TermProps = {
   entry: GlossaryEntry;
   bookSlug: string;
-  /** If true, shows firstMentionFormat (zh + original); otherwise shows abbreviation or short form */
   first?: boolean;
 };
 
@@ -16,17 +15,17 @@ export function Term({ entry, bookSlug, first }: TermProps) {
 
   const tooltipContent = (
     <span className="flex flex-col gap-1">
-      <span className="font-semibold">{entry.zh}</span>
-      <span className="text-stone-300 text-xs">
+      <span className="font-semibold text-page">{entry.zh}</span>
+      <span className="text-divider text-[11px]">
         {entry.original}
         {entry.abbreviation ? ` (${entry.abbreviation})` : ''}
       </span>
-      <span className="text-stone-400 text-xs mt-1 max-w-48 line-clamp-3">
+      <span className="text-divider text-[11px] mt-1 leading-relaxed">
         {entry.shortDefinition}
       </span>
       <Link
         to={`/book/${bookSlug}/glossary#${entry.termId}`}
-        className="text-blue-400 text-xs hover:underline mt-1"
+        className="text-accent-2 text-[11px] hover:underline mt-1"
       >
         查看完整术语 →
       </Link>
@@ -35,7 +34,7 @@ export function Term({ entry, bookSlug, first }: TermProps) {
 
   return (
     <Tooltip content={tooltipContent}>
-      <span className="term cursor-help" tabIndex={0} role="button">
+      <span className="term" tabIndex={0} role="button">
         {displayText}
       </span>
     </Tooltip>

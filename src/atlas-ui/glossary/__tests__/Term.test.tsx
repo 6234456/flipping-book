@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { Term } from '../Term';
+import { TooltipProvider } from '../../primitives';
 import type { GlossaryEntry } from '../../../atlas-core/types/glossary';
 
 const testEntry: GlossaryEntry = {
@@ -27,7 +28,9 @@ describe('Term', () => {
   function renderTerm(entry: GlossaryEntry, first = false) {
     return render(
       <MemoryRouter>
-        <Term entry={entry} bookSlug="de-eu-vat" first={first} />
+        <TooltipProvider>
+          <Term entry={entry} bookSlug="de-eu-vat" first={first} />
+        </TooltipProvider>
       </MemoryRouter>
     );
   }
