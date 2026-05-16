@@ -1,4 +1,23 @@
 import '@testing-library/jest-dom/vitest';
+import { configure } from '@testing-library/dom';
+
+// Radix UI renders tooltip content twice: once visibly and once in a
+// visually-hidden <span role="tooltip"> for accessibility. Excluding
+// role="tooltip" elements from text queries prevents "found multiple elements"
+// errors when using findByText/getByText against tooltip content.
+configure({ defaultIgnore: 'script, style, [role="tooltip"]' });
+
+// ResizeObserver is not available in jsdom; Radix UI's react-use-size requires it.
+class ResizeObserverMock {
+  observe() {}
+  unobserve() {}
+  disconnect() {}
+}
+Object.defineProperty(globalThis, 'ResizeObserver', {
+  value: ResizeObserverMock,
+  writable: true,
+  configurable: true,
+});
 
 // Provide a reliable localStorage implementation for tests
 const store = new Map<string, string>();
