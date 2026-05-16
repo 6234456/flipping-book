@@ -1,8 +1,6 @@
 import type { ReactNode } from 'react';
 import * as RadixTooltip from '@radix-ui/react-tooltip';
 
-export const TooltipProvider = RadixTooltip.Provider;
-
 export type TooltipProps = {
   content: ReactNode;
   children: ReactNode;

@@ -1,44 +1,13 @@
-import {
-  createContext,
-  useCallback,
-  useContext,
-  useEffect,
-  useMemo,
-  useRef,
-  useState,
-  type ReactNode,
-} from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react';
 import { createPortal } from 'react-dom';
 import { Check, Info, X } from 'lucide-react';
 import { Icon } from './Icon';
+import { ToastContext, type ToastFn, type ToastItem, type ToastOptions } from './toast-context';
 
-export type ToastVariant = 'default' | 'success' | 'error';
-
-type ToastItem = {
-  id: string;
-  message: string;
-  variant: ToastVariant;
-};
-
-type ToastOptions = {
-  duration?: number;
-  variant?: ToastVariant;
-};
-
-type ToastFn = (message: string, options?: ToastOptions) => void;
-
-const ToastContext = createContext<ToastFn | null>(null);
+export type { ToastVariant } from './toast-context';
 
 const DEFAULT_DURATION = 3000;
 const MAX_VISIBLE = 3;
-
-export function useToast(): ToastFn {
-  const ctx = useContext(ToastContext);
-  if (!ctx) {
-    throw new Error('useToast must be used inside <ToastProvider>');
-  }
-  return ctx;
-}
 
 export function ToastProvider({ children }: { children: ReactNode }) {
   const [toasts, setToasts] = useState<ToastItem[]>([]);
@@ -54,7 +23,7 @@ export function ToastProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const toast = useCallback<ToastFn>(
-    (message, opts = {}) => {
+    (message, opts: ToastOptions = {}) => {
       const id = `${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
       const next: ToastItem = {
         id,

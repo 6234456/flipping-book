@@ -13,11 +13,13 @@ export type { ChipProps } from './Chip';
 export { EmptyState } from './EmptyState';
 export type { EmptyStateProps } from './EmptyState';
 
-export { Tooltip, TooltipProvider } from './Tooltip';
+export { Tooltip } from './Tooltip';
 export type { TooltipProps } from './Tooltip';
+export { TooltipProvider } from './TooltipProvider';
 
-export { ToastProvider, useToast } from './Toast';
+export { ToastProvider } from './Toast';
 export type { ToastVariant } from './Toast';
+export { useToast } from './useToast';
 
 export { DrawerHeader } from './DrawerHeader';
 export type { DrawerHeaderProps } from './DrawerHeader';
