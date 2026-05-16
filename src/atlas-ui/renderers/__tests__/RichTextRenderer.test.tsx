@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { RichTextRenderer } from '../RichTextRenderer';
+import { TooltipProvider } from '../../primitives';
 import type { RichTextNode } from '../../../atlas-core/types/content';
 import type { BookRegistry } from '../../../atlas-core/registry';
 import { createBookRegistry } from '../../../atlas-core/registry';
@@ -64,7 +65,9 @@ function renderNodes(nodes: RichTextNode[]) {
   const registry = makeTestRegistry();
   return render(
     <MemoryRouter>
-      <RichTextRenderer nodes={nodes} registry={registry} bookSlug="test" />
+      <TooltipProvider>
+        <RichTextRenderer nodes={nodes} registry={registry} bookSlug="test" />
+      </TooltipProvider>
     </MemoryRouter>
   );
 }
