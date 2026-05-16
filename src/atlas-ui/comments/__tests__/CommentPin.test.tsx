@@ -28,18 +28,17 @@ function buildThread(status: CommentThread['status']): CommentThread {
 
 describe('CommentPin', () => {
   it('renders at correct percentage position', () => {
-    const { container } = render(
-      <CommentPin thread={buildThread('open')} onClick={vi.fn()} />,
-    );
-    const btn = container.querySelector('button');
-    expect(btn).toHaveStyle({ left: '45%', top: '30%' });
+    const { container } = render(<CommentPin thread={buildThread('open')} onClick={vi.fn()} />);
+    const wrap = container.firstElementChild as HTMLElement;
+    expect(wrap.style.left).toBe('45%');
+    expect(wrap.style.top).toBe('30%');
   });
 
   it('calls onClick when clicked', async () => {
     const onClick = vi.fn();
     render(<CommentPin thread={buildThread('open')} onClick={onClick} />);
-    const buttons = screen.getAllByRole('button');
-    await userEvent.click(buttons[0]);
+    await userEvent.click(screen.getByRole('button'));
+    expect(onClick).toHaveBeenCalledTimes(1);          // critical: was double-firing
     expect(onClick).toHaveBeenCalledWith('thread-open');
   });
 

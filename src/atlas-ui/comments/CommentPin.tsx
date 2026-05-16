@@ -25,14 +25,9 @@ export function CommentPin({ thread, onClick, isHighlighted = false, onHover }: 
       .slice(0, 24) ?? '新评论';
 
   return (
-    <button
-      type="button"
-      onClick={() => onClick(thread.threadId)}
-      onMouseEnter={() => onHover?.(thread.threadId)}
-      onMouseLeave={() => onHover?.(null)}
+    <div
       className="absolute -translate-x-1/2 -translate-y-1/2 z-30"
       style={{ left: `${x}%`, top: `${y}%` }}
-      aria-label={`评论 · ${thread.category} · ${thread.messages.length} 条 · ${preview}`}
     >
       <Pin
         status={pinStatus}
@@ -40,8 +35,8 @@ export function CommentPin({ thread, onClick, isHighlighted = false, onHover }: 
         count={thread.messages.length}
         onClick={() => onClick(thread.threadId)}
         onHover={(entering) => onHover?.(entering ? thread.threadId : null)}
-        label={preview}
+        label={`评论 · ${thread.category} · ${thread.messages.length} 条 · ${preview}`}
       />
-    </button>
+    </div>
   );
 }
