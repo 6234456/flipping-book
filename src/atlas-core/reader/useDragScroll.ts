@@ -10,6 +10,7 @@ export function useDragScroll(enabled: boolean) {
     if (!el || !enabled) return;
 
     function onMouseDown(e: MouseEvent) {
+      e.preventDefault();
       dragging.current = true;
       startPos.current = {
         x: e.clientX,
@@ -23,6 +24,7 @@ export function useDragScroll(enabled: boolean) {
 
     function onMouseMove(e: MouseEvent) {
       if (!dragging.current) return;
+      e.preventDefault();
       const dx = e.clientX - startPos.current.x;
       const dy = e.clientY - startPos.current.y;
       el!.scrollLeft = startPos.current.scrollX - dx;

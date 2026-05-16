@@ -125,7 +125,7 @@ function PageContent({
 
   const mainClass = isFitPage
     ? 'flex-1 flex flex-col overflow-hidden'
-    : 'flex-1 flex flex-col overflow-auto';
+    : 'flex-1 flex flex-col overflow-auto min-h-0';
 
   return (
     <main ref={dragScrollRef} className={`${mainClass} bg-stone-900`}>
