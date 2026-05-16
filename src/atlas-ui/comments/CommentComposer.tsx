@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { Send } from 'lucide-react';
+import { Button } from '../primitives';
 
 type CommentComposerProps = {
   onSubmit: (text: string) => void;
@@ -16,28 +18,19 @@ export function CommentComposer({ onSubmit, onCancel }: CommentComposerProps) {
   }
 
   return (
-    <div className="border-t border-stone-700 p-3 bg-stone-900">
+    <div className="border-t border-border p-3 bg-surface-2 rounded-md">
       <textarea
         value={text}
         onChange={(e) => setText(e.target.value)}
-        placeholder="添加评论..."
-        className="w-full bg-stone-800 text-stone-200 text-sm rounded p-2 resize-none focus:outline-none focus:ring-1 focus:ring-blue-500"
+        placeholder="添加评论…"
+        className="w-full bg-page text-text text-sm rounded p-2 resize-none focus:outline-none focus:ring-2 focus:ring-accent-2/40 border border-border"
         rows={3}
       />
       <div className="flex justify-end gap-2 mt-2">
-        <button
-          onClick={onCancel}
-          className="px-3 py-1 text-xs rounded bg-stone-800 text-stone-400 hover:text-stone-200"
-        >
-          取消
-        </button>
-        <button
-          onClick={handleSubmit}
-          disabled={!text.trim()}
-          className="px-3 py-1 text-xs rounded bg-blue-600 text-white hover:bg-blue-500 disabled:opacity-40 disabled:cursor-not-allowed"
-        >
+        <Button variant="ghost" size="sm" onClick={onCancel}>取消</Button>
+        <Button variant="primary" size="sm" trailingIcon={Send} onClick={handleSubmit} disabled={!text.trim()}>
           发送
-        </button>
+        </Button>
       </div>
     </div>
   );

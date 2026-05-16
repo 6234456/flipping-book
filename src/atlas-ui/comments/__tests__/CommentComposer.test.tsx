@@ -8,7 +8,7 @@ describe('CommentComposer', () => {
     const onSubmit = vi.fn();
     render(<CommentComposer onSubmit={onSubmit} onCancel={vi.fn()} />);
 
-    await userEvent.type(screen.getByPlaceholderText('添加评论...'), '测试评论');
+    await userEvent.type(screen.getByPlaceholderText('添加评论…'), '测试评论');
     await userEvent.click(screen.getByText('发送'));
 
     expect(onSubmit).toHaveBeenCalledWith('测试评论');
