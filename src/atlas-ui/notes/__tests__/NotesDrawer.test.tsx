@@ -62,12 +62,12 @@ describe('NotesDrawer', () => {
 
   it('hides notes when closed', () => {
     const registry = makeRegistry(testNotes);
-    const { container } = render(
+    render(
       <MemoryRouter>
         <NotesDrawer noteIds={["note-1"]} registry={registry} open={false} onToggle={vi.fn()} />
       </MemoryRouter>
     );
-    expect(container.querySelector('.w-0')).toBeInTheDocument();
+    expect(screen.queryByRole('dialog')).not.toBeInTheDocument();
   });
 
   it('filters by note type', async () => {
@@ -88,6 +88,6 @@ describe('NotesDrawer', () => {
         <NotesDrawer noteIds={[]} registry={registry} open={true} onToggle={vi.fn()} />
       </MemoryRouter>
     );
-    expect(screen.getByText('暂无笔记')).toBeInTheDocument();
+    expect(screen.getByText('这一页还没有笔记')).toBeInTheDocument();
   });
 });
