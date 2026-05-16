@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { GlossaryPageTemplate } from '../GlossaryPageTemplate';
+import { TooltipProvider } from '../../primitives';
 import { createBookRegistry } from '../../../atlas-core/registry';
 import type { BookRegistry } from '../../../atlas-core/registry';
 import type { BookManifest } from '../../../atlas-core/types/manifest';
@@ -61,7 +62,9 @@ describe('GlossaryPageTemplate', () => {
     const registry = makeRegistry();
     render(
       <MemoryRouter>
-        <GlossaryPageTemplate registry={registry} />
+        <TooltipProvider>
+          <GlossaryPageTemplate registry={registry} />
+        </TooltipProvider>
       </MemoryRouter>
     );
     expect(screen.getByText('给付（Leistung）')).toBeInTheDocument();
@@ -71,7 +74,9 @@ describe('GlossaryPageTemplate', () => {
   it('shows category headers', () => {
     render(
       <MemoryRouter>
-        <GlossaryPageTemplate registry={makeRegistry()} />
+        <TooltipProvider>
+          <GlossaryPageTemplate registry={makeRegistry()} />
+        </TooltipProvider>
       </MemoryRouter>
     );
     expect(screen.getByText('VAT 基础概念')).toBeInTheDocument();
@@ -81,7 +86,9 @@ describe('GlossaryPageTemplate', () => {
   it('shows term definitions', () => {
     render(
       <MemoryRouter>
-        <GlossaryPageTemplate registry={makeRegistry()} />
+        <TooltipProvider>
+          <GlossaryPageTemplate registry={makeRegistry()} />
+        </TooltipProvider>
       </MemoryRouter>
     );
     expect(screen.getByText('VAT 判断的基本对象')).toBeInTheDocument();
@@ -90,7 +97,9 @@ describe('GlossaryPageTemplate', () => {
   it('has anchor IDs for term linking', () => {
     const { container } = render(
       <MemoryRouter>
-        <GlossaryPageTemplate registry={makeRegistry()} />
+        <TooltipProvider>
+          <GlossaryPageTemplate registry={makeRegistry()} />
+        </TooltipProvider>
       </MemoryRouter>
     );
     expect(container.querySelector('#leistung')).toBeInTheDocument();

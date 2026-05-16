@@ -1,16 +1,17 @@
 import type { BookRegistry } from '../../atlas-core/registry';
 import type { GlossaryCategory, GlossaryEntry } from '../../atlas-core/types/glossary';
 import { Term } from '../glossary/Term';
+import { Chip } from '../primitives';
 
 const CATEGORY_LABELS: Record<GlossaryCategory, string> = {
-  "vat-basic": "VAT 基础概念",
-  goods: "货物供应",
-  services: "服务给付",
-  invoice: "发票与凭证",
-  reporting: "申报与报告",
-  legal: "法规与条文",
-  customs: "海关",
-  "reader-ui": "阅读器界面",
+  'vat-basic': 'VAT 基础概念',
+  goods: '货物供应',
+  services: '服务给付',
+  invoice: '发票与凭证',
+  reporting: '申报与报告',
+  legal: '法规与条文',
+  customs: '海关',
+  'reader-ui': '阅读器界面',
 };
 
 type GlossaryPageTemplateProps = {
@@ -19,8 +20,6 @@ type GlossaryPageTemplateProps = {
 
 export function GlossaryPageTemplate({ registry }: GlossaryPageTemplateProps) {
   const terms = Array.from(registry.glossary.values());
-
-  // Group by category
   const grouped = new Map<GlossaryCategory, GlossaryEntry[]>();
   for (const term of terms) {
     const list = grouped.get(term.category) ?? [];
@@ -29,12 +28,12 @@ export function GlossaryPageTemplate({ registry }: GlossaryPageTemplateProps) {
   }
 
   return (
-    <div className="w-full max-w-3xl mx-auto p-8 text-stone-200 overflow-auto max-h-full">
-      <h1 className="text-3xl font-bold mb-8">术语表</h1>
+    <div className="w-full max-w-3xl mx-auto p-8 text-text overflow-auto max-h-full bg-page">
+      <h1 className="text-3xl font-bold font-serif mb-8 text-text">术语表</h1>
 
       {Array.from(grouped.entries()).map(([category, categoryTerms]) => (
         <section key={category} className="mb-8">
-          <h2 className="text-xl font-semibold mb-4 text-stone-300 border-b border-stone-700 pb-2">
+          <h2 className="text-xl font-semibold font-serif mb-4 text-text border-b border-border pb-2">
             {CATEGORY_LABELS[category] ?? category}
           </h2>
           <div className="space-y-4">
@@ -43,16 +42,18 @@ export function GlossaryPageTemplate({ registry }: GlossaryPageTemplateProps) {
                 <div className="flex items-baseline gap-2">
                   <Term entry={entry} bookSlug={registry.manifest.slug} first />
                 </div>
-                <p className="text-stone-400 text-sm mt-1 ml-1">
+                <p className="text-text-2 text-sm mt-1 ml-1 leading-relaxed">
                   {entry.shortDefinition}
                 </p>
                 {entry.relatedTermIds && entry.relatedTermIds.length > 0 && (
-                  <p className="text-stone-500 text-xs mt-1 ml-1">
-                    相关术语: {entry.relatedTermIds.map(id => {
+                  <div className="flex flex-wrap items-center gap-1 mt-1 ml-1">
+                    <span className="text-text-muted text-[11px]">相关术语:</span>
+                    {entry.relatedTermIds.map((id) => {
                       const related = registry.getTerm(id);
-                      return related ? `${related.zh}(${related.original})` : id;
-                    }).join('、')}
-                  </p>
+                      const label = related ? `${related.zh}(${related.original})` : id;
+                      return <Chip key={id}>{label}</Chip>;
+                    })}
+                  </div>
                 )}
               </div>
             ))}
