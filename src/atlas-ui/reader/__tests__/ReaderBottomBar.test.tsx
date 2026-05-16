@@ -30,7 +30,7 @@ describe('ReaderBottomBar', () => {
         onPrevious={vi.fn()}
       />
     );
-    const btn = screen.getByText('下一页 →');
+    const btn = screen.getByRole('button', { name: '下一页' });
     expect(btn).not.toBeDisabled();
     await userEvent.click(btn);
     expect(onNext).toHaveBeenCalledTimes(1);
@@ -47,7 +47,7 @@ describe('ReaderBottomBar', () => {
         onPrevious={vi.fn()}
       />
     );
-    expect(screen.getByText('下一页 →')).toBeDisabled();
+    expect(screen.getByRole('button', { name: '下一页' })).toBeDisabled();
   });
 
   it('previous button is disabled when cannot go previous', () => {
@@ -61,7 +61,7 @@ describe('ReaderBottomBar', () => {
         onPrevious={vi.fn()}
       />
     );
-    expect(screen.getByText('← 上一页')).toBeDisabled();
+    expect(screen.getByRole('button', { name: '上一页' })).toBeDisabled();
   });
 
   it('calls onPrevious when clicked', async () => {
@@ -76,7 +76,7 @@ describe('ReaderBottomBar', () => {
         onPrevious={onPrevious}
       />
     );
-    await userEvent.click(screen.getByText('← 上一页'));
+    await userEvent.click(screen.getByRole('button', { name: '上一页' }));
     expect(onPrevious).toHaveBeenCalledTimes(1);
   });
 
@@ -91,7 +91,7 @@ describe('ReaderBottomBar', () => {
         onPrevious={vi.fn()}
       />
     );
-    const bar = container.querySelector('.h-1.bg-stone-800 > div');
+    const bar = container.querySelector('.h-1 > div');
     expect(bar).toHaveStyle({ width: '100%' });
   });
 });

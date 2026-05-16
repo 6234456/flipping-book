@@ -1,3 +1,6 @@
+import { ChevronLeft, ChevronRight } from 'lucide-react';
+import { Button } from '../primitives';
+
 type ReaderBottomBarProps = {
   currentIndex: number;
   totalPages: number;
@@ -18,31 +21,35 @@ export function ReaderBottomBar({
   const progress = totalPages > 1 ? (currentIndex / (totalPages - 1)) * 100 : 100;
 
   return (
-    <footer className="flex flex-col shrink-0 bg-stone-950 text-stone-200">
-      <div className="h-1 bg-stone-800">
+    <footer className="flex flex-col shrink-0 bg-page border-t border-border">
+      <div className="h-1 bg-border">
         <div
-          className="h-full bg-stone-400 transition-all duration-300"
+          className="h-full bg-accent transition-all duration-300"
           style={{ width: `${progress}%` }}
         />
       </div>
       <div className="flex items-center justify-between px-4 py-2">
-        <button
+        <Button
+          variant="secondary"
+          size="sm"
+          leadingIcon={ChevronLeft}
           onClick={onPrevious}
           disabled={!canGoPrevious}
-          className="px-3 py-1 rounded text-sm bg-stone-800 hover:bg-stone-700 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
         >
-          ← 上一页
-        </button>
-        <span className="text-xs text-stone-400">
+          上一页
+        </Button>
+        <span className="text-xs text-text-2 tabular-nums">
           {currentIndex + 1} / {totalPages}
         </span>
-        <button
+        <Button
+          variant="secondary"
+          size="sm"
+          trailingIcon={ChevronRight}
           onClick={onNext}
           disabled={!canGoNext}
-          className="px-3 py-1 rounded text-sm bg-stone-800 hover:bg-stone-700 disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
         >
-          下一页 →
-        </button>
+          下一页
+        </Button>
       </div>
     </footer>
   );
