@@ -121,24 +121,24 @@ describe('PageViewport zoom', () => {
 
   it('shows correct zoom label', () => {
     renderWithZoom('fit-page');
-    expect(screen.getByText('🔍 适应页面')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /适应页面/ })).toBeInTheDocument();
   });
 
   it('fit-width shows correct label', () => {
     renderWithZoom('fit-width');
-    expect(screen.getByText('🔍 适应宽度')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /适应宽度/ })).toBeInTheDocument();
   });
 
   it('actual-size shows correct label', () => {
     renderWithZoom('actual-size');
-    expect(screen.getByText('🔍 实际大小')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /实际大小/ })).toBeInTheDocument();
   });
 
   it('clicking zoom button calls onCycleZoom', async () => {
     const onCycleZoom = vi.fn();
     renderWithZoom('fit-page', onCycleZoom);
 
-    const btn = screen.getByText('🔍 适应页面');
+    const btn = screen.getByRole('button', { name: /适应页面/ });
     btn.click();
     expect(onCycleZoom).toHaveBeenCalledTimes(1);
   });
@@ -147,7 +147,7 @@ describe('PageViewport zoom', () => {
     const onCycleZoom = vi.fn();
     const { rerender } = renderWithZoom('fit-page', onCycleZoom);
 
-    expect(screen.getByText('🔍 适应页面')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /适应页面/ })).toBeInTheDocument();
 
     // Rerender with different zoom
     const registry = makeRegistry();
@@ -169,7 +169,7 @@ describe('PageViewport zoom', () => {
       </MemoryRouter>
     );
 
-    expect(screen.getByText('🔍 适应宽度')).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /适应宽度/ })).toBeInTheDocument();
   });
 
   it('image gets max-h-full class for fit-page', () => {
