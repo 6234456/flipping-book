@@ -4,6 +4,7 @@ import type { BookRegistry } from '../../atlas-core/registry';
 import { createCommentStore } from '../../atlas-core/annotations/commentStore';
 import type { CommentThread, AnnotationAnchor } from '../../atlas-core/types/comments';
 import type { ZoomLevel } from '../renderers/ImageOverlayTemplate';
+import { useToast } from '../primitives';
 import { ReaderShell } from './ReaderShell';
 
 type MagazineReaderProps = {
@@ -25,6 +26,8 @@ export function MagazineReader({ registry, initialPageId }: MagazineReaderProps)
       return undefined;
     }
   }, [registry.manifest.bookId, initialPageId]);
+
+  const toast = useToast();
 
   const readerState = useReaderState(registry, restoredPageId);
   useKeyboardNavigation(readerState, registry.manifest.reader.enableKeyboardNavigation);
@@ -174,13 +177,14 @@ export function MagazineReader({ registry, initialPageId }: MagazineReaderProps)
         const text = reader.result as string;
         const result = commentStore.importJSON(text);
         refreshThreads();
-        alert(`导入完成: ${result.imported} 条新评论, ${result.skipped} 条重复跳过`);
+        toast(`导入 ${result.imported} 条新评论 · 跳过 ${result.skipped} 条重复`, {
+          variant: 'success',
+        });
       };
       reader.readAsText(file);
-      // Reset file input
       e.target.value = '';
     },
-    [commentStore, refreshThreads],
+    [commentStore, refreshThreads, toast],
   );
 
   // Determine note IDs for current page
