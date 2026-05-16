@@ -44,10 +44,10 @@ export function CoverPageTemplate({ page, imageAsset, locale, zoom = 'fit-width'
   }
 
   return (
-    <div className="w-[1000px] h-[1414px] bg-gradient-to-b from-stone-800 to-stone-900 flex flex-col items-center justify-center text-stone-200">
+    <div className="w-[1000px] h-[1414px] bg-gradient-to-b from-chrome-2 to-chrome flex flex-col items-center justify-center text-page">
       <h1 className="text-4xl font-bold mb-4">{page.title?.[locale]}</h1>
       {page.subtitle?.[locale] && (
-        <p className="text-xl text-stone-400">{page.subtitle[locale]}</p>
+        <p className="text-xl text-text-muted">{page.subtitle[locale]}</p>
       )}
     </div>
   );

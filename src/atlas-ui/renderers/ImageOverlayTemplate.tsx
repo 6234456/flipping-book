@@ -13,7 +13,7 @@ type ImageOverlayTemplateProps = {
 export function ImageOverlayTemplate({ page, imageAsset, zoom = 'fit-width' }: ImageOverlayTemplateProps) {
   if (!imageAsset) {
     return (
-      <div className="w-[1000px] h-[1414px] bg-stone-800 flex items-center justify-center text-stone-400">
+      <div className="w-[1000px] h-[1414px] bg-surface-2 flex items-center justify-center text-text-muted">
         图片不可用: {page.title?.['zh-CN'] ?? page.pageId}
       </div>
     );

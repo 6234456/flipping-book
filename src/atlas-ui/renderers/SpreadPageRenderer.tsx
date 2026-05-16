@@ -63,7 +63,7 @@ export function SpreadPageRenderer({
     if (spreadImages.sourceMode === 'single-spread-image') {
       // Show the full spread image but as a single tall image
       const image = registry.getImage(spreadImages.spread.assetId);
-      if (!image) return <div className="text-stone-400 p-8">跨页图片不可用</div>;
+      if (!image) return <div className="text-text-muted p-8">跨页图片不可用</div>;
 
       return (
         <div className="relative inline-block max-h-full">
@@ -94,7 +94,7 @@ export function SpreadPageRenderer({
       : null;
     const image = imageRef ? registry.getImage(imageRef.assetId) : undefined;
 
-    if (!image) return <div className="text-stone-400 p-8">图片不可用</div>;
+    if (!image) return <div className="text-text-muted p-8">图片不可用</div>;
 
     const transformedOverlay = spreadImages.sourceMode === 'two-page-composition' && overlayConfig
       ? mapOverlayToSpread(overlayConfig, 'two-page-composition', side)
@@ -125,7 +125,7 @@ export function SpreadPageRenderer({
   // Spread mode (desktop): render as double-page spread
   if (spreadImages.sourceMode === 'single-spread-image') {
     const image = registry.getImage(spreadImages.spread.assetId);
-    if (!image) return <div className="text-stone-400 p-8">跨页图片不可用</div>;
+    if (!image) return <div className="text-text-muted p-8">跨页图片不可用</div>;
 
     return (
       <div className="relative inline-block max-h-full">
@@ -181,7 +181,7 @@ export function SpreadPageRenderer({
             draggable={false}
           />
         ) : (
-          <div className="bg-stone-800 aspect-[1/1.414] flex items-center justify-center text-stone-400">
+          <div className="bg-surface-2 aspect-[1/1.414] flex items-center justify-center text-text-muted">
             左页图片不可用
           </div>
         )}
@@ -204,7 +204,7 @@ export function SpreadPageRenderer({
             draggable={false}
           />
         ) : (
-          <div className="bg-stone-800 aspect-[1/1.414] flex items-center justify-center text-stone-400">
+          <div className="bg-surface-2 aspect-[1/1.414] flex items-center justify-center text-text-muted">
             右页图片不可用
           </div>
         )}
