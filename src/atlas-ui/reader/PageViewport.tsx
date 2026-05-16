@@ -2,7 +2,6 @@ import { useNavigate } from 'react-router-dom';
 import type { BookRegistry } from '../../atlas-core/registry';
 import type { ReaderState } from '../../atlas-core/reader';
 import { useSpreadMode } from '../../atlas-core/reader/useSpreadMode';
-import { useDragScroll } from '../../atlas-core/reader/useDragScroll';
 import { PageRenderer } from '../renderers/PageRenderer';
 import { SpreadPageRenderer } from '../renderers/SpreadPageRenderer';
 import { HotspotLayer } from '../overlay/HotspotLayer';
@@ -52,10 +51,6 @@ function PageContent({
 
   const zoomLabel = zoom === 'fit-page' ? '适应页面' : zoom === 'fit-width' ? '适应宽度' : '实际大小';
   const isFitPage = zoom === 'fit-page';
-  const isActualSize = zoom === 'actual-size';
-
-  // Drag-to-scroll for scrollable modes (fit-width, actual-size)
-  const dragScrollRef = useDragScroll(!isFitPage);
 
   const overlayConfig = page.overlay
     ? registry.getOverlay(page.overlay.overlayId)
@@ -72,65 +67,35 @@ function PageContent({
     );
   }
 
-  function renderImageContent() {
+  // Spread mode
+  if (page.spreadImages && spreadMode.mode === 'spread') {
     return (
-      <div className="relative">
-        {page.spreadImages && spreadMode.mode === 'spread' ? (
-          <>
-            <SpreadPageRenderer
-              page={page}
-              spreadImages={page.spreadImages}
-              registry={registry}
-              locale="zh-CN"
-              spreadMode={spreadMode.mode}
-              interactionMode={interactionMode}
-              onNavigate={onNavigate}
-            />
-            {interactionMode === 'comment' && renderPins()}
-          </>
-        ) : (
-          <>
-            <PageRenderer page={page} imageAsset={imageAsset} locale="zh-CN" registry={registry} zoom={zoom} />
-
-            {overlayConfig && interactionMode === 'read' && (
-              <HotspotLayer overlay={overlayConfig} imageAsset={imageAsset} onNavigate={onNavigate} />
-            )}
-
-            {interactionMode === 'comment' && renderPins()}
-
-            <CommentCaptureLayer
-              pageId={page.pageId}
-              imageAssetId={effectiveImageAssetId}
-              imageVersion={effectiveImageVersion}
-              active={interactionMode === 'comment'}
-              onCreateAnchor={onCreateAnchor}
-            />
-
-            {overlayConfig && interactionMode === 'debugOverlay' && (
-              <DebugOverlay overlay={overlayConfig} imageAsset={imageAsset} />
-            )}
-          </>
-        )}
-      </div>
+      <main className="flex-1 flex flex-col items-center overflow-auto bg-stone-900">
+        <div className="sticky top-0 z-50 flex items-center gap-1 px-2 py-1 bg-stone-900/90 backdrop-blur shrink-0 self-start">
+          <button onClick={onCycleZoom} className="px-2 py-0.5 rounded text-xs bg-stone-800 text-stone-400 hover:text-stone-200">
+            🔍 {zoomLabel}
+          </button>
+        </div>
+        <div className="relative">
+          <SpreadPageRenderer
+            page={page}
+            spreadImages={page.spreadImages}
+            registry={registry}
+            locale="zh-CN"
+            spreadMode={spreadMode.mode}
+            interactionMode={interactionMode}
+            onNavigate={onNavigate}
+          />
+          {interactionMode === 'comment' && renderPins()}
+        </div>
+      </main>
     );
   }
 
-  // Content wrapper class based on zoom
-  let contentClass = '';
-  if (isFitPage) {
-    contentClass = 'flex-1 flex items-center justify-center overflow-hidden';
-  } else if (isActualSize) {
-    contentClass = 'min-w-full min-h-full flex items-center justify-center';
-  }
-
-  const mainClass = isFitPage
-    ? 'flex-1 flex flex-col overflow-hidden'
-    : 'flex-1 flex flex-col overflow-auto min-h-0';
-
+  // Single page mode
   return (
-    <main ref={dragScrollRef} className={`${mainClass} bg-stone-900`}>
-      {/* Zoom bar */}
-      <div className="sticky top-0 z-50 flex items-center gap-1 px-2 py-1 bg-stone-900/90 backdrop-blur shrink-0">
+    <main className="flex-1 flex flex-col items-center overflow-auto bg-stone-900">
+      <div className="sticky top-0 z-50 flex items-center gap-1 px-2 py-1 bg-stone-900/90 backdrop-blur shrink-0 self-start">
         <button onClick={onCycleZoom} className="px-2 py-0.5 rounded text-xs bg-stone-800 text-stone-400 hover:text-stone-200">
           🔍 {zoomLabel}
         </button>
@@ -139,8 +104,28 @@ function PageContent({
         )}
       </div>
 
-      <div className={`relative ${contentClass}`}>
-        {renderImageContent()}
+      <div className={`relative ${isFitPage ? 'flex-1 flex items-center justify-center overflow-hidden' : ''}`}>
+        <div className="relative">
+          <PageRenderer page={page} imageAsset={imageAsset} locale="zh-CN" registry={registry} zoom={zoom} />
+
+          {overlayConfig && interactionMode === 'read' && (
+            <HotspotLayer overlay={overlayConfig} imageAsset={imageAsset} onNavigate={onNavigate} />
+          )}
+
+          {interactionMode === 'comment' && renderPins()}
+
+          <CommentCaptureLayer
+            pageId={page.pageId}
+            imageAssetId={effectiveImageAssetId}
+            imageVersion={effectiveImageVersion}
+            active={interactionMode === 'comment'}
+            onCreateAnchor={onCreateAnchor}
+          />
+
+          {overlayConfig && interactionMode === 'debugOverlay' && (
+            <DebugOverlay overlay={overlayConfig} imageAsset={imageAsset} />
+          )}
+        </div>
       </div>
     </main>
   );

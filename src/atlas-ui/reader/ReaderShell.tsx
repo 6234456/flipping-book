@@ -153,7 +153,7 @@ export function ReaderShell({
       </nav>
 
       {/* Main content */}
-      <div className="flex-1 flex flex-col relative overflow-hidden">
+      <div className="flex-1 relative overflow-hidden">
         <PageViewport
           registry={registry}
           readerState={readerState}
