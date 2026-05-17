@@ -11,6 +11,7 @@ import { ReaderBottomBar } from './ReaderBottomBar';
 import { PageViewport } from './PageViewport';
 import { ReaderRail } from '../rail/ReaderRail';
 import { MobileRailSheet } from '../rail/MobileRailSheet';
+import { SlimRail } from '../rail/SlimRail';
 
 type ReaderShellProps = {
   registry: BookRegistry;
@@ -116,7 +117,7 @@ export function ReaderShell({
       {manifest.navigation?.showTopBar && (
         <header className="flex items-center bg-chrome text-page h-11 px-3.5 gap-2.5 shrink-0 text-[12px]">
           <span className="text-accent-2 shrink-0">
-            <Icon icon={BookOpen} size={16} />
+            <Icon icon={BookOpen} size={14} />
           </span>
           <span className="font-semibold shrink-0">{brand}</span>
           {sectionTitle ? (
@@ -191,6 +192,13 @@ export function ReaderShell({
           />
         )}
 
+        {isMobile && !railOpen && (
+          <SlimRail
+            activeTab={null}
+            badges={{ comments: commentThreads.length, notes: noteIds.length, toc: 0 }}
+            onExpand={onRailExpand}
+          />
+        )}
         {isMobile && (
           <AnimatePresence>
             {railOpen ? (

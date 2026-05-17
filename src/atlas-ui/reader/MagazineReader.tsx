@@ -161,12 +161,21 @@ export function MagazineReader({ registry, initialPageId }: MagazineReaderProps)
         const target = e.target as HTMLElement | null;
         if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA')) return;
         e.preventDefault();
+        // Clean up any empty draft thread created by + button
+        if (selectedThreadId) {
+          const sel = commentThreads.find((t) => t.threadId === selectedThreadId);
+          if (sel && sel.messages.length === 0) {
+            commentStore.deleteThread(selectedThreadId);
+            refreshThreads();
+            setSelectedThreadId(null);
+          }
+        }
         readerState.setInteractionMode('read');
       }
     };
     window.addEventListener('keydown', onKey);
     return () => window.removeEventListener('keydown', onKey);
-  }, [readerState]);
+  }, [readerState, selectedThreadId, commentThreads, commentStore, refreshThreads]);
 
   const handleNavigateToPage = useCallback((pageId: string) => {
     readerState.goToPage(pageId);

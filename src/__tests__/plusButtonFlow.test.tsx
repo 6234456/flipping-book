@@ -74,4 +74,28 @@ describe('+ button flow', () => {
     fireEvent.keyDown(window, { key: 'n' });
     expect(await screen.findByText(/点击图片任意位置添加评论/)).toBeInTheDocument();
   });
+
+  it('auto-exits comment mode after a pin is created', async () => {
+    render(
+      <MemoryRouter>
+        <TooltipProvider>
+          <ToastProvider>
+            <MagazineReader registry={build()} />
+          </ToastProvider>
+        </TooltipProvider>
+      </MemoryRouter>,
+    );
+
+    const plus = await screen.findByRole('button', { name: /新增评论/ });
+    await userEvent.click(plus);
+    expect(screen.getByText(/点击图片任意位置添加评论/)).toBeInTheDocument();
+
+    // Simulate creating a pin via CommentCaptureLayer
+    const capture = document.querySelector('.cursor-crosshair') as HTMLElement | null;
+    expect(capture).not.toBeNull();
+    fireEvent.click(capture!, { clientX: 100, clientY: 100 });
+
+    // Banner should disappear (comment mode auto-exited)
+    expect(screen.queryByText(/点击图片任意位置添加评论/)).not.toBeInTheDocument();
+  });
 });

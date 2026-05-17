@@ -170,7 +170,14 @@ export function ThreadList({
                 {isOpen && (
                   <CommentComposer
                     onSubmit={(text) => onAddMessage(thread.threadId, text)}
-                    onCancel={() => onSelectThread(null)}
+                    onCancel={() => {
+                      // If the thread is empty (no messages yet), it was a + button draft — clean it up.
+                      if (thread.messages.length === 0) {
+                        onDeleteThread(thread.threadId);
+                      } else {
+                        onSelectThread(null);
+                      }
+                    }}
                   />
                 )}
               </div>

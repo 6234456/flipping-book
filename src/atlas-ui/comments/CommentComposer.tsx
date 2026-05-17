@@ -25,6 +25,7 @@ export function CommentComposer({ onSubmit, onCancel }: CommentComposerProps) {
         placeholder="添加评论…"
         className="w-full bg-page text-text text-sm rounded p-2 resize-none focus:outline-none focus:ring-2 focus:ring-accent-2/40 border border-border"
         rows={3}
+        autoFocus
       />
       <div className="flex justify-end gap-2 mt-2">
         <Button variant="ghost" size="sm" onClick={onCancel}>取消</Button>
