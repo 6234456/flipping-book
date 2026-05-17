@@ -4,23 +4,57 @@ import { MemoryRouter } from 'react-router-dom';
 import { ToastProvider, TooltipProvider } from '../atlas-ui/primitives';
 import { MagazineReader } from '../atlas-ui/reader/MagazineReader';
 import { createBookRegistry } from '../atlas-core/registry';
-import { vatAtlasManifest } from '../books/de-eu-vat/manifest';
-import { imageAssets } from '../books/de-eu-vat/imageAssets';
-import { glossary } from '../books/de-eu-vat/glossary';
-import { legalRefs } from '../books/de-eu-vat/legalRefs';
-import { scenarios } from '../books/de-eu-vat/scenarios';
-import { contents } from '../books/de-eu-vat/contents';
-import { notes } from '../books/de-eu-vat/notes';
-import { vatAtlasOverlays } from '../books/de-eu-vat/overlays/index.js';
 import type { BookManifest } from '../atlas-core/types/manifest';
-import type { ImageAsset } from '../atlas-core/types/image';
-import type { OverlayConfig } from '../atlas-core/types/overlay';
-import type { GlossaryEntry } from '../atlas-core/types/glossary';
-import type { LegalRef } from '../atlas-core/types/legal';
-import type { VatScenario } from '../atlas-core/types/scenario';
-import type { AtlasNote } from '../atlas-core/types/notes';
-import type { PageContent } from '../atlas-core/types/content';
-import type { CommentThread } from '../atlas-core/types/comments';
+
+const fixtureManifest: BookManifest = {
+  schemaVersion: '1.0',
+  bookId: 'de-eu-vat-atlas',
+  slug: 'de-eu-vat',
+  title: { 'zh-CN': 'Fixture' },
+  version: '0.6.1-fixture',
+  defaultLocale: 'zh-CN',
+  supportedLocales: ['zh-CN'],
+  visualSystem: 'VAT_ATLAS_MAGAZINE_V2',
+  reader: {
+    defaultMode: 'auto',
+    allowModeSwitch: false,
+    transition: 'fade',
+    enableKeyboardNavigation: true,
+    enableSwipeNavigation: true,
+    enableProgressBar: true,
+    enableTableOfContents: true,
+    defaultZoom: 'fit-page',
+    spreadBehavior: {
+      desktopDefault: 'single',
+      mobileDefault: 'single',
+      spreadPageAdvance: 'by-page',
+      keyboard: { arrowLeft: 'previous', arrowRight: 'next' },
+      clickZones: { enabled: false, leftEdgePercent: 0, rightEdgePercent: 0 },
+    },
+  },
+  pages: [
+    {
+      pageId: 'toc',
+      slug: '/page/toc',
+      type: 'imageOverlay',
+      title: { 'zh-CN': 'TOC' },
+      pageNumber: 1,
+      layout: {
+        mode: 'single', format: 'custom',
+        size: { preset: 'custom', width: 1086, height: 1448 },
+        background: 'image',
+      },
+      image: { assetId: 'toc-img', version: '0.6.1' },
+      overlay: { overlayId: 'toc-overlay', imageAssetId: 'toc-img', imageVersion: '0.6.1' },
+    },
+  ],
+  readingOrder: ['toc'],
+  registries: { imageAssets: '', overlays: '', glossary: '' },
+  featureFlags: {
+    glossaryTooltips: true, notesDrawer: false, comments: true,
+    debugOverlay: false, pageFlip: false, search: false, exportComments: true,
+  },
+};
 
 describe('Import comments toast', () => {
   let alertSpy: ReturnType<typeof vi.spyOn>;
@@ -33,17 +67,7 @@ describe('Import comments toast', () => {
   });
 
   function renderApp() {
-    const registry = createBookRegistry(
-      vatAtlasManifest as unknown as BookManifest,
-      imageAssets as unknown as ImageAsset[],
-      vatAtlasOverlays as unknown as OverlayConfig[],
-      glossary as unknown as GlossaryEntry[],
-      legalRefs as unknown as LegalRef[],
-      scenarios as unknown as VatScenario[],
-      notes as unknown as AtlasNote[],
-      contents as unknown as PageContent[],
-      [] as CommentThread[],
-    );
+    const registry = createBookRegistry(fixtureManifest, [], [], [], [], [], [], [], []);
     return render(
       <MemoryRouter>
         <TooltipProvider>
