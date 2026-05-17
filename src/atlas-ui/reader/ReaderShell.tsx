@@ -1,24 +1,24 @@
-import { FileText, MessageSquare, MousePointerClick, Eye, Upload, Download, Bug } from 'lucide-react';
+import { AnimatePresence } from 'framer-motion';
+import { BookOpen, MousePointerClick, Eye, Bug } from 'lucide-react';
 import type { BookRegistry } from '../../atlas-core/registry';
 import type { ReaderState } from '../../atlas-core/reader';
 import type { CommentThread, AnnotationAnchor } from '../../atlas-core/types/comments';
 import type { NoteId } from '../../atlas-core/types/primitives';
 import type { ZoomLevel } from '../renderers/ImageOverlayTemplate';
-import { Button, Toggle } from '../primitives';
-import { ReaderTopBar } from './ReaderTopBar';
+import type { RailTab } from '../../atlas-core/reader/useRailState';
+import { ChromeButton, Icon, InfoBanner } from '../primitives';
 import { ReaderBottomBar } from './ReaderBottomBar';
 import { PageViewport } from './PageViewport';
-import { NotesDrawer } from '../notes/NotesDrawer';
-import { CommentPanel } from '../comments/CommentPanel';
+import { ReaderRail } from '../rail/ReaderRail';
+import { MobileRailSheet } from '../rail/MobileRailSheet';
 
 type ReaderShellProps = {
   registry: BookRegistry;
   readerState: ReaderState;
   zoom: ZoomLevel;
   onCycleZoom: () => void;
-  noteIds: NoteId[];
-  notesOpen: boolean;
-  onToggleNotes: () => void;
+
+  // Comments
   commentThreads: CommentThread[];
   selectedThreadId: string | null;
   highlightedThreadId: string | null;
@@ -28,13 +28,30 @@ type ReaderShellProps = {
   onResolve: (threadId: string) => void;
   onReopen: (threadId: string) => void;
   onCreateAnchor: (anchor: AnnotationAnchor) => void;
-  commentsOpen: boolean;
-  onToggleComments: () => void;
-  onExportComments: () => void;
-  onImportComments: () => void;
   onDeleteThread: (threadId: string) => void;
   onEditMessage: (threadId: string, messageId: string, text: string) => void;
   onDeleteMessage: (threadId: string, messageId: string) => void;
+
+  // Notes
+  noteIds: NoteId[];
+
+  // Rail state
+  railOpen: boolean;
+  railTab: RailTab;
+  railWidth: number;
+  onRailTabChange: (tab: RailTab) => void;
+  onRailCollapse: () => void;
+  onRailExpand: (toTab: RailTab) => void;
+
+  // + button / banner
+  onPlusClick: () => void;
+  onDismissCommentMode: () => void;
+
+  // Mobile
+  isMobile: boolean;
+
+  // Navigation
+  onNavigateToPage: (pageId: string) => void;
 };
 
 export function ReaderShell({
@@ -42,9 +59,6 @@ export function ReaderShell({
   readerState,
   zoom,
   onCycleZoom,
-  noteIds,
-  notesOpen,
-  onToggleNotes,
   commentThreads,
   selectedThreadId,
   highlightedThreadId,
@@ -54,13 +68,20 @@ export function ReaderShell({
   onResolve,
   onReopen,
   onCreateAnchor,
-  commentsOpen,
-  onToggleComments,
-  onExportComments,
-  onImportComments,
   onDeleteThread,
   onEditMessage,
   onDeleteMessage,
+  noteIds,
+  railOpen,
+  railTab,
+  railWidth,
+  onRailTabChange,
+  onRailCollapse,
+  onRailExpand,
+  onPlusClick,
+  onDismissCommentMode,
+  isMobile,
+  onNavigateToPage,
 }: ReaderShellProps) {
   const { manifest } = registry;
   const { currentPage, interactionMode } = readerState;
@@ -68,131 +89,119 @@ export function ReaderShell({
   const inCommentMode = interactionMode === 'comment';
   const inDebugMode = interactionMode === 'debugOverlay';
 
+  const brand = manifest.title['zh-CN'] ?? '';
+  const sectionTitle = currentPage?.title?.['zh-CN'];
+
+  const railHandlers = {
+    threads: commentThreads,
+    noteIds,
+    registry,
+    currentPageId: currentPage?.pageId ?? null,
+    selectedThreadId,
+    highlightedThreadId,
+    onSelectThread,
+    onHoverThread,
+    onAddMessage,
+    onResolve,
+    onReopen,
+    onDeleteThread,
+    onEditMessage,
+    onDeleteMessage,
+    onPlusClick,
+    onNavigate: onNavigateToPage,
+  };
+
   return (
     <div className="flex flex-col h-dvh bg-surface" role="application" aria-label="VAT Atlas 阅读器">
       {manifest.navigation?.showTopBar && (
-        <ReaderTopBar
-          title={manifest.title}
-          pageTitle={currentPage?.title}
-          pageNumber={currentPage?.pageNumber}
-          totalPages={readerState.totalPages}
-          interactionMode={interactionMode}
-        />
-      )}
+        <header className="flex items-center bg-chrome text-page h-11 px-3.5 gap-2.5 shrink-0 text-[12px]">
+          <span className="text-accent-2 shrink-0">
+            <Icon icon={BookOpen} size={16} />
+          </span>
+          <span className="font-semibold shrink-0">{brand}</span>
+          {sectionTitle ? (
+            <>
+              <span className="opacity-30" aria-hidden="true">·</span>
+              <span className="opacity-60 truncate">{sectionTitle}</span>
+            </>
+          ) : null}
+          <span className="w-px h-3.5 bg-white/15 mx-1 shrink-0" aria-hidden="true" />
 
-      <nav
-        className="flex items-center gap-1 px-3 py-1.5 bg-page border-b border-border shrink-0"
-        aria-label="工具栏"
-      >
-        {featureFlags?.notesDrawer && (
-          <Toggle
-            size="sm"
-            pressed={notesOpen}
-            onPressedChange={onToggleNotes}
-            leadingIcon={FileText}
-            aria-label="笔记面板"
-          >
-            笔记
-          </Toggle>
-        )}
-        {featureFlags?.comments && (
-          <>
-            <Toggle
-              size="sm"
-              pressed={commentsOpen}
-              onPressedChange={onToggleComments}
-              leadingIcon={MessageSquare}
-              aria-label={`评论面板 (${commentThreads.length} 条)`}
-            >
-              评论 ({commentThreads.length})
-            </Toggle>
-            <Toggle
-              size="sm"
+          {featureFlags?.comments && (
+            <ChromeButton
               pressed={inCommentMode}
-              onPressedChange={() =>
-                readerState.setInteractionMode(inCommentMode ? 'read' : 'comment')
-              }
               leadingIcon={inCommentMode ? Eye : MousePointerClick}
+              onClick={() => readerState.setInteractionMode(inCommentMode ? 'read' : 'comment')}
               aria-label="切换评论模式"
             >
               评论模式
-            </Toggle>
-            <span className="w-px h-4 bg-divider mx-1" aria-hidden="true" />
-            <Button
-              variant="ghost"
-              size="sm"
-              iconOnly
-              leadingIcon={Upload}
-              onClick={onExportComments}
-              aria-label="导出评论为 JSON"
-              title="导出评论为 JSON"
-            />
-            <Button
-              variant="ghost"
-              size="sm"
-              iconOnly
-              leadingIcon={Download}
-              onClick={onImportComments}
-              aria-label="从 JSON 导入评论"
-              title="从 JSON 导入评论"
-            />
-          </>
-        )}
-        {featureFlags?.debugOverlay && (
-          <>
-            <span className="w-px h-4 bg-divider mx-1" aria-hidden="true" />
-            <Toggle
-              size="sm"
+            </ChromeButton>
+          )}
+          {featureFlags?.debugOverlay && (
+            <ChromeButton
               pressed={inDebugMode}
-              onPressedChange={readerState.toggleDebugOverlay}
               leadingIcon={Bug}
+              onClick={readerState.toggleDebugOverlay}
               aria-label="切换调试覆盖层"
             >
               Debug
-            </Toggle>
-          </>
-        )}
-      </nav>
+            </ChromeButton>
+          )}
 
-      <div className="flex-1 relative overflow-hidden">
-        <PageViewport
-          registry={registry}
-          readerState={readerState}
-          zoom={zoom}
-          onCycleZoom={onCycleZoom}
-          commentThreads={commentThreads}
-          selectedThreadId={selectedThreadId}
-          highlightedThreadId={highlightedThreadId}
-          onSelectThread={onSelectThread}
-          onHoverThread={onHoverThread}
-          onCreateAnchor={onCreateAnchor}
+          <div className="ml-auto opacity-65 tabular-nums shrink-0 font-mono text-[11px]">
+            第 {currentPage?.pageNumber ?? '-'} / {readerState.totalPages} 页
+          </div>
+        </header>
+      )}
+
+      {inCommentMode && (
+        <InfoBanner
+          variant="accent"
+          icon={MousePointerClick}
+          message="点击图片任意位置添加评论 · 按 ESC 取消"
+          onDismiss={onDismissCommentMode}
         />
+      )}
 
-        {featureFlags?.notesDrawer && noteIds.length > 0 && (
-          <NotesDrawer
-            noteIds={noteIds}
+      <div className="flex-1 flex relative overflow-hidden">
+        <div className="flex-1 flex flex-col min-w-0">
+          <PageViewport
             registry={registry}
-            open={notesOpen}
-            onToggle={onToggleNotes}
-          />
-        )}
-
-        {featureFlags?.comments && (
-          <CommentPanel
-            threads={commentThreads}
+            readerState={readerState}
+            zoom={zoom}
+            onCycleZoom={onCycleZoom}
+            commentThreads={commentThreads}
             selectedThreadId={selectedThreadId}
             highlightedThreadId={highlightedThreadId}
             onSelectThread={onSelectThread}
             onHoverThread={onHoverThread}
-            onAddMessage={onAddMessage}
-            onResolve={onResolve}
-            onReopen={onReopen}
-            onDeleteThread={onDeleteThread}
-            onEditMessage={onEditMessage}
-            onDeleteMessage={onDeleteMessage}
-            open={commentsOpen}
-            onToggle={onToggleComments}
+            onCreateAnchor={onCreateAnchor}
           />
+        </div>
+
+        {!isMobile && (
+          <ReaderRail
+            open={railOpen}
+            tab={railTab}
+            width={railWidth}
+            onTabChange={onRailTabChange}
+            onCollapse={onRailCollapse}
+            onExpand={onRailExpand}
+            {...railHandlers}
+          />
+        )}
+
+        {isMobile && (
+          <AnimatePresence>
+            {railOpen ? (
+              <MobileRailSheet
+                tab={railTab}
+                onTabChange={onRailTabChange}
+                onClose={onRailCollapse}
+                {...railHandlers}
+              />
+            ) : null}
+          </AnimatePresence>
         )}
       </div>
 

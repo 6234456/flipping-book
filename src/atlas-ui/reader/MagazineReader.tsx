@@ -1,5 +1,6 @@
 import { useState, useCallback, useMemo, useEffect, useRef } from 'react';
-import { useReaderState, useKeyboardNavigation } from '../../atlas-core/reader';
+import { useNavigate } from 'react-router-dom';
+import { useReaderState, useKeyboardNavigation, useRailState, useMediaQuery } from '../../atlas-core/reader';
 import type { BookRegistry } from '../../atlas-core/registry';
 import { createCommentStore } from '../../atlas-core/annotations/commentStore';
 import type { CommentThread, AnnotationAnchor } from '../../atlas-core/types/comments';
@@ -14,9 +15,9 @@ type MagazineReaderProps = {
 
 const ANONYMOUS_USER = 'anonymous';
 const LAST_PAGE_KEY = 'atlas-last-page';
+const MOBILE_QUERY = '(max-width: 767px)';
 
 export function MagazineReader({ registry, initialPageId }: MagazineReaderProps) {
-  // Restore last page from localStorage
   const restoredPageId = useMemo(() => {
     if (initialPageId) return initialPageId;
     try {
@@ -28,11 +29,14 @@ export function MagazineReader({ registry, initialPageId }: MagazineReaderProps)
   }, [registry.manifest.bookId, initialPageId]);
 
   const toast = useToast();
+  const navigate = useNavigate();
 
   const readerState = useReaderState(registry, restoredPageId);
   useKeyboardNavigation(readerState, registry.manifest.reader.enableKeyboardNavigation);
 
-  // Persist current page on change
+  const railState = useRailState(registry.manifest.bookId);
+  const isMobile = useMediaQuery(MOBILE_QUERY);
+
   useEffect(() => {
     if (readerState.currentPage) {
       try {
@@ -44,34 +48,20 @@ export function MagazineReader({ registry, initialPageId }: MagazineReaderProps)
     }
   }, [registry.manifest.bookId, readerState.currentPage]);
 
-  // Comment store
   const commentStore = useMemo(
     () => createCommentStore(registry.manifest.bookId),
     [registry.manifest.bookId],
   );
 
-  const [commentThreads, setCommentThreads] = useState<CommentThread[]>(
-    () => commentStore.getAll(),
-  );
-
+  const [commentThreads, setCommentThreads] = useState<CommentThread[]>(() => commentStore.getAll());
   const [selectedThreadId, setSelectedThreadId] = useState<string | null>(null);
   const [highlightedThreadId, setHighlightedThreadId] = useState<string | null>(null);
 
-  // Global zoom state (survives page flips)
   const [zoom, setZoom] = useState<ZoomLevel>('fit-page');
   const cycleZoom = useCallback(() => {
-    setZoom((z) => {
-      if (z === 'fit-page') return 'fit-width';
-      if (z === 'fit-width') return 'actual-size';
-      return 'fit-page';
-    });
+    setZoom((z) => (z === 'fit-page' ? 'fit-width' : z === 'fit-width' ? 'actual-size' : 'fit-page'));
   }, []);
 
-  // Notes drawer state
-  const [notesOpen, setNotesOpen] = useState(false);
-  const [commentsOpen, setCommentsOpen] = useState(false);
-
-  // File input ref for import
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const currentPageThreads = useMemo(
@@ -94,105 +84,94 @@ export function MagazineReader({ registry, initialPageId }: MagazineReaderProps)
       });
       refreshThreads();
       setSelectedThreadId(thread.threadId);
-      setCommentsOpen(true);
+      railState.expand('comments');
+      // One-shot: exit comment mode after a pin is created
+      readerState.setInteractionMode('read');
     },
-    [commentStore, registry.manifest.bookId, readerState.currentPage?.pageId, refreshThreads],
+    [commentStore, registry.manifest.bookId, readerState, refreshThreads, railState],
   );
 
-  const handleAddMessage = useCallback(
-    (threadId: string, text: string) => {
-      commentStore.addMessage(threadId, {
-        authorId: ANONYMOUS_USER,
-        body: [{ type: 'text', value: text }],
-      });
+  const handleAddMessage = useCallback((threadId: string, text: string) => {
+    commentStore.addMessage(threadId, {
+      authorId: ANONYMOUS_USER,
+      body: [{ type: 'text', value: text }],
+    });
+    refreshThreads();
+  }, [commentStore, refreshThreads]);
+
+  const handleDeleteThread = useCallback((threadId: string) => {
+    commentStore.deleteThread(threadId);
+    setSelectedThreadId(null);
+    refreshThreads();
+  }, [commentStore, refreshThreads]);
+
+  const handleEditMessage = useCallback((threadId: string, messageId: string, text: string) => {
+    commentStore.editMessage(threadId, messageId, [{ type: 'text', value: text }]);
+    refreshThreads();
+  }, [commentStore, refreshThreads]);
+
+  const handleDeleteMessage = useCallback((threadId: string, messageId: string) => {
+    commentStore.deleteMessage(threadId, messageId);
+    refreshThreads();
+  }, [commentStore, refreshThreads]);
+
+  const handleResolve = useCallback((threadId: string) => {
+    commentStore.resolve(threadId);
+    refreshThreads();
+  }, [commentStore, refreshThreads]);
+
+  const handleReopen = useCallback((threadId: string) => {
+    commentStore.reopen(threadId);
+    refreshThreads();
+  }, [commentStore, refreshThreads]);
+
+  const handleImportFile = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      const text = reader.result as string;
+      const result = commentStore.importJSON(text);
       refreshThreads();
-    },
-    [commentStore, refreshThreads],
-  );
+      toast(`导入 ${result.imported} 条新评论 · 跳过 ${result.skipped} 条重复`, { variant: 'success' });
+    };
+    reader.readAsText(file);
+    e.target.value = '';
+  }, [commentStore, refreshThreads, toast]);
 
-  const handleDeleteThread = useCallback(
-    (threadId: string) => {
-      commentStore.deleteThread(threadId);
-      setSelectedThreadId(null);
-      refreshThreads();
-    },
-    [commentStore, refreshThreads],
-  );
+  const handlePlusClick = useCallback(() => {
+    readerState.setInteractionMode('comment');
+    railState.expand('comments');
+  }, [readerState, railState]);
 
-  const handleEditMessage = useCallback(
-    (threadId: string, messageId: string, text: string) => {
-      commentStore.editMessage(threadId, messageId, [{ type: 'text', value: text }]);
-      refreshThreads();
-    },
-    [commentStore, refreshThreads],
-  );
+  const handleDismissCommentMode = useCallback(() => {
+    readerState.setInteractionMode('read');
+  }, [readerState]);
 
-  const handleDeleteMessage = useCallback(
-    (threadId: string, messageId: string) => {
-      commentStore.deleteMessage(threadId, messageId);
-      refreshThreads();
-    },
-    [commentStore, refreshThreads],
-  );
+  // ESC key to cancel comment mode
+  useEffect(() => {
+    if (readerState.interactionMode !== 'comment') return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        const target = e.target as HTMLElement | null;
+        if (target && (target.tagName === 'INPUT' || target.tagName === 'TEXTAREA')) return;
+        e.preventDefault();
+        readerState.setInteractionMode('read');
+      }
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, [readerState]);
 
-  const handleResolve = useCallback(
-    (threadId: string) => {
-      commentStore.resolve(threadId);
-      refreshThreads();
-    },
-    [commentStore, refreshThreads],
-  );
+  const handleNavigateToPage = useCallback((pageId: string) => {
+    readerState.goToPage(pageId);
+    navigate(`/book/${registry.manifest.slug}/page/${pageId}`);
+  }, [readerState, registry.manifest.slug, navigate]);
 
-  const handleReopen = useCallback(
-    (threadId: string) => {
-      commentStore.reopen(threadId);
-      refreshThreads();
-    },
-    [commentStore, refreshThreads],
-  );
-
-  // Export
-  const handleExport = useCallback(() => {
-    const json = commentStore.exportJSON();
-    const blob = new Blob([json], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `comments-${registry.manifest.bookId}-${new Date().toISOString().slice(0, 10)}.json`;
-    a.click();
-    URL.revokeObjectURL(url);
-  }, [commentStore, registry.manifest.bookId]);
-
-  // Import
-  const handleImportClick = useCallback(() => {
-    fileInputRef.current?.click();
-  }, []);
-
-  const handleImportFile = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      const file = e.target.files?.[0];
-      if (!file) return;
-      const reader = new FileReader();
-      reader.onload = () => {
-        const text = reader.result as string;
-        const result = commentStore.importJSON(text);
-        refreshThreads();
-        toast(`导入 ${result.imported} 条新评论 · 跳过 ${result.skipped} 条重复`, {
-          variant: 'success',
-        });
-      };
-      reader.readAsText(file);
-      e.target.value = '';
-    },
-    [commentStore, refreshThreads, toast],
-  );
-
-  // Determine note IDs for current page
   const currentNoteIds = readerState.currentPage?.notes?.noteIds ?? [];
 
   return (
     <>
-      {/* Hidden file input for import */}
       <input
         ref={fileInputRef}
         type="file"
@@ -207,11 +186,6 @@ export function MagazineReader({ registry, initialPageId }: MagazineReaderProps)
         readerState={readerState}
         zoom={zoom}
         onCycleZoom={cycleZoom}
-        // Notes
-        noteIds={currentNoteIds}
-        notesOpen={notesOpen}
-        onToggleNotes={() => { setNotesOpen((o) => !o); setCommentsOpen(false); }}
-        // Comments
         commentThreads={currentPageThreads}
         selectedThreadId={selectedThreadId}
         highlightedThreadId={highlightedThreadId}
@@ -224,11 +198,17 @@ export function MagazineReader({ registry, initialPageId }: MagazineReaderProps)
         onEditMessage={handleEditMessage}
         onDeleteMessage={handleDeleteMessage}
         onCreateAnchor={handleCreateAnchor}
-        commentsOpen={commentsOpen}
-        onToggleComments={() => { setCommentsOpen((o) => !o); setNotesOpen(false); }}
-        // Export/Import
-        onExportComments={handleExport}
-        onImportComments={handleImportClick}
+        noteIds={currentNoteIds}
+        railOpen={railState.open}
+        railTab={railState.tab}
+        railWidth={railState.width}
+        onRailTabChange={railState.setTab}
+        onRailCollapse={railState.collapse}
+        onRailExpand={railState.expand}
+        onPlusClick={handlePlusClick}
+        onDismissCommentMode={handleDismissCommentMode}
+        isMobile={isMobile}
+        onNavigateToPage={handleNavigateToPage}
       />
     </>
   );
