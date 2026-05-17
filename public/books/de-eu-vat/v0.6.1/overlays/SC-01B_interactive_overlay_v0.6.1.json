@@ -1,0 +1,1112 @@
+{
+  "version": "0.6.1",
+  "pageId": "sc-01b-invoice-elements",
+  "sectionCode": "SC-01B",
+  "canvas": {
+    "width": 1086,
+    "height": 1448,
+    "aspect": "3:4 portrait",
+    "measurementBasis": "actual_final_image_v0.6.0"
+  },
+  "imageFile": "images/final/SC-01B_current_final.png",
+  "overlayType": "refined_interactive_hotspots",
+  "textRegions": [
+    {
+      "id": "page_badge",
+      "type": "textRegion",
+      "role": "pageCode",
+      "bbox": {
+        "x": 0,
+        "y": 0,
+        "w": 170,
+        "h": 95
+      },
+      "text": "SC-01B",
+      "confidence": 0.95,
+      "source": "fixed-atlas-header"
+    },
+    {
+      "id": "atlas_header",
+      "type": "textRegion",
+      "role": "atlasHeader",
+      "bbox": {
+        "x": 170,
+        "y": 0,
+        "w": 760,
+        "h": 75
+      },
+      "text": "VAT QUICK-REFERENCE ATLAS / VAT 图册导航",
+      "confidence": 0.7,
+      "source": "fixed-atlas-header"
+    },
+    {
+      "id": "main_title",
+      "type": "textRegion",
+      "role": "title",
+      "bbox": {
+        "x": 140,
+        "y": 60,
+        "w": 820,
+        "h": 140
+      },
+      "text": "德国国内 B2B：发票必要要素与开票示例",
+      "confidence": 0.92,
+      "source": "catalog"
+    },
+    {
+      "id": "subtitle",
+      "type": "textRegion",
+      "role": "subtitle",
+      "bbox": {
+        "x": 150,
+        "y": 155,
+        "w": 780,
+        "h": 75
+      },
+      "text": "UStG §14 发票必要要素速查",
+      "confidence": 0.86,
+      "source": "catalog"
+    }
+  ],
+  "sections": [
+    {
+      "id": "section_01",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 0,
+        "y": 0,
+        "w": 1086,
+        "h": 1528
+      },
+      "headerBBox": {
+        "x": 0,
+        "y": 0,
+        "w": 1086,
+        "h": 1448
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_02",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 379,
+        "y": 30,
+        "w": 340,
+        "h": 70
+      },
+      "headerBBox": {
+        "x": 379,
+        "y": 30,
+        "w": 340,
+        "h": 11
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_03",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "dark",
+      "bbox": {
+        "x": 309,
+        "y": 104,
+        "w": 472,
+        "h": 82
+      },
+      "headerBBox": {
+        "x": 309,
+        "y": 104,
+        "w": 472,
+        "h": 47
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_04",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "dark",
+      "bbox": {
+        "x": 297,
+        "y": 164,
+        "w": 517,
+        "h": 83
+      },
+      "headerBBox": {
+        "x": 297,
+        "y": 164,
+        "w": 517,
+        "h": 48
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_05",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 970,
+        "y": 175,
+        "w": 116,
+        "h": 148
+      },
+      "headerBBox": {
+        "x": 970,
+        "y": 175,
+        "w": 116,
+        "h": 104
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_06",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "evidence_green",
+      "bbox": {
+        "x": 381,
+        "y": 231,
+        "w": 293,
+        "h": 70
+      },
+      "headerBBox": {
+        "x": 381,
+        "y": 231,
+        "w": 293,
+        "h": 23
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_07",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 800,
+        "y": 277,
+        "w": 188,
+        "h": 61
+      },
+      "headerBBox": {
+        "x": 800,
+        "y": 277,
+        "w": 188,
+        "h": 26
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_08",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "dark",
+      "bbox": {
+        "x": 400,
+        "y": 305,
+        "w": 116,
+        "h": 52
+      },
+      "headerBBox": {
+        "x": 400,
+        "y": 305,
+        "w": 116,
+        "h": 17
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_09",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 493,
+        "y": 327,
+        "w": 506,
+        "h": 142
+      },
+      "headerBBox": {
+        "x": 493,
+        "y": 327,
+        "w": 506,
+        "h": 107
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_10",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 806,
+        "y": 369,
+        "w": 111,
+        "h": 96
+      },
+      "headerBBox": {
+        "x": 806,
+        "y": 369,
+        "w": 111,
+        "h": 16
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_11",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 235,
+        "y": 435,
+        "w": 150,
+        "h": 144
+      },
+      "headerBBox": {
+        "x": 235,
+        "y": 435,
+        "w": 150,
+        "h": 36
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_12",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 807,
+        "y": 469,
+        "w": 85,
+        "h": 49
+      },
+      "headerBBox": {
+        "x": 807,
+        "y": 469,
+        "w": 85,
+        "h": 14
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_13",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 445,
+        "y": 492,
+        "w": 575,
+        "h": 97
+      },
+      "headerBBox": {
+        "x": 445,
+        "y": 492,
+        "w": 575,
+        "h": 62
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_14",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 459,
+        "y": 561,
+        "w": 159,
+        "h": 88
+      },
+      "headerBBox": {
+        "x": 459,
+        "y": 561,
+        "w": 159,
+        "h": 26
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_15",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 236,
+        "y": 583,
+        "w": 150,
+        "h": 201
+      },
+      "headerBBox": {
+        "x": 236,
+        "y": 583,
+        "w": 150,
+        "h": 19
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_16",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 807,
+        "y": 586,
+        "w": 132,
+        "h": 49
+      },
+      "headerBBox": {
+        "x": 807,
+        "y": 586,
+        "w": 132,
+        "h": 14
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_17",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 807,
+        "y": 610,
+        "w": 120,
+        "h": 52
+      },
+      "headerBBox": {
+        "x": 807,
+        "y": 610,
+        "w": 120,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_18",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 463,
+        "y": 653,
+        "w": 181,
+        "h": 131
+      },
+      "headerBBox": {
+        "x": 463,
+        "y": 653,
+        "w": 181,
+        "h": 17
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_19",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 799,
+        "y": 666,
+        "w": 118,
+        "h": 55
+      },
+      "headerBBox": {
+        "x": 799,
+        "y": 666,
+        "w": 118,
+        "h": 20
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_20",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 801,
+        "y": 702,
+        "w": 133,
+        "h": 48
+      },
+      "headerBBox": {
+        "x": 801,
+        "y": 702,
+        "w": 133,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_21",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 800,
+        "y": 726,
+        "w": 149,
+        "h": 48
+      },
+      "headerBBox": {
+        "x": 800,
+        "y": 726,
+        "w": 149,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_22",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 800,
+        "y": 750,
+        "w": 200,
+        "h": 48
+      },
+      "headerBBox": {
+        "x": 800,
+        "y": 750,
+        "w": 200,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_23",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 801,
+        "y": 774,
+        "w": 191,
+        "h": 48
+      },
+      "headerBBox": {
+        "x": 801,
+        "y": 774,
+        "w": 191,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_24",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 250,
+        "y": 788,
+        "w": 767,
+        "h": 81
+      },
+      "headerBBox": {
+        "x": 250,
+        "y": 788,
+        "w": 767,
+        "h": 46
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_25",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 69,
+        "y": 832,
+        "w": 80,
+        "h": 260
+      },
+      "headerBBox": {
+        "x": 69,
+        "y": 832,
+        "w": 80,
+        "h": 35
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_26",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 615,
+        "y": 841,
+        "w": 334,
+        "h": 66
+      },
+      "headerBBox": {
+        "x": 615,
+        "y": 841,
+        "w": 334,
+        "h": 31
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_27",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 216,
+        "y": 852,
+        "w": 173,
+        "h": 46
+      },
+      "headerBBox": {
+        "x": 216,
+        "y": 852,
+        "w": 173,
+        "h": 11
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_28",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 237,
+        "y": 881,
+        "w": 256,
+        "h": 44
+      },
+      "headerBBox": {
+        "x": 237,
+        "y": 881,
+        "w": 256,
+        "h": 9
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_29",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 798,
+        "y": 898,
+        "w": 115,
+        "h": 60
+      },
+      "headerBBox": {
+        "x": 798,
+        "y": 898,
+        "w": 115,
+        "h": 25
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_30",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 237,
+        "y": 900,
+        "w": 119,
+        "h": 202
+      },
+      "headerBBox": {
+        "x": 237,
+        "y": 900,
+        "w": 119,
+        "h": 9
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_31",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 803,
+        "y": 939,
+        "w": 172,
+        "h": 50
+      },
+      "headerBBox": {
+        "x": 803,
+        "y": 939,
+        "w": 172,
+        "h": 15
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_32",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 803,
+        "y": 964,
+        "w": 206,
+        "h": 69
+      },
+      "headerBBox": {
+        "x": 803,
+        "y": 964,
+        "w": 206,
+        "h": 34
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_33",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 803,
+        "y": 1008,
+        "w": 194,
+        "h": 118
+      },
+      "headerBBox": {
+        "x": 803,
+        "y": 1008,
+        "w": 194,
+        "h": 34
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_34",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 62,
+        "y": 1106,
+        "w": 207,
+        "h": 131
+      },
+      "headerBBox": {
+        "x": 62,
+        "y": 1106,
+        "w": 207,
+        "h": 68
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_35",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 319,
+        "y": 1106,
+        "w": 115,
+        "h": 48
+      },
+      "headerBBox": {
+        "x": 319,
+        "y": 1106,
+        "w": 115,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_36",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 184,
+        "y": 1130,
+        "w": 820,
+        "h": 52
+      },
+      "headerBBox": {
+        "x": 184,
+        "y": 1130,
+        "w": 820,
+        "h": 17
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_37",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 319,
+        "y": 1154,
+        "w": 259,
+        "h": 52
+      },
+      "headerBBox": {
+        "x": 319,
+        "y": 1154,
+        "w": 259,
+        "h": 17
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_38",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 936,
+        "y": 1156,
+        "w": 85,
+        "h": 113
+      },
+      "headerBBox": {
+        "x": 936,
+        "y": 1156,
+        "w": 85,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_39",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 319,
+        "y": 1184,
+        "w": 115,
+        "h": 53
+      },
+      "headerBBox": {
+        "x": 319,
+        "y": 1184,
+        "w": 115,
+        "h": 16
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_40",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 203,
+        "y": 1241,
+        "w": 226,
+        "h": 203
+      },
+      "headerBBox": {
+        "x": 203,
+        "y": 1241,
+        "w": 226,
+        "h": 50
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_41",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 820,
+        "y": 1243,
+        "w": 95,
+        "h": 50
+      },
+      "headerBBox": {
+        "x": 820,
+        "y": 1243,
+        "w": 95,
+        "h": 15
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_42",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 818,
+        "y": 1273,
+        "w": 120,
+        "h": 50
+      },
+      "headerBBox": {
+        "x": 818,
+        "y": 1273,
+        "w": 120,
+        "h": 15
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_43",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 818,
+        "y": 1299,
+        "w": 120,
+        "h": 49
+      },
+      "headerBBox": {
+        "x": 818,
+        "y": 1299,
+        "w": 120,
+        "h": 14
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_44",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 818,
+        "y": 1325,
+        "w": 121,
+        "h": 49
+      },
+      "headerBBox": {
+        "x": 818,
+        "y": 1325,
+        "w": 121,
+        "h": 14
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_45",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 819,
+        "y": 1351,
+        "w": 132,
+        "h": 93
+      },
+      "headerBBox": {
+        "x": 819,
+        "y": 1351,
+        "w": 132,
+        "h": 14
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    }
+  ],
+  "gridRegions": [
+    {
+      "id": "grid_region_01",
+      "type": "gridRegion",
+      "role": "detectedGridOrTableRegion",
+      "bbox": {
+        "x": 0,
+        "y": 0,
+        "w": 1086,
+        "h": 1448
+      },
+      "confidence": 0.9,
+      "source": "morphological-line-detection"
+    }
+  ],
+  "imageHotspots": [
+    {
+      "id": "image_hotspot_01",
+      "type": "imageHotspot",
+      "role": "detectedIllustrationOrIconCluster",
+      "bbox": {
+        "x": 300,
+        "y": 106,
+        "w": 518,
+        "h": 150
+      },
+      "confidence": 0.62,
+      "source": "color-texture-detection"
+    },
+    {
+      "id": "image_hotspot_02",
+      "type": "imageHotspot",
+      "role": "detectedIllustrationOrIconCluster",
+      "bbox": {
+        "x": 37,
+        "y": 337,
+        "w": 352,
+        "h": 267
+      },
+      "confidence": 0.62,
+      "source": "color-texture-detection"
+    },
+    {
+      "id": "image_hotspot_03",
+      "type": "imageHotspot",
+      "role": "detectedIllustrationOrIconCluster",
+      "bbox": {
+        "x": 219,
+        "y": 642,
+        "w": 219,
+        "h": 95
+      },
+      "confidence": 0.62,
+      "source": "color-texture-detection"
+    },
+    {
+      "id": "image_hotspot_04",
+      "type": "imageHotspot",
+      "role": "detectedIllustrationOrIconCluster",
+      "bbox": {
+        "x": 219,
+        "y": 776,
+        "w": 236,
+        "h": 135
+      },
+      "confidence": 0.62,
+      "source": "color-texture-detection"
+    },
+    {
+      "id": "image_hotspot_05",
+      "type": "imageHotspot",
+      "role": "detectedIllustrationOrIconCluster",
+      "bbox": {
+        "x": 71,
+        "y": 779,
+        "w": 80,
+        "h": 90
+      },
+      "confidence": 0.62,
+      "source": "color-texture-detection"
+    },
+    {
+      "id": "image_hotspot_06",
+      "type": "imageHotspot",
+      "role": "detectedIllustrationOrIconCluster",
+      "bbox": {
+        "x": 925,
+        "y": 1095,
+        "w": 109,
+        "h": 76
+      },
+      "confidence": 0.62,
+      "source": "color-texture-detection"
+    }
+  ],
+  "navigationRegions": [
+    {
+      "id": "bottom_navigation_or_resource_area",
+      "type": "navigationRegion",
+      "role": "footerOrNavigation",
+      "bbox": {
+        "x": 0,
+        "y": 1160,
+        "w": 1086,
+        "h": 288
+      },
+      "confidence": 0.7,
+      "source": "fixed-atlas-footer-band"
+    }
+  ],
+  "legalAnchors": [],
+  "interactionHints": [
+    {
+      "target": "sections",
+      "interaction": "click",
+      "purpose": "open section detail / notes / tooltip group"
+    },
+    {
+      "target": "gridRegions",
+      "interaction": "click",
+      "purpose": "attach comments or row/cell-level drill-down"
+    },
+    {
+      "target": "imageHotspots",
+      "interaction": "click",
+      "purpose": "image annotation or scenario explanation"
+    },
+    {
+      "target": "legalAnchors",
+      "interaction": "hover/click",
+      "purpose": "show legal source note"
+    }
+  ],
+  "qa": {
+    "canvas1086x1448": true,
+    "generatedFromActualImage": true,
+    "bodyTextIsAuthoritative": false,
+    "note": "This overlay is coordinate-accurate against the final image and suitable for interactive hotspots. It is not an authoritative editable text layer."
+  }
+}

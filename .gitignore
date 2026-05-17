@@ -23,3 +23,6 @@ dist-ssr
 *.sln
 *.sw?
 .superpowers/
+
+# Imported asset staging — only the public/ copy is the canonical source
+ref/

@@ -1,0 +1,1702 @@
+{
+  "version": "0.6.1",
+  "pageId": "09-04-non-monetary-transfer",
+  "sectionCode": "09-04",
+  "canvas": {
+    "width": 1086,
+    "height": 1448,
+    "aspect": "3:4 portrait",
+    "measurementBasis": "actual_final_image_v0.6.0"
+  },
+  "imageFile": "images/final/09-04_current_final.png",
+  "overlayType": "refined_interactive_hotspots",
+  "textRegions": [
+    {
+      "id": "page_badge",
+      "type": "textRegion",
+      "role": "pageCode",
+      "bbox": {
+        "x": 0,
+        "y": 0,
+        "w": 170,
+        "h": 95
+      },
+      "text": "09-04",
+      "confidence": 0.95,
+      "source": "fixed-atlas-header"
+    },
+    {
+      "id": "atlas_header",
+      "type": "textRegion",
+      "role": "atlasHeader",
+      "bbox": {
+        "x": 170,
+        "y": 0,
+        "w": 760,
+        "h": 75
+      },
+      "text": "VAT QUICK-REFERENCE ATLAS / VAT 图册导航",
+      "confidence": 0.7,
+      "source": "fixed-atlas-header"
+    },
+    {
+      "id": "main_title",
+      "type": "textRegion",
+      "role": "title",
+      "bbox": {
+        "x": 140,
+        "y": 60,
+        "w": 820,
+        "h": 140
+      },
+      "text": "无偿价值转移 / 最低计税基础",
+      "confidence": 0.92,
+      "source": "catalog"
+    },
+    {
+      "id": "subtitle",
+      "type": "textRegion",
+      "role": "subtitle",
+      "bbox": {
+        "x": 150,
+        "y": 155,
+        "w": 780,
+        "h": 75
+      },
+      "text": "非对价转移、最低计税基础与发票影响",
+      "confidence": 0.86,
+      "source": "catalog"
+    }
+  ],
+  "sections": [
+    {
+      "id": "section_01",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 0,
+        "y": 8,
+        "w": 718,
+        "h": 195
+      },
+      "headerBBox": {
+        "x": 0,
+        "y": 8,
+        "w": 718,
+        "h": 160
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_02",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 222,
+        "y": 13,
+        "w": 581,
+        "h": 69
+      },
+      "headerBBox": {
+        "x": 222,
+        "y": 13,
+        "w": 581,
+        "h": 32
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_03",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "evidence_green",
+      "bbox": {
+        "x": 630,
+        "y": 14,
+        "w": 456,
+        "h": 187
+      },
+      "headerBBox": {
+        "x": 630,
+        "y": 14,
+        "w": 456,
+        "h": 152
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_04",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 250,
+        "y": 86,
+        "w": 475,
+        "h": 50
+      },
+      "headerBBox": {
+        "x": 250,
+        "y": 86,
+        "w": 475,
+        "h": 15
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_05",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 281,
+        "y": 117,
+        "w": 148,
+        "h": 66
+      },
+      "headerBBox": {
+        "x": 281,
+        "y": 117,
+        "w": 148,
+        "h": 31
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_06",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 383,
+        "y": 153,
+        "w": 136,
+        "h": 46
+      },
+      "headerBBox": {
+        "x": 383,
+        "y": 153,
+        "w": 136,
+        "h": 11
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_07",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 0,
+        "y": 177,
+        "w": 175,
+        "h": 48
+      },
+      "headerBBox": {
+        "x": 0,
+        "y": 177,
+        "w": 175,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_08",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 307,
+        "y": 183,
+        "w": 130,
+        "h": 80
+      },
+      "headerBBox": {
+        "x": 307,
+        "y": 183,
+        "w": 130,
+        "h": 45
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_09",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 654,
+        "y": 186,
+        "w": 186,
+        "h": 60
+      },
+      "headerBBox": {
+        "x": 654,
+        "y": 186,
+        "w": 186,
+        "h": 25
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_10",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 0,
+        "y": 200,
+        "w": 248,
+        "h": 53
+      },
+      "headerBBox": {
+        "x": 0,
+        "y": 200,
+        "w": 248,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_11",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 889,
+        "y": 230,
+        "w": 145,
+        "h": 72
+      },
+      "headerBBox": {
+        "x": 889,
+        "y": 230,
+        "w": 145,
+        "h": 37
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_12",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 635,
+        "y": 235,
+        "w": 205,
+        "h": 61
+      },
+      "headerBBox": {
+        "x": 635,
+        "y": 235,
+        "w": 205,
+        "h": 26
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_13",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 30,
+        "y": 257,
+        "w": 210,
+        "h": 48
+      },
+      "headerBBox": {
+        "x": 30,
+        "y": 257,
+        "w": 210,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_14",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 305,
+        "y": 263,
+        "w": 331,
+        "h": 152
+      },
+      "headerBBox": {
+        "x": 305,
+        "y": 263,
+        "w": 331,
+        "h": 117
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_15",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 889,
+        "y": 279,
+        "w": 157,
+        "h": 71
+      },
+      "headerBBox": {
+        "x": 889,
+        "y": 279,
+        "w": 157,
+        "h": 36
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_16",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 118,
+        "y": 282,
+        "w": 151,
+        "h": 44
+      },
+      "headerBBox": {
+        "x": 118,
+        "y": 282,
+        "w": 151,
+        "h": 9
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_17",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 655,
+        "y": 284,
+        "w": 185,
+        "h": 61
+      },
+      "headerBBox": {
+        "x": 655,
+        "y": 284,
+        "w": 185,
+        "h": 26
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_18",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 128,
+        "y": 319,
+        "w": 108,
+        "h": 47
+      },
+      "headerBBox": {
+        "x": 128,
+        "y": 319,
+        "w": 108,
+        "h": 12
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_19",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 888,
+        "y": 327,
+        "w": 166,
+        "h": 88
+      },
+      "headerBBox": {
+        "x": 888,
+        "y": 327,
+        "w": 166,
+        "h": 37
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_20",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 652,
+        "y": 334,
+        "w": 187,
+        "h": 59
+      },
+      "headerBBox": {
+        "x": 652,
+        "y": 334,
+        "w": 187,
+        "h": 24
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_21",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 26,
+        "y": 365,
+        "w": 248,
+        "h": 48
+      },
+      "headerBBox": {
+        "x": 26,
+        "y": 365,
+        "w": 248,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_22",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 652,
+        "y": 380,
+        "w": 187,
+        "h": 59
+      },
+      "headerBBox": {
+        "x": 652,
+        "y": 380,
+        "w": 187,
+        "h": 24
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_23",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 119,
+        "y": 385,
+        "w": 108,
+        "h": 63
+      },
+      "headerBBox": {
+        "x": 119,
+        "y": 385,
+        "w": 108,
+        "h": 11
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_24",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 309,
+        "y": 397,
+        "w": 310,
+        "h": 98
+      },
+      "headerBBox": {
+        "x": 309,
+        "y": 397,
+        "w": 310,
+        "h": 63
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_25",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 875,
+        "y": 419,
+        "w": 186,
+        "h": 73
+      },
+      "headerBBox": {
+        "x": 875,
+        "y": 419,
+        "w": 186,
+        "h": 38
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_26",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 652,
+        "y": 425,
+        "w": 112,
+        "h": 60
+      },
+      "headerBBox": {
+        "x": 652,
+        "y": 425,
+        "w": 112,
+        "h": 25
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_27",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 0,
+        "y": 452,
+        "w": 262,
+        "h": 78
+      },
+      "headerBBox": {
+        "x": 0,
+        "y": 452,
+        "w": 262,
+        "h": 25
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_28",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 319,
+        "y": 464,
+        "w": 734,
+        "h": 77
+      },
+      "headerBBox": {
+        "x": 319,
+        "y": 464,
+        "w": 734,
+        "h": 42
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_29",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 304,
+        "y": 519,
+        "w": 782,
+        "h": 106
+      },
+      "headerBBox": {
+        "x": 304,
+        "y": 519,
+        "w": 782,
+        "h": 71
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_30",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 230,
+        "y": 534,
+        "w": 332,
+        "h": 76
+      },
+      "headerBBox": {
+        "x": 230,
+        "y": 534,
+        "w": 332,
+        "h": 41
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_31",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 0,
+        "y": 535,
+        "w": 177,
+        "h": 86
+      },
+      "headerBBox": {
+        "x": 0,
+        "y": 535,
+        "w": 177,
+        "h": 51
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_32",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 0,
+        "y": 590,
+        "w": 1086,
+        "h": 198
+      },
+      "headerBBox": {
+        "x": 0,
+        "y": 590,
+        "w": 1086,
+        "h": 163
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_33",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 364,
+        "y": 592,
+        "w": 186,
+        "h": 48
+      },
+      "headerBBox": {
+        "x": 364,
+        "y": 592,
+        "w": 186,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_34",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 781,
+        "y": 606,
+        "w": 274,
+        "h": 115
+      },
+      "headerBBox": {
+        "x": 781,
+        "y": 606,
+        "w": 274,
+        "h": 23
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_35",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 307,
+        "y": 627,
+        "w": 303,
+        "h": 113
+      },
+      "headerBBox": {
+        "x": 307,
+        "y": 627,
+        "w": 303,
+        "h": 16
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_36",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 648,
+        "y": 725,
+        "w": 398,
+        "h": 57
+      },
+      "headerBBox": {
+        "x": 648,
+        "y": 725,
+        "w": 398,
+        "h": 22
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_37",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 0,
+        "y": 744,
+        "w": 555,
+        "h": 146
+      },
+      "headerBBox": {
+        "x": 0,
+        "y": 744,
+        "w": 555,
+        "h": 111
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_38",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 646,
+        "y": 759,
+        "w": 440,
+        "h": 51
+      },
+      "headerBBox": {
+        "x": 646,
+        "y": 759,
+        "w": 440,
+        "h": 16
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_39",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 645,
+        "y": 794,
+        "w": 363,
+        "h": 57
+      },
+      "headerBBox": {
+        "x": 645,
+        "y": 794,
+        "w": 363,
+        "h": 22
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_40",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 309,
+        "y": 822,
+        "w": 230,
+        "h": 46
+      },
+      "headerBBox": {
+        "x": 309,
+        "y": 822,
+        "w": 230,
+        "h": 11
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_41",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 647,
+        "y": 823,
+        "w": 415,
+        "h": 51
+      },
+      "headerBBox": {
+        "x": 647,
+        "y": 823,
+        "w": 415,
+        "h": 16
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_42",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 308,
+        "y": 842,
+        "w": 247,
+        "h": 43
+      },
+      "headerBBox": {
+        "x": 308,
+        "y": 842,
+        "w": 247,
+        "h": 8
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_43",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 287,
+        "y": 859,
+        "w": 799,
+        "h": 75
+      },
+      "headerBBox": {
+        "x": 287,
+        "y": 859,
+        "w": 799,
+        "h": 40
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_44",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 0,
+        "y": 877,
+        "w": 234,
+        "h": 58
+      },
+      "headerBBox": {
+        "x": 0,
+        "y": 877,
+        "w": 234,
+        "h": 23
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_45",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 649,
+        "y": 889,
+        "w": 290,
+        "h": 43
+      },
+      "headerBBox": {
+        "x": 649,
+        "y": 889,
+        "w": 290,
+        "h": 8
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_46",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 0,
+        "y": 904,
+        "w": 208,
+        "h": 74
+      },
+      "headerBBox": {
+        "x": 0,
+        "y": 904,
+        "w": 208,
+        "h": 39
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_47",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 280,
+        "y": 905,
+        "w": 330,
+        "h": 205
+      },
+      "headerBBox": {
+        "x": 280,
+        "y": 905,
+        "w": 330,
+        "h": 170
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_48",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 622,
+        "y": 905,
+        "w": 240,
+        "h": 67
+      },
+      "headerBBox": {
+        "x": 622,
+        "y": 905,
+        "w": 240,
+        "h": 32
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_49",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 667,
+        "y": 945,
+        "w": 268,
+        "h": 221
+      },
+      "headerBBox": {
+        "x": 667,
+        "y": 945,
+        "w": 268,
+        "h": 186
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_50",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 0,
+        "y": 954,
+        "w": 223,
+        "h": 61
+      },
+      "headerBBox": {
+        "x": 0,
+        "y": 954,
+        "w": 223,
+        "h": 26
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_51",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 0,
+        "y": 989,
+        "w": 219,
+        "h": 60
+      },
+      "headerBBox": {
+        "x": 0,
+        "y": 989,
+        "w": 219,
+        "h": 25
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_52",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 0,
+        "y": 1024,
+        "w": 273,
+        "h": 60
+      },
+      "headerBBox": {
+        "x": 0,
+        "y": 1024,
+        "w": 273,
+        "h": 25
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_53",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 0,
+        "y": 1058,
+        "w": 209,
+        "h": 107
+      },
+      "headerBBox": {
+        "x": 0,
+        "y": 1058,
+        "w": 209,
+        "h": 27
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_54",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 101,
+        "y": 1076,
+        "w": 166,
+        "h": 110
+      },
+      "headerBBox": {
+        "x": 101,
+        "y": 1076,
+        "w": 166,
+        "h": 75
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_55",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 335,
+        "y": 1083,
+        "w": 218,
+        "h": 82
+      },
+      "headerBBox": {
+        "x": 335,
+        "y": 1083,
+        "w": 218,
+        "h": 42
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_56",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 0,
+        "y": 1169,
+        "w": 936,
+        "h": 138
+      },
+      "headerBBox": {
+        "x": 0,
+        "y": 1169,
+        "w": 936,
+        "h": 103
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_57",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 657,
+        "y": 1261,
+        "w": 429,
+        "h": 183
+      },
+      "headerBBox": {
+        "x": 657,
+        "y": 1261,
+        "w": 429,
+        "h": 120
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_58",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 329,
+        "y": 1279,
+        "w": 198,
+        "h": 59
+      },
+      "headerBBox": {
+        "x": 329,
+        "y": 1279,
+        "w": 198,
+        "h": 24
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_59",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 29,
+        "y": 1282,
+        "w": 172,
+        "h": 64
+      },
+      "headerBBox": {
+        "x": 29,
+        "y": 1282,
+        "w": 172,
+        "h": 29
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_60",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 662,
+        "y": 1314,
+        "w": 192,
+        "h": 130
+      },
+      "headerBBox": {
+        "x": 662,
+        "y": 1314,
+        "w": 192,
+        "h": 22
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_61",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 329,
+        "y": 1317,
+        "w": 265,
+        "h": 63
+      },
+      "headerBBox": {
+        "x": 329,
+        "y": 1317,
+        "w": 265,
+        "h": 28
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_62",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 26,
+        "y": 1322,
+        "w": 207,
+        "h": 60
+      },
+      "headerBBox": {
+        "x": 26,
+        "y": 1322,
+        "w": 207,
+        "h": 25
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_63",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 328,
+        "y": 1358,
+        "w": 243,
+        "h": 59
+      },
+      "headerBBox": {
+        "x": 328,
+        "y": 1358,
+        "w": 243,
+        "h": 24
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_64",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 27,
+        "y": 1360,
+        "w": 253,
+        "h": 62
+      },
+      "headerBBox": {
+        "x": 27,
+        "y": 1360,
+        "w": 253,
+        "h": 27
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_65",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 29,
+        "y": 1417,
+        "w": 515,
+        "h": 45
+      },
+      "headerBBox": {
+        "x": 29,
+        "y": 1417,
+        "w": 515,
+        "h": 10
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    }
+  ],
+  "gridRegions": [
+    {
+      "id": "grid_region_01",
+      "type": "gridRegion",
+      "role": "detectedGridOrTableRegion",
+      "bbox": {
+        "x": 641,
+        "y": 11,
+        "w": 438,
+        "h": 531
+      },
+      "confidence": 0.9,
+      "source": "morphological-line-detection"
+    },
+    {
+      "id": "grid_region_02",
+      "type": "gridRegion",
+      "role": "detectedGridOrTableRegion",
+      "bbox": {
+        "x": 293,
+        "y": 114,
+        "w": 340,
+        "h": 425
+      },
+      "confidence": 0.9,
+      "source": "morphological-line-detection"
+    },
+    {
+      "id": "grid_region_03",
+      "type": "gridRegion",
+      "role": "detectedGridOrTableRegion",
+      "bbox": {
+        "x": 8,
+        "y": 115,
+        "w": 277,
+        "h": 423
+      },
+      "confidence": 0.9,
+      "source": "morphological-line-detection"
+    },
+    {
+      "id": "grid_region_04",
+      "type": "gridRegion",
+      "role": "detectedGridOrTableRegion",
+      "bbox": {
+        "x": 300,
+        "y": 193,
+        "w": 144,
+        "h": 48
+      },
+      "confidence": 0.9,
+      "source": "morphological-line-detection"
+    },
+    {
+      "id": "grid_region_05",
+      "type": "gridRegion",
+      "role": "detectedGridOrTableRegion",
+      "bbox": {
+        "x": 468,
+        "y": 195,
+        "w": 123,
+        "h": 44
+      },
+      "confidence": 0.9,
+      "source": "morphological-line-detection"
+    },
+    {
+      "id": "grid_region_06",
+      "type": "gridRegion",
+      "role": "detectedGridOrTableRegion",
+      "bbox": {
+        "x": 465,
+        "y": 258,
+        "w": 151,
+        "h": 119
+      },
+      "confidence": 0.9,
+      "source": "morphological-line-detection"
+    },
+    {
+      "id": "grid_region_07",
+      "type": "gridRegion",
+      "role": "detectedGridOrTableRegion",
+      "bbox": {
+        "x": 544,
+        "y": 467,
+        "w": 83,
+        "h": 47
+      },
+      "confidence": 0.9,
+      "source": "morphological-line-detection"
+    },
+    {
+      "id": "grid_region_08",
+      "type": "gridRegion",
+      "role": "detectedGridOrTableRegion",
+      "bbox": {
+        "x": 634,
+        "y": 543,
+        "w": 445,
+        "h": 360
+      },
+      "confidence": 0.9,
+      "source": "morphological-line-detection"
+    },
+    {
+      "id": "grid_region_09",
+      "type": "gridRegion",
+      "role": "detectedGridOrTableRegion",
+      "bbox": {
+        "x": 8,
+        "y": 545,
+        "w": 281,
+        "h": 367
+      },
+      "confidence": 0.9,
+      "source": "morphological-line-detection"
+    },
+    {
+      "id": "grid_region_10",
+      "type": "gridRegion",
+      "role": "detectedGridOrTableRegion",
+      "bbox": {
+        "x": 293,
+        "y": 545,
+        "w": 332,
+        "h": 362
+      },
+      "confidence": 0.9,
+      "source": "morphological-line-detection"
+    },
+    {
+      "id": "grid_region_11",
+      "type": "gridRegion",
+      "role": "detectedGridOrTableRegion",
+      "bbox": {
+        "x": 303,
+        "y": 580,
+        "w": 316,
+        "h": 36
+      },
+      "confidence": 0.9,
+      "source": "morphological-line-detection"
+    },
+    {
+      "id": "grid_region_12",
+      "type": "gridRegion",
+      "role": "detectedGridOrTableRegion",
+      "bbox": {
+        "x": 471,
+        "y": 644,
+        "w": 151,
+        "h": 68
+      },
+      "confidence": 0.9,
+      "source": "morphological-line-detection"
+    },
+    {
+      "id": "grid_region_13",
+      "type": "gridRegion",
+      "role": "detectedGridOrTableRegion",
+      "bbox": {
+        "x": 8,
+        "y": 915,
+        "w": 277,
+        "h": 293
+      },
+      "confidence": 0.9,
+      "source": "morphological-line-detection"
+    },
+    {
+      "id": "grid_region_14",
+      "type": "gridRegion",
+      "role": "detectedGridOrTableRegion",
+      "bbox": {
+        "x": 292,
+        "y": 915,
+        "w": 363,
+        "h": 294
+      },
+      "confidence": 0.9,
+      "source": "morphological-line-detection"
+    },
+    {
+      "id": "grid_region_15",
+      "type": "gridRegion",
+      "role": "detectedGridOrTableRegion",
+      "bbox": {
+        "x": 98,
+        "y": 1074,
+        "w": 172,
+        "h": 79
+      },
+      "confidence": 0.9,
+      "source": "morphological-line-detection"
+    },
+    {
+      "id": "grid_region_16",
+      "type": "gridRegion",
+      "role": "detectedGridOrTableRegion",
+      "bbox": {
+        "x": 664,
+        "y": 1088,
+        "w": 411,
+        "h": 122
+      },
+      "confidence": 0.9,
+      "source": "morphological-line-detection"
+    },
+    {
+      "id": "grid_region_17",
+      "type": "gridRegion",
+      "role": "detectedGridOrTableRegion",
+      "bbox": {
+        "x": 10,
+        "y": 1216,
+        "w": 1064,
+        "h": 180
+      },
+      "confidence": 0.9,
+      "source": "morphological-line-detection"
+    },
+    {
+      "id": "grid_region_18",
+      "type": "gridRegion",
+      "role": "detectedGridOrTableRegion",
+      "bbox": {
+        "x": 882,
+        "y": 1220,
+        "w": 196,
+        "h": 179
+      },
+      "confidence": 0.9,
+      "source": "morphological-line-detection"
+    }
+  ],
+  "imageHotspots": [
+    {
+      "id": "image_hotspot_01",
+      "type": "imageHotspot",
+      "role": "detectedIllustrationOrIconCluster",
+      "bbox": {
+        "x": 890,
+        "y": 1124,
+        "w": 94,
+        "h": 98
+      },
+      "confidence": 0.62,
+      "source": "color-texture-detection"
+    },
+    {
+      "id": "image_hotspot_02",
+      "type": "imageHotspot",
+      "role": "detectedIllustrationOrIconCluster",
+      "bbox": {
+        "x": 661,
+        "y": 1247,
+        "w": 229,
+        "h": 201
+      },
+      "confidence": 0.62,
+      "source": "color-texture-detection"
+    }
+  ],
+  "navigationRegions": [
+    {
+      "id": "bottom_navigation_or_resource_area",
+      "type": "navigationRegion",
+      "role": "footerOrNavigation",
+      "bbox": {
+        "x": 0,
+        "y": 1160,
+        "w": 1086,
+        "h": 288
+      },
+      "confidence": 0.7,
+      "source": "fixed-atlas-footer-band"
+    }
+  ],
+  "legalAnchors": [
+    {
+      "id": "ustg_3_abs_1b",
+      "label": "UStG § 3 Abs. 1b",
+      "status": "requires_final_legal_review_before_editable_text_release"
+    },
+    {
+      "id": "ustg_3_abs_9a",
+      "label": "UStG § 3 Abs. 9a",
+      "status": "requires_final_legal_review_before_editable_text_release"
+    },
+    {
+      "id": "ustg_10_abs_4",
+      "label": "UStG § 10 Abs. 4",
+      "status": "requires_final_legal_review_before_editable_text_release"
+    },
+    {
+      "id": "ustg_10_abs_5",
+      "label": "UStG § 10 Abs. 5",
+      "status": "requires_final_legal_review_before_editable_text_release"
+    }
+  ],
+  "interactionHints": [
+    {
+      "target": "sections",
+      "interaction": "click",
+      "purpose": "open section detail / notes / tooltip group"
+    },
+    {
+      "target": "gridRegions",
+      "interaction": "click",
+      "purpose": "attach comments or row/cell-level drill-down"
+    },
+    {
+      "target": "imageHotspots",
+      "interaction": "click",
+      "purpose": "image annotation or scenario explanation"
+    },
+    {
+      "target": "legalAnchors",
+      "interaction": "hover/click",
+      "purpose": "show legal source note"
+    }
+  ],
+  "qa": {
+    "canvas1086x1448": true,
+    "generatedFromActualImage": true,
+    "bodyTextIsAuthoritative": false,
+    "note": "This overlay is coordinate-accurate against the final image and suitable for interactive hotspots. It is not an authoritative editable text layer."
+  }
+}
