@@ -32,10 +32,20 @@ export function MagazineReader({ registry, initialPageId }: MagazineReaderProps)
   const navigate = useNavigate();
 
   const readerState = useReaderState(registry, restoredPageId);
-  useKeyboardNavigation(readerState, registry.manifest.reader.enableKeyboardNavigation);
 
   const railState = useRailState(registry.manifest.bookId);
   const isMobile = useMediaQuery(MOBILE_QUERY);
+
+  const handlePlusClick = useCallback(() => {
+    readerState.setInteractionMode('comment');
+    railState.expand('comments');
+  }, [readerState, railState]);
+
+  useKeyboardNavigation(readerState, registry.manifest.reader.enableKeyboardNavigation, {
+    onToggleRail: () => railState.setOpen(!railState.open),
+    onNewComment: handlePlusClick,
+    onSwitchTab: (tab) => railState.expand(tab),
+  });
 
   useEffect(() => {
     if (readerState.currentPage) {
@@ -138,11 +148,6 @@ export function MagazineReader({ registry, initialPageId }: MagazineReaderProps)
     reader.readAsText(file);
     e.target.value = '';
   }, [commentStore, refreshThreads, toast]);
-
-  const handlePlusClick = useCallback(() => {
-    readerState.setInteractionMode('comment');
-    railState.expand('comments');
-  }, [readerState, railState]);
 
   const handleDismissCommentMode = useCallback(() => {
     readerState.setInteractionMode('read');
