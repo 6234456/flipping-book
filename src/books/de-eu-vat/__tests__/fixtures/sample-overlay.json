@@ -1,0 +1,64 @@
+{
+  "version": "0.6.1",
+  "pageId": "01-vat-framework",
+  "sectionCode": "01",
+  "canvas": { "width": 1000, "height": 1500 },
+  "imageFile": "images/final/01_current_final.png",
+  "overlayType": "refined_interactive_hotspots",
+  "textRegions": [
+    {
+      "id": "main_title",
+      "type": "textRegion",
+      "role": "title",
+      "bbox": { "x": 100, "y": 150, "w": 800, "h": 100 },
+      "text": "VAT 判断总框架",
+      "confidence": 0.92,
+      "source": "catalog"
+    }
+  ],
+  "sections": [
+    {
+      "id": "section_01",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "evidence_green",
+      "bbox": { "x": 0, "y": 0, "w": 1000, "h": 600 }
+    }
+  ],
+  "gridRegions": [
+    {
+      "id": "grid_a",
+      "type": "gridRegion",
+      "role": "gridRegion",
+      "bbox": { "x": 50, "y": 700, "w": 900, "h": 400 },
+      "colorRole": "neutral_slate"
+    }
+  ],
+  "imageHotspots": [
+    {
+      "id": "icon_chain",
+      "type": "imageHotspot",
+      "role": "imageHotspot",
+      "bbox": { "x": 200, "y": 800, "w": 100, "h": 100 }
+    }
+  ],
+  "navigationRegions": [
+    {
+      "id": "nav_to_toc",
+      "type": "navigation",
+      "role": "bottomNavigation",
+      "bbox": { "x": 0, "y": 1400, "w": 200, "h": 100 }
+    }
+  ],
+  "legalAnchors": [
+    {
+      "id": "anchor_25b",
+      "type": "legalAnchor",
+      "role": "legalAnchor",
+      "bbox": { "x": 500, "y": 1200, "w": 400, "h": 80 },
+      "text": "§ 25b UStG"
+    }
+  ],
+  "interactionHints": [],
+  "qa": {}
+}
