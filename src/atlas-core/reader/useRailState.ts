@@ -49,16 +49,18 @@ function isValidTab(t: unknown): t is RailTab {
 }
 
 export function useRailState(bookId: string): RailState {
-  const [open, setOpenInternal] = useState<boolean>(true);
-  const [tab, setTabInternal] = useState<RailTab>('comments');
-  const [width, setWidth] = useState<number>(defaultWidth);
-
-  useEffect(() => {
+  const [open, setOpenInternal] = useState<boolean>(() => {
     const stored = loadStored(bookId);
-    if (typeof stored.open === 'boolean') setOpenInternal(stored.open);
-    if (isValidTab(stored.tab)) setTabInternal(stored.tab);
-    if (typeof stored.width === 'number') setWidth(clamp(stored.width));
-  }, [bookId]);
+    return typeof stored.open === 'boolean' ? stored.open : true;
+  });
+  const [tab, setTabInternal] = useState<RailTab>(() => {
+    const stored = loadStored(bookId);
+    return isValidTab(stored.tab) ? stored.tab : 'comments';
+  });
+  const [width, setWidth] = useState<number>(() => {
+    const stored = loadStored(bookId);
+    return typeof stored.width === 'number' ? clamp(stored.width) : defaultWidth();
+  });
 
   useEffect(() => {
     try {

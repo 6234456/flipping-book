@@ -33,7 +33,6 @@ export function ChromeButton({
   type = 'button',
   ...rest
 }: ChromeButtonProps) {
-  const iconSize = ICON_SIZE[size];
   return (
     <button
       type={type}

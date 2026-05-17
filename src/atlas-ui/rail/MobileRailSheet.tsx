@@ -49,7 +49,7 @@ export function MobileRailSheet(props: MobileRailSheetProps) {
     selectedThreadId,
     highlightedThreadId,
     onNavigate,
-    onPlusClick: _onPlusClick,
+    onPlusClick: _onPlusClick, // eslint-disable-line @typescript-eslint/no-unused-vars
     ...threadHandlers
   } = props;
 
