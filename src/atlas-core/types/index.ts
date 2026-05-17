@@ -10,3 +10,4 @@ export * from './scenario';
 export * from './notes';
 export * from './comments';
 export * from './navigation';
+export type { RichRegion, RichOverlayConfig, RegionKind, RegionRole, ColorRole } from './regions';
