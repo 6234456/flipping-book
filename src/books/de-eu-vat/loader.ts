@@ -42,7 +42,7 @@ function emptyOverlayFor(sectionCode: string): RichOverlayConfig {
 }
 
 async function loadOneOverlay(base: string, pageId: string, sectionCode: string): Promise<RichOverlayConfig> {
-  const url = `${base}/overlays/${pageId}_interactive_overlay_v0.6.1.json`;
+  const url = `${base}/overlays/${sectionCode}_interactive_overlay_v0.6.1.json`;
   try {
     const raw = await fetchJSON<RawOverlay>(url);
     return convertOverlay(raw);

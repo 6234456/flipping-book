@@ -18,11 +18,11 @@ function setupFetchMock(opts?: { catalogOk?: boolean; overlayOkExcept?: string }
     }
     if (url.includes('/overlays/')) {
       const file = url.split('/').pop() ?? '';
-      const pageId = file.replace('_interactive_overlay_v0.6.1.json', '');
-      if (overlayOkExcept === pageId) {
+      const secCode = file.replace('_interactive_overlay_v0.6.1.json', '');
+      if (overlayOkExcept === secCode) {
         return new Response('', { status: 404 });
       }
-      const overlay = { ...sampleOverlay, pageId, sectionCode: pageId.split('-')[0].toUpperCase() };
+      const overlay = { ...sampleOverlay, pageId: `${secCode}-page`, sectionCode: secCode };
       return new Response(JSON.stringify(overlay), { status: 200 });
     }
     return new Response('', { status: 404 });
@@ -63,7 +63,7 @@ describe('loadDeEuVat', () => {
   });
 
   it('continues with empty regions when a single overlay fails', async () => {
-    setupFetchMock({ overlayOkExcept: 'toc' });
+    setupFetchMock({ overlayOkExcept: 'TOC' });
     const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
     const data = await loadDeEuVat(BASE);
     const tocOverlay = data.overlays.find((o) => o.overlayId === 'TOC-overlay-v06');
