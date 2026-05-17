@@ -1,13 +1,52 @@
-// Minimal local type bridge for VAT Atlas assets. The canonical type definitions are in spec_v0.2.md.
-export type LocaleCode = "zh-CN" | "de-DE" | "en-US";
-export type LocalizedText = Partial<Record<LocaleCode, string>>;
-export type PageId = string;
-export type ImageAssetId = string;
-export type OverlayConfigId = string;
-export type GlossaryTermId = string;
-export type LegalRefId = string;
+// Raw v0.6.1 overlay schema types — consumed only by ./loader.ts and ./converter.ts.
+// NOT re-exported from index.ts. See spec §3.2.
 
-export type PercentageRect = { x: number; y: number; width: number; height: number };
-export type ImageAssetRef = { assetId: ImageAssetId; version: string };
+export type RawBBox = { x: number; y: number; w: number; h: number };
 
-export type AssetPackStatus = "content-locked-reference" | "visual-draft" | "legacy-draft-needs-review";
+export type RawRegion = {
+  id: string;
+  type: string;
+  role: string;
+  bbox: RawBBox;
+  text?: string;
+  confidence?: number;
+  source?: string;
+  colorRole?: string;
+};
+
+export type RawCanvas = {
+  width: number;
+  height: number;
+  aspect?: string;
+  measurementBasis?: string;
+};
+
+export type RawOverlay = {
+  version: string;
+  pageId: string;
+  sectionCode: string;
+  canvas: RawCanvas;
+  imageFile: string;
+  overlayType: string;
+  textRegions: RawRegion[];
+  sections: RawRegion[];
+  gridRegions: RawRegion[];
+  imageHotspots: RawRegion[];
+  navigationRegions: RawRegion[];
+  legalAnchors: RawRegion[];
+  interactionHints?: unknown[];
+  qa?: unknown;
+};
+
+export type RawPageEntry = {
+  sectionCode: string;
+  pageId: string;
+  title: string;
+  subtitle: string;
+  imageFile: string;
+  canvas: { width: number; height: number };
+  sizeStatus: string;
+  notes?: string;
+};
+
+export type RawPageCatalog = RawPageEntry[];
