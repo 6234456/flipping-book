@@ -41,13 +41,7 @@ export function ChromeButton({
       className={[BASE, SIZE[size], pressed ? ON : OFF, className].filter(Boolean).join(' ')}
       {...rest}
     >
-      {LeadingIcon ? (
-        iconSize === 14 ? (
-          <Icon icon={LeadingIcon} size={14} />
-        ) : (
-          <LeadingIcon width={iconSize} height={iconSize} strokeWidth={2} aria-hidden />
-        )
-      ) : null}
+      {LeadingIcon ? <Icon icon={LeadingIcon} size={ICON_SIZE[size]} /> : null}
       {children}
     </button>
   );

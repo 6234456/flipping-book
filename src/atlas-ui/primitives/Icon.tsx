@@ -1,6 +1,6 @@
 import type { LucideIcon } from 'lucide-react';
 
-export type IconSize = 14 | 16 | 18 | 20 | 24;
+export type IconSize = 12 | 14 | 16 | 18 | 20 | 24;
 
 export type IconProps = {
   icon: LucideIcon;
