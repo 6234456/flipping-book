@@ -31,3 +31,6 @@ export { Callout } from './Callout';
 export type { CalloutProps, CalloutVariant } from './Callout';
 
 export { MOTION } from './motion';
+
+export { ChromeButton } from './ChromeButton';
+export type { ChromeButtonProps } from './ChromeButton';
