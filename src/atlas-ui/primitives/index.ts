@@ -34,3 +34,6 @@ export { MOTION } from './motion';
 
 export { ChromeButton } from './ChromeButton';
 export type { ChromeButtonProps } from './ChromeButton';
+
+export { InfoBanner } from './InfoBanner';
+export type { InfoBannerProps, InfoBannerVariant } from './InfoBanner';
