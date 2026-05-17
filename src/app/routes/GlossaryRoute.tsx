@@ -1,16 +1,15 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
 import { AlertTriangle, BookOpen } from 'lucide-react';
-import { MagazineReader } from '../atlas-ui/reader/MagazineReader';
-import { createBookRegistry } from '../atlas-core/registry';
-import { loadDeEuVat, type BookData } from '../books/de-eu-vat/loader';
+import { createBookRegistry } from '../../atlas-core/registry';
+import { loadDeEuVat, type BookData } from '../../books/de-eu-vat/loader';
+import { GlossaryPageTemplate } from '../../atlas-ui/renderers/GlossaryPageTemplate';
 import {
   EmptyState,
   ToastProvider,
   TooltipProvider,
-} from '../atlas-ui/primitives';
-import type { BookRegistry } from '../atlas-core/registry';
-import type { OverlayConfig } from '../atlas-core/types/overlay';
+} from '../../atlas-ui/primitives';
+import type { BookRegistry } from '../../atlas-core/registry';
+import type { OverlayConfig } from '../../atlas-core/types/overlay';
 
 function buildRegistry(data: BookData): BookRegistry {
   return createBookRegistry(
@@ -26,8 +25,7 @@ function buildRegistry(data: BookData): BookRegistry {
   );
 }
 
-export function App() {
-  const { pageId } = useParams<{ pageId?: string }>();
+export function GlossaryRoute() {
   const [registry, setRegistry] = useState<BookRegistry | null>(null);
   const [error, setError] = useState<string | null>(null);
 
@@ -50,11 +48,7 @@ export function App() {
       <TooltipProvider>
         <ToastProvider>
           <div className="h-dvh flex items-center justify-center bg-surface">
-            <EmptyState
-              icon={AlertTriangle}
-              title="图册加载失败"
-              description={error}
-            />
+            <EmptyState icon={AlertTriangle} title="术语表加载失败" description={error} />
           </div>
         </ToastProvider>
       </TooltipProvider>
@@ -66,7 +60,7 @@ export function App() {
       <TooltipProvider>
         <ToastProvider>
           <div className="h-dvh flex items-center justify-center bg-surface">
-            <EmptyState icon={BookOpen} title="加载图册中…" />
+            <EmptyState icon={BookOpen} title="加载术语表中…" />
           </div>
         </ToastProvider>
       </TooltipProvider>
@@ -74,9 +68,11 @@ export function App() {
   }
 
   return (
-    <TooltipProvider delayDuration={200}>
+    <TooltipProvider>
       <ToastProvider>
-        <MagazineReader registry={registry} initialPageId={pageId} />
+        <div className="h-dvh overflow-auto bg-surface">
+          <GlossaryPageTemplate registry={registry} />
+        </div>
       </ToastProvider>
     </TooltipProvider>
   );

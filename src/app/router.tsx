@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { App } from './App';
+import { GlossaryRoute } from './routes/GlossaryRoute';
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +25,6 @@ export const router = createBrowserRouter([
   },
   {
     path: '/book/:bookSlug/glossary',
-    element: <App />,
+    element: <GlossaryRoute />,
   },
 ]);
