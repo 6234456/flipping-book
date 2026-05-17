@@ -6,4 +6,8 @@ export const MOTION = {
   pageFade: { duration: 0.18, ease: 'easeOut' } satisfies Transition,
   pinPop: { type: 'spring', stiffness: 500, damping: 22 } satisfies Transition,
   hover: { duration: 0.12, ease: 'easeOut' } satisfies Transition,
+  // === Spec B additions ===
+  railWidth: { type: 'spring', stiffness: 320, damping: 32 } satisfies Transition,
+  tabFade: { duration: 0.12, ease: 'easeOut' } satisfies Transition,
+  bannerSlide: { duration: 0.18, ease: 'easeOut' } satisfies Transition,
 } as const;
