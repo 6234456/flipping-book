@@ -1,0 +1,1476 @@
+{
+  "version": "0.6.1",
+  "pageId": "09-03-work-supply-vs-service",
+  "sectionCode": "09-03",
+  "canvas": {
+    "width": 1086,
+    "height": 1448,
+    "aspect": "3:4 portrait",
+    "measurementBasis": "actual_final_image_v0.6.0"
+  },
+  "imageFile": "images/final/09-03_current_final.png",
+  "overlayType": "refined_interactive_hotspots",
+  "textRegions": [
+    {
+      "id": "page_badge",
+      "type": "textRegion",
+      "role": "pageCode",
+      "bbox": {
+        "x": 0,
+        "y": 0,
+        "w": 170,
+        "h": 95
+      },
+      "text": "09-03",
+      "confidence": 0.95,
+      "source": "fixed-atlas-header"
+    },
+    {
+      "id": "atlas_header",
+      "type": "textRegion",
+      "role": "atlasHeader",
+      "bbox": {
+        "x": 170,
+        "y": 0,
+        "w": 760,
+        "h": 75
+      },
+      "text": "VAT QUICK-REFERENCE ATLAS / VAT 图册导航",
+      "confidence": 0.7,
+      "source": "fixed-atlas-header"
+    },
+    {
+      "id": "main_title",
+      "type": "textRegion",
+      "role": "title",
+      "bbox": {
+        "x": 140,
+        "y": 60,
+        "w": 820,
+        "h": 140
+      },
+      "text": "加工供货与加工服务边界",
+      "confidence": 0.92,
+      "source": "catalog"
+    },
+    {
+      "id": "subtitle",
+      "type": "textRegion",
+      "role": "subtitle",
+      "bbox": {
+        "x": 150,
+        "y": 155,
+        "w": 780,
+        "h": 75
+      },
+      "text": "识别交易的实质，区分货物与服务，正确适用 VAT",
+      "confidence": 0.86,
+      "source": "catalog"
+    }
+  ],
+  "sections": [
+    {
+      "id": "section_01",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 0,
+        "y": 0,
+        "w": 1086,
+        "h": 298
+      },
+      "headerBBox": {
+        "x": 0,
+        "y": 0,
+        "w": 1086,
+        "h": 218
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_02",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 452,
+        "y": 22,
+        "w": 186,
+        "h": 53
+      },
+      "headerBBox": {
+        "x": 452,
+        "y": 22,
+        "w": 186,
+        "h": 18
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_03",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 511,
+        "y": 49,
+        "w": 277,
+        "h": 58
+      },
+      "headerBBox": {
+        "x": 511,
+        "y": 49,
+        "w": 277,
+        "h": 23
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_04",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 256,
+        "y": 91,
+        "w": 595,
+        "h": 88
+      },
+      "headerBBox": {
+        "x": 256,
+        "y": 91,
+        "w": 595,
+        "h": 53
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_05",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 919,
+        "y": 152,
+        "w": 167,
+        "h": 127
+      },
+      "headerBBox": {
+        "x": 919,
+        "y": 152,
+        "w": 167,
+        "h": 92
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_06",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 259,
+        "y": 166,
+        "w": 590,
+        "h": 59
+      },
+      "headerBBox": {
+        "x": 259,
+        "y": 166,
+        "w": 590,
+        "h": 24
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_07",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 414,
+        "y": 220,
+        "w": 261,
+        "h": 65
+      },
+      "headerBBox": {
+        "x": 414,
+        "y": 220,
+        "w": 261,
+        "h": 30
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_08",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 0,
+        "y": 265,
+        "w": 211,
+        "h": 115
+      },
+      "headerBBox": {
+        "x": 0,
+        "y": 265,
+        "w": 211,
+        "h": 54
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_09",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 269,
+        "y": 265,
+        "w": 817,
+        "h": 101
+      },
+      "headerBBox": {
+        "x": 269,
+        "y": 265,
+        "w": 817,
+        "h": 66
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_10",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 104,
+        "y": 316,
+        "w": 93,
+        "h": 64
+      },
+      "headerBBox": {
+        "x": 104,
+        "y": 316,
+        "w": 93,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_11",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 321,
+        "y": 316,
+        "w": 85,
+        "h": 48
+      },
+      "headerBBox": {
+        "x": 321,
+        "y": 316,
+        "w": 85,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_12",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 529,
+        "y": 316,
+        "w": 106,
+        "h": 64
+      },
+      "headerBBox": {
+        "x": 529,
+        "y": 316,
+        "w": 106,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_13",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 731,
+        "y": 316,
+        "w": 110,
+        "h": 64
+      },
+      "headerBBox": {
+        "x": 731,
+        "y": 316,
+        "w": 110,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_14",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 321,
+        "y": 339,
+        "w": 86,
+        "h": 48
+      },
+      "headerBBox": {
+        "x": 321,
+        "y": 339,
+        "w": 86,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_15",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 0,
+        "y": 384,
+        "w": 1086,
+        "h": 83
+      },
+      "headerBBox": {
+        "x": 0,
+        "y": 384,
+        "w": 1086,
+        "h": 48
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_16",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 0,
+        "y": 441,
+        "w": 714,
+        "h": 634
+      },
+      "headerBBox": {
+        "x": 0,
+        "y": 441,
+        "w": 714,
+        "h": 599
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_17",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 385,
+        "y": 460,
+        "w": 158,
+        "h": 121
+      },
+      "headerBBox": {
+        "x": 385,
+        "y": 460,
+        "w": 158,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_18",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 769,
+        "y": 460,
+        "w": 131,
+        "h": 48
+      },
+      "headerBBox": {
+        "x": 769,
+        "y": 460,
+        "w": 131,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_19",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 769,
+        "y": 482,
+        "w": 205,
+        "h": 48
+      },
+      "headerBBox": {
+        "x": 769,
+        "y": 482,
+        "w": 205,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_20",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 769,
+        "y": 504,
+        "w": 205,
+        "h": 48
+      },
+      "headerBBox": {
+        "x": 769,
+        "y": 504,
+        "w": 205,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_21",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 787,
+        "y": 526,
+        "w": 148,
+        "h": 55
+      },
+      "headerBBox": {
+        "x": 787,
+        "y": 526,
+        "w": 148,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_22",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 385,
+        "y": 585,
+        "w": 159,
+        "h": 48
+      },
+      "headerBBox": {
+        "x": 385,
+        "y": 585,
+        "w": 159,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_23",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 769,
+        "y": 585,
+        "w": 174,
+        "h": 48
+      },
+      "headerBBox": {
+        "x": 769,
+        "y": 585,
+        "w": 174,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_24",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "evidence_green",
+      "bbox": {
+        "x": 637,
+        "y": 592,
+        "w": 86,
+        "h": 208
+      },
+      "headerBBox": {
+        "x": 637,
+        "y": 592,
+        "w": 86,
+        "h": 40
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_25",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 385,
+        "y": 607,
+        "w": 158,
+        "h": 260
+      },
+      "headerBBox": {
+        "x": 385,
+        "y": 607,
+        "w": 158,
+        "h": 12
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_26",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 769,
+        "y": 607,
+        "w": 161,
+        "h": 47
+      },
+      "headerBBox": {
+        "x": 769,
+        "y": 607,
+        "w": 161,
+        "h": 12
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_27",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 769,
+        "y": 628,
+        "w": 190,
+        "h": 48
+      },
+      "headerBBox": {
+        "x": 769,
+        "y": 628,
+        "w": 190,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_28",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 769,
+        "y": 675,
+        "w": 102,
+        "h": 48
+      },
+      "headerBBox": {
+        "x": 769,
+        "y": 675,
+        "w": 102,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_29",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 769,
+        "y": 697,
+        "w": 234,
+        "h": 69
+      },
+      "headerBBox": {
+        "x": 769,
+        "y": 697,
+        "w": 234,
+        "h": 34
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_30",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 69,
+        "y": 725,
+        "w": 86,
+        "h": 235
+      },
+      "headerBBox": {
+        "x": 69,
+        "y": 725,
+        "w": 86,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_31",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 769,
+        "y": 740,
+        "w": 183,
+        "h": 48
+      },
+      "headerBBox": {
+        "x": 769,
+        "y": 740,
+        "w": 183,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_32",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 769,
+        "y": 785,
+        "w": 145,
+        "h": 48
+      },
+      "headerBBox": {
+        "x": 769,
+        "y": 785,
+        "w": 145,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_33",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 641,
+        "y": 804,
+        "w": 323,
+        "h": 72
+      },
+      "headerBBox": {
+        "x": 641,
+        "y": 804,
+        "w": 323,
+        "h": 37
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_34",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 769,
+        "y": 871,
+        "w": 102,
+        "h": 47
+      },
+      "headerBBox": {
+        "x": 769,
+        "y": 871,
+        "w": 102,
+        "h": 12
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_35",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 769,
+        "y": 892,
+        "w": 189,
+        "h": 48
+      },
+      "headerBBox": {
+        "x": 769,
+        "y": 892,
+        "w": 189,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_36",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 365,
+        "y": 911,
+        "w": 203,
+        "h": 135
+      },
+      "headerBBox": {
+        "x": 365,
+        "y": 911,
+        "w": 203,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_37",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 769,
+        "y": 914,
+        "w": 203,
+        "h": 47
+      },
+      "headerBBox": {
+        "x": 769,
+        "y": 914,
+        "w": 203,
+        "h": 12
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_38",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 784,
+        "y": 935,
+        "w": 147,
+        "h": 47
+      },
+      "headerBBox": {
+        "x": 784,
+        "y": 935,
+        "w": 147,
+        "h": 12
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_39",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 0,
+        "y": 964,
+        "w": 164,
+        "h": 85
+      },
+      "headerBBox": {
+        "x": 0,
+        "y": 964,
+        "w": 164,
+        "h": 42
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_40",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 637,
+        "y": 979,
+        "w": 336,
+        "h": 75
+      },
+      "headerBBox": {
+        "x": 637,
+        "y": 979,
+        "w": 336,
+        "h": 40
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_41",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 769,
+        "y": 979,
+        "w": 204,
+        "h": 67
+      },
+      "headerBBox": {
+        "x": 769,
+        "y": 979,
+        "w": 204,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_42",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 379,
+        "y": 1050,
+        "w": 707,
+        "h": 230
+      },
+      "headerBBox": {
+        "x": 379,
+        "y": 1050,
+        "w": 707,
+        "h": 195
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_43",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "dark",
+      "bbox": {
+        "x": 0,
+        "y": 1053,
+        "w": 189,
+        "h": 60
+      },
+      "headerBBox": {
+        "x": 0,
+        "y": 1053,
+        "w": 189,
+        "h": 25
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_44",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "dark",
+      "bbox": {
+        "x": 237,
+        "y": 1053,
+        "w": 227,
+        "h": 60
+      },
+      "headerBBox": {
+        "x": 237,
+        "y": 1053,
+        "w": 227,
+        "h": 25
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_45",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 0,
+        "y": 1090,
+        "w": 540,
+        "h": 179
+      },
+      "headerBBox": {
+        "x": 0,
+        "y": 1090,
+        "w": 540,
+        "h": 144
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_46",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 0,
+        "y": 1092,
+        "w": 310,
+        "h": 47
+      },
+      "headerBBox": {
+        "x": 0,
+        "y": 1092,
+        "w": 310,
+        "h": 12
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_47",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 574,
+        "y": 1093,
+        "w": 287,
+        "h": 49
+      },
+      "headerBBox": {
+        "x": 574,
+        "y": 1093,
+        "w": 287,
+        "h": 14
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_48",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 0,
+        "y": 1114,
+        "w": 311,
+        "h": 48
+      },
+      "headerBBox": {
+        "x": 0,
+        "y": 1114,
+        "w": 311,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_49",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 574,
+        "y": 1119,
+        "w": 273,
+        "h": 50
+      },
+      "headerBBox": {
+        "x": 574,
+        "y": 1119,
+        "w": 273,
+        "h": 15
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_50",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 0,
+        "y": 1136,
+        "w": 268,
+        "h": 48
+      },
+      "headerBBox": {
+        "x": 0,
+        "y": 1136,
+        "w": 268,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_51",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 574,
+        "y": 1145,
+        "w": 245,
+        "h": 49
+      },
+      "headerBBox": {
+        "x": 574,
+        "y": 1145,
+        "w": 245,
+        "h": 14
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_52",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 0,
+        "y": 1158,
+        "w": 268,
+        "h": 48
+      },
+      "headerBBox": {
+        "x": 0,
+        "y": 1158,
+        "w": 268,
+        "h": 13
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_53",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 574,
+        "y": 1172,
+        "w": 230,
+        "h": 49
+      },
+      "headerBBox": {
+        "x": 574,
+        "y": 1172,
+        "w": 230,
+        "h": 14
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_54",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 0,
+        "y": 1180,
+        "w": 240,
+        "h": 60
+      },
+      "headerBBox": {
+        "x": 0,
+        "y": 1180,
+        "w": 240,
+        "h": 14
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_55",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 574,
+        "y": 1199,
+        "w": 245,
+        "h": 49
+      },
+      "headerBBox": {
+        "x": 574,
+        "y": 1199,
+        "w": 245,
+        "h": 14
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_56",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 698,
+        "y": 1243,
+        "w": 164,
+        "h": 57
+      },
+      "headerBBox": {
+        "x": 698,
+        "y": 1243,
+        "w": 164,
+        "h": 22
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_57",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 0,
+        "y": 1244,
+        "w": 166,
+        "h": 109
+      },
+      "headerBBox": {
+        "x": 0,
+        "y": 1244,
+        "w": 166,
+        "h": 53
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_58",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 32,
+        "y": 1274,
+        "w": 941,
+        "h": 107
+      },
+      "headerBBox": {
+        "x": 32,
+        "y": 1274,
+        "w": 941,
+        "h": 72
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_59",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "atlas_blue",
+      "bbox": {
+        "x": 680,
+        "y": 1275,
+        "w": 301,
+        "h": 75
+      },
+      "headerBBox": {
+        "x": 680,
+        "y": 1275,
+        "w": 301,
+        "h": 29
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_60",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 718,
+        "y": 1354,
+        "w": 241,
+        "h": 90
+      },
+      "headerBBox": {
+        "x": 718,
+        "y": 1354,
+        "w": 241,
+        "h": 48
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_61",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "evidence_green",
+      "bbox": {
+        "x": 0,
+        "y": 1357,
+        "w": 825,
+        "h": 126
+      },
+      "headerBBox": {
+        "x": 0,
+        "y": 1357,
+        "w": 825,
+        "h": 91
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    },
+    {
+      "id": "section_62",
+      "type": "section",
+      "role": "detectedSection",
+      "colorRole": "neutral",
+      "bbox": {
+        "x": 823,
+        "y": 1399,
+        "w": 263,
+        "h": 84
+      },
+      "headerBBox": {
+        "x": 823,
+        "y": 1399,
+        "w": 263,
+        "h": 49
+      },
+      "confidence": 0.78,
+      "source": "color-bar-detection"
+    }
+  ],
+  "gridRegions": [
+    {
+      "id": "grid_region_01",
+      "type": "gridRegion",
+      "role": "detectedGridOrTableRegion",
+      "bbox": {
+        "x": 0,
+        "y": 0,
+        "w": 1086,
+        "h": 1448
+      },
+      "confidence": 0.9,
+      "source": "morphological-line-detection"
+    },
+    {
+      "id": "grid_region_02",
+      "type": "gridRegion",
+      "role": "detectedGridOrTableRegion",
+      "bbox": {
+        "x": 25,
+        "y": 218,
+        "w": 969,
+        "h": 34
+      },
+      "confidence": 0.9,
+      "source": "morphological-line-detection"
+    },
+    {
+      "id": "grid_region_03",
+      "type": "gridRegion",
+      "role": "detectedGridOrTableRegion",
+      "bbox": {
+        "x": 555,
+        "y": 1048,
+        "w": 519,
+        "h": 189
+      },
+      "confidence": 0.9,
+      "source": "morphological-line-detection"
+    },
+    {
+      "id": "grid_region_04",
+      "type": "gridRegion",
+      "role": "detectedGridOrTableRegion",
+      "bbox": {
+        "x": 15,
+        "y": 1049,
+        "w": 526,
+        "h": 188
+      },
+      "confidence": 0.9,
+      "source": "morphological-line-detection"
+    },
+    {
+      "id": "grid_region_05",
+      "type": "gridRegion",
+      "role": "detectedGridOrTableRegion",
+      "bbox": {
+        "x": 15,
+        "y": 1241,
+        "w": 660,
+        "h": 107
+      },
+      "confidence": 0.9,
+      "source": "morphological-line-detection"
+    },
+    {
+      "id": "grid_region_06",
+      "type": "gridRegion",
+      "role": "detectedGridOrTableRegion",
+      "bbox": {
+        "x": 692,
+        "y": 1241,
+        "w": 373,
+        "h": 163
+      },
+      "confidence": 0.9,
+      "source": "morphological-line-detection"
+    },
+    {
+      "id": "grid_region_07",
+      "type": "gridRegion",
+      "role": "detectedGridOrTableRegion",
+      "bbox": {
+        "x": 546,
+        "y": 1352,
+        "w": 234,
+        "h": 96
+      },
+      "confidence": 0.9,
+      "source": "morphological-line-detection"
+    }
+  ],
+  "imageHotspots": [
+    {
+      "id": "image_hotspot_01",
+      "type": "imageHotspot",
+      "role": "detectedIllustrationOrIconCluster",
+      "bbox": {
+        "x": 417,
+        "y": 1361,
+        "w": 86,
+        "h": 87
+      },
+      "confidence": 0.62,
+      "source": "color-texture-detection"
+    }
+  ],
+  "navigationRegions": [
+    {
+      "id": "bottom_navigation_or_resource_area",
+      "type": "navigationRegion",
+      "role": "footerOrNavigation",
+      "bbox": {
+        "x": 0,
+        "y": 1160,
+        "w": 1086,
+        "h": 288
+      },
+      "confidence": 0.7,
+      "source": "fixed-atlas-footer-band"
+    }
+  ],
+  "legalAnchors": [
+    {
+      "id": "ustg_3_abs_4",
+      "label": "UStG § 3 Abs. 4",
+      "status": "requires_final_legal_review_before_editable_text_release"
+    },
+    {
+      "id": "ustae_3_8",
+      "label": "UStAE 3.8",
+      "status": "requires_final_legal_review_before_editable_text_release"
+    }
+  ],
+  "interactionHints": [
+    {
+      "target": "sections",
+      "interaction": "click",
+      "purpose": "open section detail / notes / tooltip group"
+    },
+    {
+      "target": "gridRegions",
+      "interaction": "click",
+      "purpose": "attach comments or row/cell-level drill-down"
+    },
+    {
+      "target": "imageHotspots",
+      "interaction": "click",
+      "purpose": "image annotation or scenario explanation"
+    },
+    {
+      "target": "legalAnchors",
+      "interaction": "hover/click",
+      "purpose": "show legal source note"
+    }
+  ],
+  "qa": {
+    "canvas1086x1448": true,
+    "generatedFromActualImage": true,
+    "bodyTextIsAuthoritative": false,
+    "note": "This overlay is coordinate-accurate against the final image and suitable for interactive hotspots. It is not an authoritative editable text layer."
+  }
+}
