@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { render, screen } from '@testing-library/react';
+import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { ReaderBottomBar } from '../ReaderBottomBar';
 import type { PageManifest } from '../../../atlas-core/types/page';
@@ -63,5 +63,63 @@ describe('ReaderBottomBar', () => {
     const { container } = renderBottomBar({ totalPages: 1 });
     const fill = container.querySelector('[data-testid="progress-bar"] .bg-accent');
     expect(fill).toHaveStyle({ width: '100%' });
+  });
+
+  // Helper: stub the bar's bounding rect so jsdom click math works.
+  function stubBarRect(container: HTMLElement, width = 100) {
+    const wrapper = container.querySelector('[data-testid="progress-bar"]') as HTMLDivElement | null;
+    if (!wrapper) throw new Error('progress bar wrapper not found');
+    const bar = wrapper.querySelector('.h-1') as HTMLDivElement | null;
+    if (!bar) throw new Error('progress bar inner not found');
+    vi.spyOn(bar, 'getBoundingClientRect').mockReturnValue({
+      x: 0, y: 0, left: 0, right: width, width, top: 0, bottom: 4, height: 4,
+      toJSON: () => ({}),
+    } as DOMRect);
+    return wrapper;
+  }
+
+  it('clicking the progress bar at 40% navigates to the page at that ratio', async () => {
+    const onNavigateToPage = vi.fn();
+    const { container } = renderBottomBar({
+      currentIndex: 0,
+      totalPages: 5,
+      readingOrder: ['p-1', 'p-2', 'p-3', 'p-4', 'p-5'],
+      onNavigateToPage,
+    });
+    const bar = stubBarRect(container, 100);
+    // floor(0.4 * 5) = 2  → page id "p-3"
+    bar.dispatchEvent(new MouseEvent('click', { clientX: 40, bubbles: true }));
+    expect(onNavigateToPage).toHaveBeenCalledWith('p-3');
+  });
+
+  it('mousemove on the progress bar shows tooltip with page number and title', async () => {
+    const { container } = renderBottomBar({
+      currentIndex: 0,
+      totalPages: 5,
+      readingOrder: ['p-1', 'p-2', 'p-3', 'p-4', 'p-5'],
+    });
+    const bar = stubBarRect(container, 100);
+    bar.dispatchEvent(new MouseEvent('mousemove', { clientX: 60, bubbles: true }));
+    // floor(0.6 * 5) = 3 → page id "p-4", page number 4
+    const tip = await screen.findByTestId('progress-tooltip');
+    expect(tip).toBeInTheDocument();
+    expect(tip).toHaveTextContent('4');
+    expect(tip).toHaveTextContent('Page p-4');
+  });
+
+  it('mouseleave hides the tooltip', async () => {
+    const { container } = renderBottomBar({
+      currentIndex: 0,
+      totalPages: 5,
+      readingOrder: ['p-1', 'p-2', 'p-3', 'p-4', 'p-5'],
+    });
+    const bar = stubBarRect(container, 100);
+    bar.dispatchEvent(new MouseEvent('mousemove', { clientX: 50, bubbles: true }));
+    expect(await screen.findByTestId('progress-tooltip')).toBeInTheDocument();
+    fireEvent.mouseLeave(bar);
+    // tooltip should disappear after state update
+    await waitFor(() => {
+      expect(screen.queryByTestId('progress-tooltip')).not.toBeInTheDocument();
+    });
   });
 });
