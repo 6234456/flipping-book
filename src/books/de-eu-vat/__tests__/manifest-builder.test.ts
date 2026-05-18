@@ -5,7 +5,7 @@ import {
   buildImageAsset,
   buildManifest,
 } from '../manifest-builder';
-import type { RawPageCatalog } from '../types';
+import type { RawPageCatalog } from '../../../atlas-core/overlay/rawSchema';
 
 const catalog = sample as RawPageCatalog;
 

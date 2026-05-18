@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import sample from './fixtures/sample-overlay.json';
-import { convertOverlay } from '../converter';
-import type { RawOverlay } from '../types';
+import { convertOverlay } from '../convertOverlay';
+import type { RawOverlay } from '../rawSchema';
 
 const raw = sample as RawOverlay;
 

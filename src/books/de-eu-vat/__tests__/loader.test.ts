@@ -1,6 +1,6 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import sampleCatalog from './fixtures/sample-catalog.json';
-import sampleOverlay from './fixtures/sample-overlay.json';
+import sampleOverlay from '../../../atlas-core/overlay/__tests__/fixtures/sample-overlay.json';
 import { loadDeEuVat, __resetCache } from '../loader';
 
 const BASE = '/books/de-eu-vat/v0.6.1';

@@ -2,7 +2,7 @@ import type { BookManifest, FeatureFlags, RegistryRefs } from '../../atlas-core/
 import type { ImageAsset } from '../../atlas-core/types/image';
 import type { PageManifest } from '../../atlas-core/types/page';
 import type { ReaderConfig } from '../../atlas-core/types/page';
-import type { RawPageCatalog, RawPageEntry } from './types';
+import type { RawPageCatalog, RawPageEntry } from '../../atlas-core/overlay/rawSchema';
 
 const BASE_URL = '/books/de-eu-vat/v0.6.1';
 

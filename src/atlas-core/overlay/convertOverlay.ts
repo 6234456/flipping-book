@@ -3,10 +3,10 @@ import type {
   RichRegion,
   RegionKind,
   ColorRole,
-} from '../../atlas-core/types/regions';
-import type { Hotspot, HotspotTarget } from '../../atlas-core/types/overlay';
-import type { PercentageRect } from '../../atlas-core/types/page';
-import type { RawBBox, RawOverlay, RawRegion } from './types';
+} from '../types/regions';
+import type { Hotspot, HotspotTarget } from '../types/overlay';
+import type { PercentageRect } from '../types/page';
+import type { RawBBox, RawOverlay, RawRegion } from './rawSchema';
 
 const KNOWN_COLOR_ROLES: ReadonlySet<string> = new Set([
   'evidence_green',

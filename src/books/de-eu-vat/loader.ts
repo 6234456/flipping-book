@@ -2,10 +2,10 @@ import type { BookManifest } from '../../atlas-core/types/manifest';
 import type { ImageAsset } from '../../atlas-core/types/image';
 import type { RichOverlayConfig } from '../../atlas-core/types/regions';
 import type { GlossaryEntry } from '../../atlas-core/types/glossary';
-import type { RawOverlay, RawPageCatalog } from './types';
+import type { RawOverlay, RawPageCatalog } from '../../atlas-core/overlay/rawSchema';
 import { glossary } from './glossary';
 import { buildImageAsset, buildManifest } from './manifest-builder';
-import { convertOverlay } from './converter';
+import { convertOverlay } from '../../atlas-core/overlay/convertOverlay';
 
 export type BookData = {
   manifest: BookManifest;
