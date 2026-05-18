@@ -47,6 +47,10 @@ export type RawPageEntry = {
   canvas: { width: number; height: number };
   sizeStatus: string;
   notes?: string;
+  noteIds?: string[];
+  contentId?: string;
+  scenarioIds?: string[];
+  legalRefIds?: string[];
 };
 
 export type RawPageCatalog = RawPageEntry[];
