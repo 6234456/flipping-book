@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import { AlertTriangle, BookOpen } from 'lucide-react';
 import { MagazineReader } from '../atlas-ui/reader/MagazineReader';
 import { createBookRegistry } from '../atlas-core/registry';
-import { loadDeEuVat, type BookData } from '../books/de-eu-vat/loader';
+import { loadBook, type LoadedBook } from '../atlas-core/loader';
 import {
   EmptyState,
   ToastProvider,
@@ -12,16 +12,16 @@ import {
 import type { BookRegistry } from '../atlas-core/registry';
 import type { OverlayConfig } from '../atlas-core/types/overlay';
 
-function buildRegistry(data: BookData): BookRegistry {
+function buildRegistry(data: LoadedBook): BookRegistry {
   return createBookRegistry(
     data.manifest,
     data.images,
     data.overlays as unknown as OverlayConfig[],
     data.glossary,
-    [],
-    [],
-    [],
-    [],
+    data.legalRefs,
+    data.scenarios,
+    data.notes,
+    data.contents,
     [],
   );
 }
@@ -33,7 +33,7 @@ export function App() {
 
   useEffect(() => {
     let cancelled = false;
-    loadDeEuVat()
+    loadBook()
       .then((data) => {
         if (!cancelled) setRegistry(buildRegistry(data));
       })
@@ -50,11 +50,7 @@ export function App() {
       <TooltipProvider>
         <ToastProvider>
           <div className="h-dvh flex items-center justify-center bg-surface">
-            <EmptyState
-              icon={AlertTriangle}
-              title="图册加载失败"
-              description={error}
-            />
+            <EmptyState icon={AlertTriangle} title="图册加载失败" description={error} />
           </div>
         </ToastProvider>
       </TooltipProvider>

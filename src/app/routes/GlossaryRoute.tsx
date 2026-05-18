@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { AlertTriangle, BookOpen } from 'lucide-react';
 import { createBookRegistry } from '../../atlas-core/registry';
-import { loadDeEuVat, type BookData } from '../../books/de-eu-vat/loader';
+import { loadBook, type LoadedBook } from '../../atlas-core/loader';
 import { GlossaryPageTemplate } from '../../atlas-ui/renderers/GlossaryPageTemplate';
 import {
   EmptyState,
@@ -11,16 +11,16 @@ import {
 import type { BookRegistry } from '../../atlas-core/registry';
 import type { OverlayConfig } from '../../atlas-core/types/overlay';
 
-function buildRegistry(data: BookData): BookRegistry {
+function buildRegistry(data: LoadedBook): BookRegistry {
   return createBookRegistry(
     data.manifest,
     data.images,
     data.overlays as unknown as OverlayConfig[],
     data.glossary,
-    [],
-    [],
-    [],
-    [],
+    data.legalRefs,
+    data.scenarios,
+    data.notes,
+    data.contents,
     [],
   );
 }
@@ -31,7 +31,7 @@ export function GlossaryRoute() {
 
   useEffect(() => {
     let cancelled = false;
-    loadDeEuVat()
+    loadBook()
       .then((data) => {
         if (!cancelled) setRegistry(buildRegistry(data));
       })
