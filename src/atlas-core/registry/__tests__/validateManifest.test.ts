@@ -142,14 +142,6 @@ describe('validateImageRefs', () => {
 
 // ============================================================
 describe('validateOverlayRefs', () => {
-  const images: ImageAsset[] = [{
-    assetId: "img-1", src: "/img/1.png", version: "v1",
-    width: 1000, height: 1414, format: "png",
-    visualSystem: "VAT_ATLAS_MAGAZINE_V2",
-    pageFormat: "single", sizePreset: "magazine-portrait-1000",
-    alt: { "zh-CN": "img" },
-  }];
-
   const overlays: OverlayConfig[] = [{
     overlayId: "ov-1",
     imageAssetId: "img-1",
@@ -165,7 +157,7 @@ describe('validateOverlayRefs', () => {
       overlay: { overlayId: "ov-1", imageAssetId: "img-1", imageVersion: "v1" },
     };
     const m = makeManifest(["p1"], [page]);
-    const errors = validateOverlayRefs(m, overlays, images);
+    const errors = validateOverlayRefs(m, overlays);
     expect(errors).toHaveLength(0);
   });
 
@@ -176,7 +168,7 @@ describe('validateOverlayRefs', () => {
       overlay: { overlayId: "ov-missing", imageAssetId: "img-1", imageVersion: "v1" },
     };
     const m = makeManifest(["p1"], [page]);
-    const errors = validateOverlayRefs(m, overlays, images);
+    const errors = validateOverlayRefs(m, overlays);
     expect(errors).toHaveLength(1);
     expect(errors[0].kind).toBe('missing_overlay_ref');
   });
@@ -188,7 +180,7 @@ describe('validateOverlayRefs', () => {
       overlay: { overlayId: "ov-1", imageAssetId: "img-1", imageVersion: "v1" },
     };
     const m = makeManifest(["p1"], [page]);
-    const errors = validateOverlayRefs(m, overlays, images);
+    const errors = validateOverlayRefs(m, overlays);
     expect(errors).toHaveLength(1);
     expect(errors[0].kind).toBe('image_version_mismatch');
   });

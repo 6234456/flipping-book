@@ -62,7 +62,7 @@ export function NotesTab({ noteIds, registry }: NotesTabProps) {
       <div className="flex-1 overflow-y-auto p-4 space-y-4">
         {notes.map((note) => (
           <div key={note.noteId} className="bg-surface-2 rounded-md p-3 border border-border">
-            {(availableTypes.size > 1 || note.tags?.length > 0) && (
+            {(availableTypes.size > 1 || (note.tags?.length ?? 0) > 0) && (
               <div className="flex items-center gap-2 mb-2">
                 {availableTypes.size > 1 && (
                   <span className="text-[11px] text-text-2">

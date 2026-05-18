@@ -1,9 +1,8 @@
-import type { ISODateTime, ISODate, LocalizedText } from './primitives';
+import type { ISODate, LocalizedText } from './primitives';
 import type {
-  BookId, PageId, ImageAssetId, OverlayConfigId, HotspotId,
-  ContentId, ContentBlockId, GlossaryTermId, LegalRefId,
-  ScenarioId, NoteId, CommentThreadId, UserId,
-  AtlasVisualSystem, ManifestSchemaVersion, ReaderInteractionMode,
+  PageId, ImageAssetId, OverlayConfigId,
+  ContentId, GlossaryTermId, LegalRefId,
+  ScenarioId, NoteId,
 } from './primitives';
 
 // ============================================================

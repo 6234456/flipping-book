@@ -1,4 +1,4 @@
-import type { GlossaryTermId, LegalRefId, ScenarioId } from './primitives';
+import type { GlossaryTermId, LegalRefId } from './primitives';
 
 export type GlossaryCategory =
   | "vat-basic"

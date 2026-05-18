@@ -1,12 +1,12 @@
-import type { PageManifest, SpreadImageRefs, SpreadSourceMode } from '../../atlas-core/types/page';
+import type { PageManifest, SpreadImageRefs } from '../../atlas-core/types/page';
 import type { BookRegistry } from '../../atlas-core/registry';
-import type { OverlayConfig } from '../../atlas-core/types/overlay';
 import type { HotspotTarget } from '../../atlas-core/types/overlay';
 import { HotspotLayer } from '../overlay/HotspotLayer';
 import { DebugOverlay } from '../overlay/DebugOverlay';
 import type { SpreadMode } from '../../atlas-core/reader/useSpreadMode';
 import type { ReaderInteractionMode } from '../../atlas-core/types/primitives';
 import { mapOverlayToSpread } from '../../atlas-core/overlay/mapSpreadOverlay';
+import type { LocaleCode } from '../../atlas-core/types/primitives';
 
 type SpreadPageRendererProps = {
   page: PageManifest;
@@ -17,28 +17,6 @@ type SpreadPageRendererProps = {
   interactionMode: ReaderInteractionMode;
   onNavigate: (target: HotspotTarget) => void;
 };
-
-function SpreadImage({
-  src,
-  alt,
-  widthPercent,
-}: {
-  src: string;
-  alt: string;
-  widthPercent: number;
-}) {
-  return (
-    <div style={{ width: `${widthPercent}%`, position: 'relative' }}>
-      <img
-        src={src}
-        alt={alt}
-        className="block"
-        style={{ width: '100%', height: 'auto' }}
-        draggable={false}
-      />
-    </div>
-  );
-}
 
 export function SpreadPageRenderer({
   page,
@@ -69,7 +47,7 @@ export function SpreadPageRenderer({
         <div className="relative inline-block max-h-full">
           <img
             src={image.src}
-            alt={image.alt?.[locale] ?? ''}
+            alt={image.alt?.[locale as LocaleCode] ?? ''}
             className="block max-h-full w-auto"
             style={{ width: '100%', height: 'auto' }}
             draggable={false}
@@ -104,7 +82,7 @@ export function SpreadPageRenderer({
       <div className="relative inline-block max-h-full">
         <img
           src={image.src}
-          alt={image.alt?.[locale] ?? ''}
+          alt={image.alt?.[locale as LocaleCode] ?? ''}
           className="block max-h-full w-auto"
           style={{ width: '100%', height: 'auto' }}
           draggable={false}
@@ -131,7 +109,7 @@ export function SpreadPageRenderer({
       <div className="relative inline-block max-h-full">
         <img
           src={image.src}
-          alt={image.alt?.[locale] ?? ''}
+          alt={image.alt?.[locale as LocaleCode] ?? ''}
           className="block max-h-full w-auto"
           style={{ width: '100%', height: 'auto' }}
           draggable={false}
@@ -153,7 +131,6 @@ export function SpreadPageRenderer({
   const leftImage = registry.getImage(spreadImages.left.assetId);
   const rightImage = registry.getImage(spreadImages.right.assetId);
 
-  const halfGutter = gutterPercent / 2;
   const pageWidth = (100 - gutterPercent) / 2;
 
   const leftOverlay = overlayConfig
@@ -175,7 +152,7 @@ export function SpreadPageRenderer({
         {leftImage ? (
           <img
             src={leftImage.src}
-            alt={leftImage.alt?.[locale] ?? ''}
+            alt={leftImage.alt?.[locale as LocaleCode] ?? ''}
             className="block"
             style={{ width: '100%', height: 'auto' }}
             draggable={false}
@@ -198,7 +175,7 @@ export function SpreadPageRenderer({
         {rightImage ? (
           <img
             src={rightImage.src}
-            alt={rightImage.alt?.[locale] ?? ''}
+            alt={rightImage.alt?.[locale as LocaleCode] ?? ''}
             className="block"
             style={{ width: '100%', height: 'auto' }}
             draggable={false}

@@ -57,7 +57,7 @@ export function useRailState(bookId: string): RailState {
     const stored = loadStored(bookId);
     return isValidTab(stored.tab) ? stored.tab : 'comments';
   });
-  const [width, setWidth] = useState<number>(() => {
+  const [width] = useState<number>(() => {
     const stored = loadStored(bookId);
     return typeof stored.width === 'number' ? clamp(stored.width) : defaultWidth();
   });

@@ -1,6 +1,5 @@
 import { describe, it, expect, beforeEach } from 'vitest';
 import { createCommentStore } from '../commentStore';
-import type { CommentThread } from '../../types/comments';
 
 describe('commentStore', () => {
   let store: ReturnType<typeof createCommentStore>;

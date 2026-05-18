@@ -3,14 +3,6 @@ import { renderHook, act } from '@testing-library/react';
 import { useReaderState } from '../useReaderState';
 import { createBookRegistry } from '../../registry/createBookRegistry';
 import type { BookManifest } from '../../types/manifest';
-import type { ImageAsset } from '../../types/image';
-import type { OverlayConfig } from '../../types/overlay';
-import type { GlossaryEntry } from '../../types/glossary';
-import type { LegalRef } from '../../types/legal';
-import type { VatScenario } from '../../types/scenario';
-import type { AtlasNote } from '../../types/notes';
-import type { PageContent } from '../../types/content';
-import type { CommentThread } from '../../types/comments';
 
 const empty: never[] = [];
 

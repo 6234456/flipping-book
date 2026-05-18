@@ -1,5 +1,5 @@
 import type {
-  ISODateTime, LocalizedText,
+  ISODateTime,
   BookId, PageId, UserId,
   CommentThreadId, ImageAssetId,
   ContentBlockId, HotspotId,

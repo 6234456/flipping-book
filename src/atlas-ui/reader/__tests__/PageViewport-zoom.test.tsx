@@ -1,5 +1,5 @@
 import { describe, it, expect, vi } from 'vitest';
-import { render, screen, act } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { MemoryRouter } from 'react-router-dom';
 import { PageViewport } from '../PageViewport';
 import { createBookRegistry } from '../../../atlas-core/registry';
@@ -7,7 +7,7 @@ import type { BookRegistry } from '../../../atlas-core/registry';
 import type { ReaderState } from '../../../atlas-core/reader';
 import type { BookManifest } from '../../../atlas-core/types/manifest';
 import type { ImageAsset } from '../../../atlas-core/types/image';
-import type { CommentThread, AnnotationAnchor } from '../../../atlas-core/types/comments';
+import type { CommentThread } from '../../../atlas-core/types/comments';
 import type { ZoomLevel } from '../../renderers/ImageOverlayTemplate';
 
 function makeRegistry(pageType: 'single' | 'spread' = 'single'): BookRegistry {

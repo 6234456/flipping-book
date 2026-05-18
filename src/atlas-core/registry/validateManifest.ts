@@ -77,10 +77,8 @@ export function validateImageRefs(
 export function validateOverlayRefs(
   manifest: BookManifest,
   overlays: OverlayConfig[],
-  imageAssets: ImageAsset[],
 ): ManifestValidationError[] {
   const errors: ManifestValidationError[] = [];
-  const overlayIds = new Set(overlays.map((o) => o.overlayId));
 
   for (const page of manifest.pages) {
     if (!page.overlay) continue;
@@ -118,6 +116,6 @@ export function validateAll(
   return [
     ...validateManifest(manifest),
     ...validateImageRefs(manifest, imageAssets),
-    ...validateOverlayRefs(manifest, overlays, imageAssets),
+    ...validateOverlayRefs(manifest, overlays),
   ];
 }

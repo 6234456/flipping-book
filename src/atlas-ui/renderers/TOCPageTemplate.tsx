@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import type { PageManifest } from '../../atlas-core/types/page';
+import type { LocaleCode } from '../../atlas-core/types/primitives';
 
 type TOCPageTemplateProps = {
   page: PageManifest;
@@ -23,7 +24,7 @@ export function TOCPageTemplate({
   return (
     <div className="w-[1000px] min-h-[800px] bg-page text-text p-16">
       <h1 className="text-3xl font-bold font-serif mb-8">
-        {page.title?.[locale] ?? '目录'}
+        {page.title?.[locale as LocaleCode] ?? '目录'}
       </h1>
 
       {items && items.length > 0 ? (
@@ -37,7 +38,7 @@ export function TOCPageTemplate({
                 to={`/book/${bookSlug}/page/${p.pageId}`}
                 className="text-text hover:text-accent hover:underline text-lg"
               >
-                {p.title?.[locale] ?? p.pageId}
+                {p.title?.[locale as LocaleCode] ?? p.pageId}
               </Link>
             </li>
           ))}

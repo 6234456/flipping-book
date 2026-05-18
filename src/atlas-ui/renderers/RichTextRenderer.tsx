@@ -2,7 +2,6 @@ import { Link } from 'react-router-dom';
 import type { RichTextNode } from '../../atlas-core/types/content';
 import type { BookRegistry } from '../../atlas-core/registry';
 import { Term } from '../glossary/Term';
-import { Fragment } from 'react';
 
 type RichTextRendererProps = {
   nodes: RichTextNode[];

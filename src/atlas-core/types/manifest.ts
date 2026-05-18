@@ -3,7 +3,7 @@ import type {
   ManifestSchemaVersion, BookId, LocaleCode,
 } from './primitives';
 import type { PageId } from './primitives';
-import type { PageManifest, ReaderConfig, SpreadBehaviorConfig } from './page';
+import type { PageManifest, ReaderConfig } from './page';
 
 // Re-export ReaderConfig so manifest.ts consumers get it
 export type { ReaderConfig, SpreadBehaviorConfig } from './page';
