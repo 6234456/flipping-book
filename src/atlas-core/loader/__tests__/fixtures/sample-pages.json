@@ -1,0 +1,16 @@
+[
+  {
+    "sectionCode": "TOC",
+    "pageId": "toc",
+    "title": "图册导航",
+    "imageFile": "TOC_current_final.png",
+    "canvas": { "width": 1086, "height": 1448 }
+  },
+  {
+    "sectionCode": "01",
+    "pageId": "01-vat-framework",
+    "title": "VAT 判断总框架",
+    "imageFile": "01_current_final.png",
+    "canvas": { "width": 1086, "height": 1448 }
+  }
+]

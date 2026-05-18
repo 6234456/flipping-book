@@ -1,0 +1,11 @@
+[
+  {
+    "termId": "werklieferung",
+    "zh": "加工供货",
+    "original": "Werklieferung",
+    "abbreviation": "WL",
+    "category": "goods",
+    "shortDefinition": "承包人提供主材并加工后交付,视为货物供应。",
+    "firstMentionFormat": "加工供货 (Werklieferung)"
+  }
+]

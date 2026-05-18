@@ -1,0 +1,14 @@
+{
+  "schemaVersion": "1.0",
+  "bookId": "de-eu-vat-atlas",
+  "slug": "de-eu-vat",
+  "title": { "zh-CN": "德国 / 欧盟 VAT 财务速查图册" },
+  "subtitle": { "zh-CN": "测试副标题" },
+  "version": "0.6.1",
+  "defaultLocale": "zh-CN",
+  "supportedLocales": ["zh-CN"],
+  "visualSystem": "VAT_ATLAS_MAGAZINE_V2",
+  "reader": { "defaultZoom": "fit-width" },
+  "navigation": { "showTopBar": true, "showBottomBar": false },
+  "featureFlags": { "comments": true, "debugOverlay": true, "notesDrawer": false }
+}

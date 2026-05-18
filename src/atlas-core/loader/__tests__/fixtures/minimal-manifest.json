@@ -1,0 +1,7 @@
+{
+  "schemaVersion": "1.0",
+  "bookId": "test-atlas",
+  "slug": "test",
+  "title": { "zh-CN": "测试图册" },
+  "version": "0.1.0"
+}
