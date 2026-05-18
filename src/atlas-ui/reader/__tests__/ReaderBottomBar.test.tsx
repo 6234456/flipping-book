@@ -2,96 +2,66 @@ import { describe, it, expect, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { userEvent } from '@testing-library/user-event';
 import { ReaderBottomBar } from '../ReaderBottomBar';
+import type { PageManifest } from '../../../atlas-core/types/page';
+
+function fakeGetPage(id: string): PageManifest | undefined {
+  return { pageId: id, title: { 'zh-CN': `Page ${id}` } } as unknown as PageManifest;
+}
+
+function renderBottomBar(
+  overrides: Partial<React.ComponentProps<typeof ReaderBottomBar>> = {},
+) {
+  return render(
+    <ReaderBottomBar
+      currentIndex={0}
+      totalPages={5}
+      canGoNext={true}
+      canGoPrevious={true}
+      onNext={vi.fn()}
+      onPrevious={vi.fn()}
+      readingOrder={['p-1', 'p-2', 'p-3', 'p-4', 'p-5']}
+      getPage={fakeGetPage}
+      onNavigateToPage={vi.fn()}
+      {...overrides}
+    />,
+  );
+}
 
 describe('ReaderBottomBar', () => {
   it('renders page indicator', () => {
-    render(
-      <ReaderBottomBar
-        currentIndex={2}
-        totalPages={10}
-        canGoNext={true}
-        canGoPrevious={true}
-        onNext={vi.fn()}
-        onPrevious={vi.fn()}
-      />
-    );
+    renderBottomBar({ currentIndex: 2, totalPages: 10 });
     expect(screen.getByText('3 / 10')).toBeInTheDocument();
   });
 
-  it('next button is enabled when canGoNext', async () => {
+  it('next button enabled and fires onNext', async () => {
     const onNext = vi.fn();
-    render(
-      <ReaderBottomBar
-        currentIndex={0}
-        totalPages={5}
-        canGoNext={true}
-        canGoPrevious={false}
-        onNext={onNext}
-        onPrevious={vi.fn()}
-      />
-    );
+    renderBottomBar({ canGoNext: true, canGoPrevious: false, onNext });
     const btn = screen.getByRole('button', { name: '下一页' });
     expect(btn).not.toBeDisabled();
     await userEvent.click(btn);
     expect(onNext).toHaveBeenCalledTimes(1);
   });
 
-  it('next button is disabled when cannot go next', () => {
-    render(
-      <ReaderBottomBar
-        currentIndex={4}
-        totalPages={5}
-        canGoNext={false}
-        canGoPrevious={true}
-        onNext={vi.fn()}
-        onPrevious={vi.fn()}
-      />
-    );
+  it('next button disabled when cannot go next', () => {
+    renderBottomBar({ canGoNext: false });
     expect(screen.getByRole('button', { name: '下一页' })).toBeDisabled();
   });
 
-  it('previous button is disabled when cannot go previous', () => {
-    render(
-      <ReaderBottomBar
-        currentIndex={0}
-        totalPages={5}
-        canGoNext={true}
-        canGoPrevious={false}
-        onNext={vi.fn()}
-        onPrevious={vi.fn()}
-      />
-    );
+  it('previous button disabled when cannot go previous', () => {
+    renderBottomBar({ canGoPrevious: false });
     expect(screen.getByRole('button', { name: '上一页' })).toBeDisabled();
   });
 
   it('calls onPrevious when clicked', async () => {
     const onPrevious = vi.fn();
-    render(
-      <ReaderBottomBar
-        currentIndex={2}
-        totalPages={5}
-        canGoNext={true}
-        canGoPrevious={true}
-        onNext={vi.fn()}
-        onPrevious={onPrevious}
-      />
-    );
+    renderBottomBar({ onPrevious });
     await userEvent.click(screen.getByRole('button', { name: '上一页' }));
     expect(onPrevious).toHaveBeenCalledTimes(1);
   });
 
-  it('shows full progress bar for single page', () => {
-    const { container } = render(
-      <ReaderBottomBar
-        currentIndex={0}
-        totalPages={1}
-        canGoNext={false}
-        canGoPrevious={false}
-        onNext={vi.fn()}
-        onPrevious={vi.fn()}
-      />
-    );
-    const bar = container.querySelector('.h-1 > div');
-    expect(bar).toHaveStyle({ width: '100%' });
+  it('shows full progress fill for single page', () => {
+    const { container } = renderBottomBar({ totalPages: 1 });
+    const fill = container.querySelector('[data-testid="progress-bar"] .bg-accent');
+    expect(fill).toHaveStyle({ width: '100%' });
   });
 });

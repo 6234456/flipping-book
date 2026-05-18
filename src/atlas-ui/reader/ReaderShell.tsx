@@ -221,6 +221,9 @@ export function ReaderShell({
           canGoPrevious={readerState.canGoPrevious}
           onNext={readerState.goNext}
           onPrevious={readerState.goPrevious}
+          readingOrder={registry.manifest.readingOrder}
+          getPage={(id) => registry.getPage(id)}
+          onNavigateToPage={onNavigateToPage}
         />
       )}
     </div>
