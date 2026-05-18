@@ -82,8 +82,8 @@ describe('mergeManifestDefaults', () => {
   });
 
   it('respects bundle-provided supportedLocales', () => {
-    const m = mergeManifestDefaults({ ...REQUIRED, supportedLocales: ['zh-CN', 'en'] });
-    expect(m.supportedLocales).toEqual(['zh-CN', 'en']);
+    const m = mergeManifestDefaults({ ...REQUIRED, supportedLocales: ['zh-CN', 'en-US'] });
+    expect(m.supportedLocales).toEqual(['zh-CN', 'en-US']);
   });
 
   it('initializes pages and readingOrder as empty (filled later)', () => {
