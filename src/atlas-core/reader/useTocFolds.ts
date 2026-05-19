@@ -32,6 +32,7 @@ export function useTocFolds(
   const [userFolds, setUserFolds] = useState<FoldMap>(() => loadStored(bookId));
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- sync localStorage to state on book change
     setUserFolds(loadStored(bookId));
   }, [bookId]);
 

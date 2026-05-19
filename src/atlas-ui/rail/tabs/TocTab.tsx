@@ -29,19 +29,7 @@ export function TocTab({ registry, currentPageId, onNavigate }: TocTabProps) {
     currentRef.current?.scrollIntoView?.({ block: 'nearest', behavior: 'smooth' });
   }, [currentPageId]);
 
-  if (groups.length === 0) {
-    return <EmptyState icon={List} title="暂无目录" description="此书未配置 readingOrder。" />;
-  }
-
-  // Build flat numbered list across all pages
-  const pageNumbers = new Map<string, number>();
-  let n = 0;
-  for (const g of groups) {
-    if (g.header.kind === 'real') pageNumbers.set(g.header.page.pageId, ++n);
-    for (const c of g.children) pageNumbers.set(c.pageId, ++n);
-  }
-
-  // Sticky band
+  // Sticky band hooks (must be before early return)
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const currentGroupHeaderRef = useRef<HTMLElement | null>(null);
   const [stickyVisible, setStickyVisible] = useState(false);
@@ -54,6 +42,7 @@ export function TocTab({ registry, currentPageId, onNavigate }: TocTabProps) {
     const obs = new IntersectionObserver(
       (entries) => {
         const ent = entries[0];
+        // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional UI observer
         setStickyVisible(!ent.isIntersecting);
       },
       { root, threshold: 0 },
@@ -61,6 +50,18 @@ export function TocTab({ registry, currentPageId, onNavigate }: TocTabProps) {
     obs.observe(target);
     return () => obs.disconnect();
   }, [currentGroupKey, currentPageId]);
+
+  if (groups.length === 0) {
+    return <EmptyState icon={List} title="暂无目录" description="此书未配置 readingOrder。" />;
+  }
+
+  // Build flat numbered list across all pages
+  const pageNumbers = new Map<string, number>();
+  let n = 0;
+  for (const g of groups) {
+    if (g.header.kind === 'real') pageNumbers.set(g.header.page.pageId, ++n);
+    for (const c of g.children) pageNumbers.set(c.pageId, ++n);
+  }
 
   const currentGroup = groups.find((g) => g.key === currentGroupKey) ?? null;
   const stickyLabel = currentGroup
