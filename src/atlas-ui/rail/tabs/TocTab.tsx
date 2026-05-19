@@ -42,7 +42,6 @@ export function TocTab({ registry, currentPageId, onNavigate }: TocTabProps) {
     const obs = new IntersectionObserver(
       (entries) => {
         const ent = entries[0];
-        // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional UI observer
         setStickyVisible(!ent.isIntersecting);
       },
       { root, threshold: 0 },
