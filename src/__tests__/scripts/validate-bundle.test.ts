@@ -2,7 +2,8 @@ import { describe, it, expect } from 'vitest';
 import { validateBundle, formatResult } from '../../../scripts/validate-bundle.mjs';
 import type { ValidationError } from '../../../scripts/validate-bundle.d.mts';
 
-const FIXTURES = new URL('fixtures/', import.meta.url).pathname;
+const FIXTURES_DIR = (import.meta as unknown as { dirname: string }).dirname;
+const FIXTURES = FIXTURES_DIR + '/fixtures/';
 const VALID = FIXTURES + 'valid-bundle';
 const BROKEN = FIXTURES + 'broken-bundle';
 
