@@ -39,10 +39,14 @@ export function SearchModal({ open, onOpenChange, registry, onSelectResult }: Se
   const listRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- reset on close
     if (!open) { setQuery(''); setActiveIdx(0); }
   }, [open]);
 
-  useEffect(() => { setActiveIdx(0); }, [query]);
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- reset on query change
+    setActiveIdx(0);
+  }, [query]);
 
   function handleKey(e: React.KeyboardEvent) {
     if (e.key === 'ArrowDown') {

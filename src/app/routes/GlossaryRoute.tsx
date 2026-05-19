@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
 import { AlertTriangle, BookOpen } from 'lucide-react';
 import { createBookRegistry } from '../../atlas-core/registry';
 import { loadBook, type LoadedBook } from '../../atlas-core/loader';
@@ -28,6 +29,7 @@ function buildRegistry(data: LoadedBook): BookRegistry {
 export function GlossaryRoute() {
   const [registry, setRegistry] = useState<BookRegistry | null>(null);
   const [error, setError] = useState<string | null>(null);
+  const { hash } = useLocation();
 
   useEffect(() => {
     let cancelled = false;
@@ -42,6 +44,20 @@ export function GlossaryRoute() {
       cancelled = true;
     };
   }, []);
+
+  useEffect(() => {
+    if (!registry || !hash) return;
+    const id = hash.slice(1);
+    const handle = setTimeout(() => {
+      const el = document.getElementById(id);
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        el.classList.add('outline', 'outline-2', 'outline-accent', 'rounded');
+        setTimeout(() => el.classList.remove('outline', 'outline-2', 'outline-accent', 'rounded'), 2000);
+      }
+    }, 50);
+    return () => clearTimeout(handle);
+  }, [registry, hash]);
 
   if (error) {
     return (

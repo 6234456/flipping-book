@@ -7,6 +7,7 @@ import type { CommentThread, AnnotationAnchor } from '../../atlas-core/types/com
 import type { ZoomLevel } from '../renderers/ImageOverlayTemplate';
 import { useToast } from '../primitives';
 import { ReaderShell } from './ReaderShell';
+import { SearchModal } from '../search/SearchModal';
 
 type MagazineReaderProps = {
   registry: BookRegistry;
@@ -45,6 +46,7 @@ export function MagazineReader({ registry, initialPageId }: MagazineReaderProps)
     onToggleRail: () => railState.setOpen(!railState.open),
     onNewComment: handlePlusClick,
     onSwitchTab: (tab) => railState.expand(tab),
+    onOpenSearch: () => setSearchOpen(true),
   });
 
   useEffect(() => {
@@ -75,6 +77,8 @@ export function MagazineReader({ registry, initialPageId }: MagazineReaderProps)
     setZoom((z) => (z === 'fit-page' ? 'fit-width' : z === 'fit-width' ? 'actual-size' : 'fit-page'));
   }, []);
 
+  const [searchOpen, setSearchOpen] = useState(false);
+
   const fileInputRef = useRef<HTMLInputElement>(null);
 
   const currentPageThreads = useMemo(
@@ -84,7 +88,7 @@ export function MagazineReader({ registry, initialPageId }: MagazineReaderProps)
 
   const refreshThreads = useCallback(() => {
     setCommentThreads(commentStore.getAll());
-  }, [commentStore]);
+  }, [commentStore, setCommentThreads]);
 
   const handleCreateAnchor = useCallback(
     (anchor: AnnotationAnchor) => {
@@ -101,7 +105,7 @@ export function MagazineReader({ registry, initialPageId }: MagazineReaderProps)
       // One-shot: exit comment mode after a pin is created
       readerState.setInteractionMode('read');
     },
-    [commentStore, registry.manifest.bookId, readerState, refreshThreads, railState],
+    [commentStore, registry.manifest.bookId, readerState, refreshThreads, railState, setSelectedThreadId],
   );
 
   const handleAddMessage = useCallback((threadId: string, text: string) => {
@@ -116,7 +120,7 @@ export function MagazineReader({ registry, initialPageId }: MagazineReaderProps)
     commentStore.deleteThread(threadId);
     setSelectedThreadId(null);
     refreshThreads();
-  }, [commentStore, refreshThreads]);
+  }, [commentStore, refreshThreads, setSelectedThreadId]);
 
   const handleEditMessage = useCallback((threadId: string, messageId: string, text: string) => {
     commentStore.editMessage(threadId, messageId, [{ type: 'text', value: text }]);
@@ -185,6 +189,18 @@ export function MagazineReader({ registry, initialPageId }: MagazineReaderProps)
     navigate(`/book/${registry.manifest.slug}/page/${pageId}`);
   }, [readerState, registry.manifest.slug, navigate]);
 
+  const handleSearchSelect = useCallback((item: { category: string; id: string; pageId?: string }) => {
+    if (item.category === 'page') {
+      handleNavigateToPage(item.id);
+    } else if (item.category === 'glossary') {
+      navigate(`/book/${registry.manifest.slug}/glossary#${item.id}`);
+    } else if (item.pageId) {
+      handleNavigateToPage(item.pageId);
+    } else {
+      navigate(`/book/${registry.manifest.slug}/glossary`);
+    }
+  }, [handleNavigateToPage, navigate, registry.manifest.slug]);
+
   const currentNoteIds = readerState.currentPage?.notes?.noteIds ?? [];
 
   return (
@@ -228,6 +244,14 @@ export function MagazineReader({ registry, initialPageId }: MagazineReaderProps)
         onNavigateToPage={handleNavigateToPage}
         richRegionsOn={richRegionsOn}
         onToggleRichRegions={toggleRichRegions}
+        onOpenSearch={() => setSearchOpen(true)}
+      />
+
+      <SearchModal
+        open={searchOpen}
+        onOpenChange={setSearchOpen}
+        registry={registry}
+        onSelectResult={handleSearchSelect}
       />
     </>
   );
