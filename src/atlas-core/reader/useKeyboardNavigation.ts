@@ -6,6 +6,7 @@ export type KeyboardActions = {
   onToggleRail?: () => void;
   onNewComment?: () => void;
   onSwitchTab?: (tab: RailTab) => void;
+  onOpenSearch?: () => void;
 };
 
 function isEditable(el: EventTarget | null): boolean {
@@ -25,6 +26,12 @@ export function useKeyboardNavigation(
     if (!enabled) return;
 
     function handleKeyDown(e: KeyboardEvent) {
+      if ((e.key === 'k' || e.key === 'K') && (e.metaKey || e.ctrlKey)) {
+        e.preventDefault();
+        actions.onOpenSearch?.();
+        return;
+      }
+
       if (isEditable(e.target)) return;
 
       if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {

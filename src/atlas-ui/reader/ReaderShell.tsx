@@ -1,5 +1,6 @@
 import { AnimatePresence } from 'framer-motion';
 import { BookOpen, Bug, Eye, LayoutGrid, MousePointerClick } from 'lucide-react';
+import { SearchTrigger } from '../search/SearchTrigger';
 import type { BookRegistry } from '../../atlas-core/registry';
 import type { ReaderState } from '../../atlas-core/reader';
 import type { CommentThread, AnnotationAnchor } from '../../atlas-core/types/comments';
@@ -57,6 +58,9 @@ type ReaderShellProps = {
   // Rich regions
   richRegionsOn: boolean;
   onToggleRichRegions: () => void;
+
+  // Search
+  onOpenSearch: () => void;
 };
 
 export function ReaderShell({
@@ -89,6 +93,7 @@ export function ReaderShell({
   onNavigateToPage,
   richRegionsOn,
   onToggleRichRegions,
+  onOpenSearch,
 }: ReaderShellProps) {
   const { manifest } = registry;
   const { currentPage, interactionMode } = readerState;
@@ -132,6 +137,9 @@ export function ReaderShell({
               <span className="opacity-60 truncate">{sectionTitle}</span>
             </>
           ) : null}
+          <span className="w-px h-3.5 bg-white/15 mx-1 shrink-0" aria-hidden="true" />
+
+          <SearchTrigger onClick={onOpenSearch} />
           <span className="w-px h-3.5 bg-white/15 mx-1 shrink-0" aria-hidden="true" />
 
           {featureFlags?.comments && (

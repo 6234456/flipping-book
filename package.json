@@ -13,6 +13,7 @@
     "validate-bundle": "node scripts/validate-bundle.mjs"
   },
   "dependencies": {
+    "@radix-ui/react-dialog": "^1.1.15",
     "@radix-ui/react-tooltip": "^1.2.8",
     "@tailwindcss/vite": "^4.3.0",
     "framer-motion": "^12.38.0",
