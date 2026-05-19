@@ -1,5 +1,5 @@
 import { AnimatePresence } from 'framer-motion';
-import { BookOpen, MousePointerClick, Eye, Bug } from 'lucide-react';
+import { BookOpen, Bug, Eye, LayoutGrid, MousePointerClick } from 'lucide-react';
 import type { BookRegistry } from '../../atlas-core/registry';
 import type { ReaderState } from '../../atlas-core/reader';
 import type { CommentThread, AnnotationAnchor } from '../../atlas-core/types/comments';
@@ -53,6 +53,10 @@ type ReaderShellProps = {
 
   // Navigation
   onNavigateToPage: (pageId: string) => void;
+
+  // Rich regions
+  richRegionsOn: boolean;
+  onToggleRichRegions: () => void;
 };
 
 export function ReaderShell({
@@ -83,6 +87,8 @@ export function ReaderShell({
   onDismissCommentMode,
   isMobile,
   onNavigateToPage,
+  richRegionsOn,
+  onToggleRichRegions,
 }: ReaderShellProps) {
   const { manifest } = registry;
   const { currentPage, interactionMode } = readerState;
@@ -138,6 +144,14 @@ export function ReaderShell({
               评论模式
             </ChromeButton>
           )}
+          <ChromeButton
+            pressed={richRegionsOn}
+            leadingIcon={LayoutGrid}
+            onClick={onToggleRichRegions}
+            aria-label="切换区域高亮"
+          >
+            区域
+          </ChromeButton>
           {featureFlags?.debugOverlay && (
             <ChromeButton
               pressed={inDebugMode}
@@ -177,6 +191,7 @@ export function ReaderShell({
             onSelectThread={onSelectThread}
             onHoverThread={onHoverThread}
             onCreateAnchor={onCreateAnchor}
+            richRegionsOn={richRegionsOn}
           />
         </div>
 

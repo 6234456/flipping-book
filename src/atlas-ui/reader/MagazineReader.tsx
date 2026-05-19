@@ -67,6 +67,9 @@ export function MagazineReader({ registry, initialPageId }: MagazineReaderProps)
   const [selectedThreadId, setSelectedThreadId] = useState<string | null>(null);
   const [highlightedThreadId, setHighlightedThreadId] = useState<string | null>(null);
 
+  const [richRegionsOn, setRichRegionsOn] = useState(false);
+  const toggleRichRegions = () => setRichRegionsOn((v) => !v);
+
   const [zoom, setZoom] = useState<ZoomLevel>('fit-page');
   const cycleZoom = useCallback(() => {
     setZoom((z) => (z === 'fit-page' ? 'fit-width' : z === 'fit-width' ? 'actual-size' : 'fit-page'));
@@ -223,6 +226,8 @@ export function MagazineReader({ registry, initialPageId }: MagazineReaderProps)
         onDismissCommentMode={handleDismissCommentMode}
         isMobile={isMobile}
         onNavigateToPage={handleNavigateToPage}
+        richRegionsOn={richRegionsOn}
+        onToggleRichRegions={toggleRichRegions}
       />
     </>
   );
