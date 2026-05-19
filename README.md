@@ -43,3 +43,38 @@ import { vatAtlasManifest } from "./books/de-eu-vat/manifest";
 - 三角贸易主图使用“第一卖方 / 中间商 / 最终买方”。
 
 生成时间：2026-05-14T18:04:15.613791+00:00
+
+## Bundle Validator CLI
+
+Use the bundle validator to sanity-check a `public/book/` (or any asset-provider drop) before integrating it:
+
+```bash
+# Project bundle
+npm run validate-bundle -- public/book
+
+# Arbitrary path
+node scripts/validate-bundle.mjs /path/to/another/bundle
+
+# CI-friendly JSON output
+node scripts/validate-bundle.mjs public/book --json
+
+# Quiet mode (errors + final status only)
+node scripts/validate-bundle.mjs public/book --quiet
+```
+
+**Exit codes:**
+- `0` — no errors (warnings allowed)
+- `1` — one or more errors
+- `2` — usage error (path missing / not a directory)
+
+**What it checks:**
+- `manifest.json` shape (required fields: `schemaVersion / bookId / slug / title / version`)
+- `data/pages.json` non-empty array with required per-entry fields
+- Each `imageFile` exists under `images/`
+- Optional JSON files (`glossary.json`, `notes.json`, `scenarios.json`, `contents.json`, `legal-refs.json`): each is an array; first-class schema for glossary entries
+- ID uniqueness within `pages.json` / `glossary.json` / `notes.json` / `scenarios.json` / `contents.json` / `legal-refs.json`
+- Dangling references from `pages.json` into the optional files
+- `notes[].bookId` matches `manifest.bookId`
+
+Zero npm dependencies — Node 22+ ESM only.
+

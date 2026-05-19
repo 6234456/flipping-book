@@ -9,7 +9,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "lint": "eslint .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "validate-bundle": "node scripts/validate-bundle.mjs"
   },
   "dependencies": {
     "@radix-ui/react-tooltip": "^1.2.8",
