@@ -1,0 +1,7 @@
+{
+  "schemaVersion": "1.0",
+  "bookId": "test-book",
+  "slug": "test-book",
+  "title": { "zh-CN": "Test Bundle" },
+  "version": "0.0.1"
+}

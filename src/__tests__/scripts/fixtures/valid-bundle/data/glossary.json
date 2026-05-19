@@ -1,0 +1,10 @@
+[
+  {
+    "termId": "vat",
+    "zh": "增值税",
+    "original": "Mehrwertsteuer",
+    "category": "tax",
+    "shortDefinition": "增值税",
+    "firstMentionFormat": "vat (Mehrwertsteuer)"
+  }
+]
