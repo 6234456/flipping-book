@@ -246,6 +246,7 @@ export function PageViewport({
   const [selectedRegionIds, setSelectedRegionIds] = useState<ReadonlySet<string>>(new Set());
   const currentPageId = currentPage?.pageId;
   useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional UI reset on navigation
     setSelectedRegionIds(new Set());
   }, [currentPageId]);
 
