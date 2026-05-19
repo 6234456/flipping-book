@@ -16,6 +16,8 @@ import { Button, EmptyState, MOTION } from '../primitives';
 import type { HotspotTarget } from '../../atlas-core/types/overlay';
 import type { CommentThread, AnnotationAnchor } from '../../atlas-core/types/comments';
 import { resolveTargetRoute } from '../../atlas-core/registry/resolveTarget';
+import type { RichOverlayConfig } from '../../atlas-core/types/regions';
+import { RichRegionLayer } from '../overlay/RichRegionLayer';
 import type { PageManifest } from '../../atlas-core/types/page';
 import type { ZoomLevel } from '../renderers/ImageOverlayTemplate';
 
@@ -47,6 +49,9 @@ function PageContent({
   onHoverThread,
   onCreateAnchor,
   direction,
+  richRegionsOn,
+  selectedRegionIds,
+  onToggleRegion,
 }: {
   page: PageManifest;
   registry: BookRegistry;
@@ -61,6 +66,9 @@ function PageContent({
   onHoverThread: (threadId: string | null) => void;
   onCreateAnchor: (anchor: AnnotationAnchor) => void;
   direction: Direction;
+  richRegionsOn: boolean;
+  selectedRegionIds: ReadonlySet<string>;
+  onToggleRegion: (regionId: string) => void;
 }) {
   const spreadMode = useSpreadMode(page, registry.manifest.reader);
 
@@ -72,6 +80,11 @@ function PageContent({
   const ZoomIconComp = ZOOM_ICON[zoom];
 
   const overlayConfig = page.overlay ? registry.getOverlay(page.overlay.overlayId) : undefined;
+
+  const richOverlay =
+    overlayConfig && 'regions' in overlayConfig
+      ? (overlayConfig as RichOverlayConfig)
+      : undefined;
 
   function renderPins() {
     return (
@@ -150,6 +163,14 @@ function PageContent({
               zoom={zoom}
             />
 
+            {richRegionsOn && richOverlay && (
+              <RichRegionLayer
+                regions={richOverlay.regions}
+                selectedIds={selectedRegionIds}
+                onToggleSection={onToggleRegion}
+              />
+            )}
+
             {overlayConfig && interactionMode === 'read' && (
               <HotspotLayer overlay={overlayConfig} imageAsset={imageAsset} onNavigate={onNavigate} />
             )}
@@ -185,6 +206,7 @@ type PageViewportProps = {
   onSelectThread: (threadId: string | null) => void;
   onHoverThread: (threadId: string | null) => void;
   onCreateAnchor: (anchor: AnnotationAnchor) => void;
+  richRegionsOn: boolean;
 };
 
 export function PageViewport({
@@ -198,6 +220,7 @@ export function PageViewport({
   onSelectThread,
   onHoverThread,
   onCreateAnchor,
+  richRegionsOn,
 }: PageViewportProps) {
   const { currentPage, interactionMode, currentPageIndex } = readerState;
   const navigate = useNavigate();
@@ -218,6 +241,23 @@ export function PageViewport({
     }
     prevIndexRef.current = currentPageIndex;
   }, [currentPageIndex]);
+
+  // Rich-region selection (cleared on page change)
+  const [selectedRegionIds, setSelectedRegionIds] = useState<ReadonlySet<string>>(new Set());
+  const currentPageId = currentPage?.pageId;
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- intentional UI reset on navigation
+    setSelectedRegionIds(new Set());
+  }, [currentPageId]);
+
+  const toggleRegion = (regionId: string) => {
+    setSelectedRegionIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(regionId)) next.delete(regionId);
+      else next.add(regionId);
+      return next;
+    });
+  };
 
   if (!currentPage) {
     return (
@@ -263,6 +303,9 @@ export function PageViewport({
       onHoverThread={onHoverThread}
       onCreateAnchor={onCreateAnchor}
       direction={direction}
+      richRegionsOn={richRegionsOn}
+      selectedRegionIds={selectedRegionIds}
+      onToggleRegion={toggleRegion}
     />
   );
 }

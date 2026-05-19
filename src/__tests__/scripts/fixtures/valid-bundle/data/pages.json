@@ -1,0 +1,13 @@
+[
+  {
+    "sectionCode": "SC-01",
+    "pageId": "page-1",
+    "title": "页面 1",
+    "imageFile": "SC-01_current_finals.png",
+    "canvas": { "width": 1200, "height": 1600 },
+    "noteIds": [],
+    "scenarioIds": [],
+    "contentId": null,
+    "legalRefIds": []
+  }
+]

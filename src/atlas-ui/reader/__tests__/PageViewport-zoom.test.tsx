@@ -114,6 +114,7 @@ describe('PageViewport zoom', () => {
           onSelectThread={vi.fn()}
           onHoverThread={vi.fn()}
           onCreateAnchor={noopAnchor}
+          richRegionsOn={false}
         />
       </MemoryRouter>
     );
@@ -165,6 +166,7 @@ describe('PageViewport zoom', () => {
           onSelectThread={vi.fn()}
           onHoverThread={vi.fn()}
           onCreateAnchor={noopAnchor}
+          richRegionsOn={false}
         />
       </MemoryRouter>
     );

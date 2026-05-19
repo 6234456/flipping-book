@@ -1,0 +1,18 @@
+[
+  {
+    "termId": "dup",
+    "zh": "一",
+    "original": "Eins",
+    "category": "tax",
+    "shortDefinition": "x",
+    "firstMentionFormat": "x"
+  },
+  {
+    "termId": "dup",
+    "zh": "二",
+    "original": "Zwei",
+    "category": "tax",
+    "shortDefinition": "y",
+    "firstMentionFormat": "y"
+  }
+]

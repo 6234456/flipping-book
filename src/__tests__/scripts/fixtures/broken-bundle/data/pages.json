@@ -1,0 +1,24 @@
+[
+  {
+    "sectionCode": "SC-01",
+    "pageId": "page-1",
+    "title": "页面 1",
+    "imageFile": "missing.png",
+    "canvas": { "width": 1200, "height": 1600 },
+    "noteIds": ["nope-dangling"],
+    "scenarioIds": [],
+    "contentId": null,
+    "legalRefIds": []
+  },
+  {
+    "sectionCode": "SC-02",
+    "pageId": "page-1",
+    "title": "页面 1 重复",
+    "imageFile": "missing.png",
+    "canvas": { "width": 1200, "height": 1600 },
+    "noteIds": [],
+    "scenarioIds": [],
+    "contentId": null,
+    "legalRefIds": []
+  }
+]
