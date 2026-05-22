@@ -24,7 +24,10 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: 22
+          # Node 24 ships npm 11, matching the npm that generated
+          # package-lock.json. npm 10 (Node 22) rejects this lockfile over
+          # optional peer deps of @napi-rs/wasm-runtime (@emnapi/*).
+          node-version: 24
           cache: npm
 
       - run: npm ci
