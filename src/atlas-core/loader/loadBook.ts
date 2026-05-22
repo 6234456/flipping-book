@@ -23,7 +23,10 @@ export type LoadedBook = {
   legalRefs: LegalRef[];
 };
 
-const DEFAULT_BASE = '/book';
+// Resolve the bundle root relative to Vite's configured base path so the app
+// works both at domain root ('/') and under a GitHub Pages subpath
+// ('/<repo>/'). import.meta.env.BASE_URL always ends with '/'.
+const DEFAULT_BASE = `${import.meta.env.BASE_URL}book`;
 
 let cached: { base: string; promise: Promise<LoadedBook> } | null = null;
 
