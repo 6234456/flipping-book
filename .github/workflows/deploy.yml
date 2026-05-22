@@ -24,13 +24,14 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          # Node 24 ships npm 11, matching the npm that generated
-          # package-lock.json. npm 10 (Node 22) rejects this lockfile over
-          # optional peer deps of @napi-rs/wasm-runtime (@emnapi/*).
           node-version: 24
           cache: npm
 
-      - run: npm ci
+      # `npm ci` (strict) fails here: the lockfile is generated on macOS and
+      # omits Linux-only optional peer deps of @napi-rs/wasm-runtime
+      # (@emnapi/core, @emnapi/runtime) — a known npm cross-platform lockfile
+      # gap. `npm install` tops up those entries instead of erroring.
+      - run: npm install --no-audit --no-fund
 
       - name: Build
         run: npm run build
