@@ -1,0 +1,602 @@
+[
+  {
+    "noteId": "note-toc-source",
+    "bookId": "de-eu-vat-atlas-current-replaced",
+    "pageId": "toc",
+    "title": {
+      "zh-CN": "素材来源与状态"
+    },
+    "body": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "本页图片来自当前修正版素材池；已定稿部分已替换为当前最终图，未修改部分保留原高分辨率图。"
+          }
+        ]
+      }
+    ],
+    "noteType": "authoring-note",
+    "visibility": "editor-only",
+    "tags": [
+      "source",
+      "replacement"
+    ]
+  },
+  {
+    "noteId": "note-01-vat-framework-source",
+    "bookId": "de-eu-vat-atlas-current-replaced",
+    "pageId": "01-vat-framework",
+    "title": {
+      "zh-CN": "素材来源与状态"
+    },
+    "body": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "本页图片来自当前修正版素材池；已定稿部分已替换为当前最终图，未修改部分保留原高分辨率图。"
+          }
+        ]
+      }
+    ],
+    "noteType": "authoring-note",
+    "visibility": "editor-only",
+    "tags": [
+      "source",
+      "replacement"
+    ]
+  },
+  {
+    "noteId": "note-09-transaction-classification-source",
+    "bookId": "de-eu-vat-atlas-current-replaced",
+    "pageId": "09-transaction-classification",
+    "title": {
+      "zh-CN": "素材来源与状态"
+    },
+    "body": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "本页图片来自当前修正版素材池；已定稿部分已替换为当前最终图，未修改部分保留原高分辨率图。"
+          }
+        ]
+      }
+    ],
+    "noteType": "authoring-note",
+    "visibility": "editor-only",
+    "tags": [
+      "source",
+      "replacement"
+    ]
+  },
+  {
+    "noteId": "note-09-01-single-composite-supply-source",
+    "bookId": "de-eu-vat-atlas-current-replaced",
+    "pageId": "09-01-single-composite-supply",
+    "title": {
+      "zh-CN": "素材来源与状态"
+    },
+    "body": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "本页图片来自当前修正版素材池；已定稿部分已替换为当前最终图，未修改部分保留原高分辨率图。"
+          }
+        ]
+      }
+    ],
+    "noteType": "authoring-note",
+    "visibility": "editor-only",
+    "tags": [
+      "source",
+      "replacement"
+    ]
+  },
+  {
+    "noteId": "note-09-02-main-ancillary-supply-source",
+    "bookId": "de-eu-vat-atlas-current-replaced",
+    "pageId": "09-02-main-ancillary-supply",
+    "title": {
+      "zh-CN": "素材来源与状态"
+    },
+    "body": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "本页图片来自当前修正版素材池；已定稿部分已替换为当前最终图，未修改部分保留原高分辨率图。"
+          }
+        ]
+      }
+    ],
+    "noteType": "authoring-note",
+    "visibility": "editor-only",
+    "tags": [
+      "source",
+      "replacement"
+    ]
+  },
+  {
+    "noteId": "note-09-03-werklieferung-werkleistung-source",
+    "bookId": "de-eu-vat-atlas-current-replaced",
+    "pageId": "09-03-werklieferung-werkleistung",
+    "title": {
+      "zh-CN": "素材来源与状态"
+    },
+    "body": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "本页图片来自当前修正版素材池；已定稿部分已替换为当前最终图，未修改部分保留原高分辨率图。"
+          }
+        ]
+      }
+    ],
+    "noteType": "authoring-note",
+    "visibility": "editor-only",
+    "tags": [
+      "source",
+      "replacement"
+    ]
+  },
+  {
+    "noteId": "note-09-04a-unentgeltliche-wertabgabe-source",
+    "bookId": "de-eu-vat-atlas-current-replaced",
+    "pageId": "09-04a-unentgeltliche-wertabgabe",
+    "title": {
+      "zh-CN": "素材来源与状态"
+    },
+    "body": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "本页图片来自当前修正版素材池；已定稿部分已替换为当前最终图，未修改部分保留原高分辨率图。"
+          }
+        ]
+      }
+    ],
+    "noteType": "authoring-note",
+    "visibility": "editor-only",
+    "tags": [
+      "source",
+      "replacement"
+    ]
+  },
+  {
+    "noteId": "note-09-04b-mindestbemessungsgrundlage-source",
+    "bookId": "de-eu-vat-atlas-current-replaced",
+    "pageId": "09-04b-mindestbemessungsgrundlage",
+    "title": {
+      "zh-CN": "素材来源与状态"
+    },
+    "body": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "本页图片来自当前修正版素材池；已定稿部分已替换为当前最终图，未修改部分保留原高分辨率图。"
+          }
+        ]
+      }
+    ],
+    "noteType": "authoring-note",
+    "visibility": "editor-only",
+    "tags": [
+      "source",
+      "replacement"
+    ]
+  },
+  {
+    "noteId": "note-09-05a-schadensersatz-entgelt-source",
+    "bookId": "de-eu-vat-atlas-current-replaced",
+    "pageId": "09-05a-schadensersatz-entgelt",
+    "title": {
+      "zh-CN": "素材来源与状态"
+    },
+    "body": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "本页图片来自当前修正版素材池；已定稿部分已替换为当前最终图，未修改部分保留原高分辨率图。"
+          }
+        ]
+      }
+    ],
+    "noteType": "authoring-note",
+    "visibility": "editor-only",
+    "tags": [
+      "source",
+      "replacement"
+    ]
+  },
+  {
+    "noteId": "note-09-05b-take-or-pay-source",
+    "bookId": "de-eu-vat-atlas-current-replaced",
+    "pageId": "09-05b-take-or-pay",
+    "title": {
+      "zh-CN": "素材来源与状态"
+    },
+    "body": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "本页图片来自当前修正版素材池；已定稿部分已替换为当前最终图，未修改部分保留原高分辨率图。"
+          }
+        ]
+      }
+    ],
+    "noteType": "authoring-note",
+    "visibility": "editor-only",
+    "tags": [
+      "source",
+      "replacement"
+    ]
+  },
+  {
+    "noteId": "note-09-06-kommissionsgeschaeft-source",
+    "bookId": "de-eu-vat-atlas-current-replaced",
+    "pageId": "09-06-kommissionsgeschaeft",
+    "title": {
+      "zh-CN": "素材来源与状态"
+    },
+    "body": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "本页图片来自当前修正版素材池；已定稿部分已替换为当前最终图，未修改部分保留原高分辨率图。"
+          }
+        ]
+      }
+    ],
+    "noteType": "authoring-note",
+    "visibility": "editor-only",
+    "tags": [
+      "source",
+      "replacement"
+    ]
+  },
+  {
+    "noteId": "note-09-07-vehicle-maintenance-case-source",
+    "bookId": "de-eu-vat-atlas-current-replaced",
+    "pageId": "09-07-vehicle-maintenance-case",
+    "title": {
+      "zh-CN": "素材来源与状态"
+    },
+    "body": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "本页图片来自当前修正版素材池；已定稿部分已替换为当前最终图，未修改部分保留原高分辨率图。"
+          }
+        ]
+      }
+    ],
+    "noteType": "authoring-note",
+    "visibility": "editor-only",
+    "tags": [
+      "source",
+      "replacement"
+    ]
+  },
+  {
+    "noteId": "note-sc-01a-domestic-b2b-source",
+    "bookId": "de-eu-vat-atlas-current-replaced",
+    "pageId": "sc-01a-domestic-b2b",
+    "title": {
+      "zh-CN": "素材来源与状态"
+    },
+    "body": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "本页图片来自当前修正版素材池；已定稿部分已替换为当前最终图，未修改部分保留原高分辨率图。"
+          }
+        ]
+      }
+    ],
+    "noteType": "authoring-note",
+    "visibility": "editor-only",
+    "tags": [
+      "source",
+      "replacement"
+    ]
+  },
+  {
+    "noteId": "note-sc-01b-invoice-elements-source",
+    "bookId": "de-eu-vat-atlas-current-replaced",
+    "pageId": "sc-01b-invoice-elements",
+    "title": {
+      "zh-CN": "素材来源与状态"
+    },
+    "body": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "本页图片来自当前修正版素材池；已定稿部分已替换为当前最终图，未修改部分保留原高分辨率图。"
+          }
+        ]
+      }
+    ],
+    "noteType": "authoring-note",
+    "visibility": "editor-only",
+    "tags": [
+      "source",
+      "replacement"
+    ]
+  },
+  {
+    "noteId": "note-sc-02-eu-goods-source",
+    "bookId": "de-eu-vat-atlas-current-replaced",
+    "pageId": "sc-02-eu-goods",
+    "title": {
+      "zh-CN": "素材来源与状态"
+    },
+    "body": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "本页图片来自当前修正版素材池；已定稿部分已替换为当前最终图，未修改部分保留原高分辨率图。"
+          }
+        ]
+      }
+    ],
+    "noteType": "authoring-note",
+    "visibility": "editor-only",
+    "tags": [
+      "source",
+      "replacement"
+    ]
+  },
+  {
+    "noteId": "note-sc-03-eu-b2b-services-source",
+    "bookId": "de-eu-vat-atlas-current-replaced",
+    "pageId": "sc-03-eu-b2b-services",
+    "title": {
+      "zh-CN": "素材来源与状态"
+    },
+    "body": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "本页图片来自当前修正版素材池；已定稿部分已替换为当前最终图，未修改部分保留原高分辨率图。"
+          }
+        ]
+      }
+    ],
+    "noteType": "authoring-note",
+    "visibility": "editor-only",
+    "tags": [
+      "source",
+      "replacement"
+    ]
+  },
+  {
+    "noteId": "note-sc-04-reverse-charge-source",
+    "bookId": "de-eu-vat-atlas-current-replaced",
+    "pageId": "sc-04-reverse-charge",
+    "title": {
+      "zh-CN": "素材来源与状态"
+    },
+    "body": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "本页图片来自当前修正版素材池；已定稿部分已替换为当前最终图，未修改部分保留原高分辨率图。"
+          }
+        ]
+      }
+    ],
+    "noteType": "authoring-note",
+    "visibility": "editor-only",
+    "tags": [
+      "source",
+      "replacement"
+    ]
+  },
+  {
+    "noteId": "note-sc-05-import-export-source",
+    "bookId": "de-eu-vat-atlas-current-replaced",
+    "pageId": "sc-05-import-export",
+    "title": {
+      "zh-CN": "素材来源与状态"
+    },
+    "body": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "本页图片来自当前修正版素材池；已定稿部分已替换为当前最终图，未修改部分保留原高分辨率图。"
+          }
+        ]
+      }
+    ],
+    "noteType": "authoring-note",
+    "visibility": "editor-only",
+    "tags": [
+      "source",
+      "replacement"
+    ]
+  },
+  {
+    "noteId": "note-sc-06a-chain-basic-source",
+    "bookId": "de-eu-vat-atlas-current-replaced",
+    "pageId": "sc-06a-chain-basic",
+    "title": {
+      "zh-CN": "素材来源与状态"
+    },
+    "body": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "本页图片来自当前修正版素材池；已定稿部分已替换为当前最终图，未修改部分保留原高分辨率图。"
+          }
+        ]
+      }
+    ],
+    "noteType": "authoring-note",
+    "visibility": "editor-only",
+    "tags": [
+      "source",
+      "replacement"
+    ]
+  },
+  {
+    "noteId": "note-sc-06b-transport-allocation-source",
+    "bookId": "de-eu-vat-atlas-current-replaced",
+    "pageId": "sc-06b-transport-allocation",
+    "title": {
+      "zh-CN": "素材来源与状态"
+    },
+    "body": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "本页图片来自当前修正版素材池；已定稿部分已替换为当前最终图，未修改部分保留原高分辨率图。"
+          }
+        ]
+      }
+    ],
+    "noteType": "authoring-note",
+    "visibility": "editor-only",
+    "tags": [
+      "source",
+      "replacement"
+    ]
+  },
+  {
+    "noteId": "note-sc-07-triangular-trade-source",
+    "bookId": "de-eu-vat-atlas-current-replaced",
+    "pageId": "sc-07-triangular-trade",
+    "title": {
+      "zh-CN": "素材来源与状态"
+    },
+    "body": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "本页图片来自当前修正版素材池；已定稿部分已替换为当前最终图，未修改部分保留原高分辨率图。"
+          }
+        ]
+      }
+    ],
+    "noteType": "authoring-note",
+    "visibility": "editor-only",
+    "tags": [
+      "source",
+      "replacement"
+    ]
+  },
+  {
+    "noteId": "note-sc-08-invoice-reporting-source",
+    "bookId": "de-eu-vat-atlas-current-replaced",
+    "pageId": "sc-08-invoice-reporting",
+    "title": {
+      "zh-CN": "素材来源与状态"
+    },
+    "body": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "本页图片来自当前修正版素材池；已定稿部分已替换为当前最终图，未修改部分保留原高分辨率图。"
+          }
+        ]
+      }
+    ],
+    "noteType": "authoring-note",
+    "visibility": "editor-only",
+    "tags": [
+      "source",
+      "replacement"
+    ]
+  },
+  {
+    "noteId": "note-glossary-source",
+    "bookId": "de-eu-vat-atlas-current-replaced",
+    "pageId": "glossary",
+    "title": {
+      "zh-CN": "素材来源与状态"
+    },
+    "body": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "本页图片来自当前修正版素材池；已定稿部分已替换为当前最终图，未修改部分保留原高分辨率图。"
+          }
+        ]
+      }
+    ],
+    "noteType": "authoring-note",
+    "visibility": "editor-only",
+    "tags": [
+      "source",
+      "replacement"
+    ]
+  },
+  {
+    "noteId": "note-appendix-a-goods-quick-reference-source",
+    "bookId": "de-eu-vat-atlas-current-replaced",
+    "pageId": "appendix-a-goods-quick-reference",
+    "title": {
+      "zh-CN": "素材来源与状态"
+    },
+    "body": [
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "本页图片来自当前修正版素材池；已定稿部分已替换为当前最终图，未修改部分保留原高分辨率图。"
+          }
+        ]
+      }
+    ],
+    "noteType": "authoring-note",
+    "visibility": "editor-only",
+    "tags": [
+      "source",
+      "replacement"
+    ]
+  }
+]

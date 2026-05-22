@@ -1,0 +1,111 @@
+{
+  "version": "0.6.1",
+  "pageId": "sc-06a-chain-basic",
+  "sectionCode": "SC-06A",
+  "canvas": {
+    "width": 1086,
+    "height": 1448
+  },
+  "imageFile": "images/sc-06a-chain-basic_current.png",
+  "overlayType": "refined_interactive_hotspots",
+  "textRegions": [
+    {
+      "id": "title-text",
+      "type": "textRegion",
+      "role": "title",
+      "bbox": {
+        "x": 80,
+        "y": 30,
+        "w": 920,
+        "h": 160
+      },
+      "text": "连环交易：基本结构",
+      "confidence": 0.8,
+      "source": "generated-from-current-layout",
+      "colorRole": "info_blue"
+    }
+  ],
+  "sections": [
+    {
+      "id": "title-band",
+      "type": "section",
+      "role": "title",
+      "bbox": {
+        "x": 0,
+        "y": 0,
+        "w": 1086,
+        "h": 220
+      },
+      "text": "连环交易：基本结构",
+      "confidence": 0.8,
+      "source": "generated-from-current-layout",
+      "colorRole": "info_blue"
+    },
+    {
+      "id": "main-content",
+      "type": "section",
+      "role": "detectedSection",
+      "bbox": {
+        "x": 20,
+        "y": 220,
+        "w": 1046,
+        "h": 1020
+      },
+      "text": "发票链与运输归属",
+      "confidence": 0.8,
+      "source": "generated-from-current-layout",
+      "colorRole": "info_blue"
+    },
+    {
+      "id": "footer",
+      "type": "section",
+      "role": "resourceFooter",
+      "bbox": {
+        "x": 0,
+        "y": 1240,
+        "w": 1086,
+        "h": 208
+      },
+      "text": "footer / legend / source area",
+      "confidence": 0.8,
+      "source": "generated-from-current-layout",
+      "colorRole": "info_blue"
+    }
+  ],
+  "gridRegions": [],
+  "imageHotspots": [
+    {
+      "id": "page-main-hotspot",
+      "type": "imageHotspot",
+      "role": "imageHotspot",
+      "bbox": {
+        "x": 20,
+        "y": 220,
+        "w": 1046,
+        "h": 1020
+      },
+      "text": "预留 drill-down / 本页主图",
+      "confidence": 0.8,
+      "source": "generated-from-current-layout",
+      "colorRole": "info_blue"
+    }
+  ],
+  "navigationRegions": [],
+  "legalAnchors": [
+    {
+      "id": "legal-anchor-general",
+      "type": "legalAnchor",
+      "role": "legalAnchor",
+      "bbox": {
+        "x": 40,
+        "y": 1180,
+        "w": 1000,
+        "h": 180
+      },
+      "text": "§ 3 Abs. 6 UStG; § 3 Abs. 6a UStG; § 3 Abs. 7 UStG; UStAE 3.14",
+      "confidence": 0.55,
+      "source": "generated-from-current-layout",
+      "colorRole": "legal_purple"
+    }
+  ]
+}

@@ -3,286 +3,425 @@
     "sectionCode": "TOC",
     "pageId": "toc",
     "title": "图册导航",
-    "subtitle": "德国 / 欧盟 VAT 场景速查路径",
-    "imageFile": "images/final/TOC_current_final.png",
+    "subtitle": "VAT 场景速查路径",
+    "imageFile": "toc_current.png",
     "canvas": {
       "width": 1086,
       "height": 1448
     },
-    "sizeStatus": "canonical",
-    "notes": "v0.6.0 final production image. Canvas verified at 1086×1448."
+    "sizeStatus": "canonical-1086x1448",
+    "displayOrder": 1,
+    "sourceImageSha256": "10cc53fddfe7226b09f34b095ec59e231c79565ee8e167bebed4b2195029b12d",
+    "noteIds": [
+      "note-toc-source"
+    ]
   },
   {
     "sectionCode": "01",
     "pageId": "01-vat-framework",
     "title": "VAT 判断总框架",
     "subtitle": "五步速查法：从交易事实到 VAT 结论",
-    "imageFile": "images/final/01_current_final.png",
+    "imageFile": "01-vat-framework_current.png",
     "canvas": {
       "width": 1086,
       "height": 1448
     },
-    "sizeStatus": "canonical",
-    "notes": "v0.6.0 final production image. Canvas verified at 1086×1448."
+    "sizeStatus": "canonical-1086x1448",
+    "displayOrder": 2,
+    "sourceImageSha256": "f9b4b6d681be9b7bf562d7c9bca11b5b68534ecb6ece81bcbce700b736e5e5aa",
+    "noteIds": [
+      "note-01-vat-framework-source"
+    ]
   },
   {
     "sectionCode": "09",
     "pageId": "09-transaction-classification",
     "title": "第 09 章：交易性质判断",
     "subtitle": "先确定交易性质，再判断供应地点与课税方式",
-    "imageFile": "images/final/09_current_final.png",
+    "imageFile": "09-transaction-classification_current.png",
     "canvas": {
       "width": 1086,
       "height": 1448
     },
-    "sizeStatus": "canonical",
-    "notes": "v0.6.0 final production image. Canvas verified at 1086×1448."
+    "sizeStatus": "canonical-1086x1448",
+    "displayOrder": 3,
+    "sourceImageSha256": "8a9456f91eea256375bf7e33b127d0476a27fe15b784687a361ef0e7b590b0d9",
+    "noteIds": [
+      "note-09-transaction-classification-source"
+    ]
   },
   {
     "sectionCode": "09-01",
     "pageId": "09-01-single-composite-supply",
     "title": "统一给付 / 单一交易",
     "subtitle": "客户取得一个整体经济结果，还是多个独立给付？",
-    "imageFile": "images/final/09-01_current_final.png",
+    "imageFile": "09-01-single-composite-supply_current.png",
     "canvas": {
       "width": 1086,
       "height": 1448
     },
-    "sizeStatus": "canonical",
-    "notes": "v0.6.0 final production image. Canvas verified at 1086×1448."
+    "sizeStatus": "canonical-1086x1448",
+    "displayOrder": 4,
+    "sourceImageSha256": "e207ef4033b8ec6bad2802a33ff7322d828d9b81b559ef332bd1904a279640f2",
+    "noteIds": [
+      "note-09-01-single-composite-supply-source"
+    ]
   },
   {
     "sectionCode": "09-02",
     "pageId": "09-02-main-ancillary-supply",
     "title": "主给付 / 从给付",
     "subtitle": "该组成部分是否对客户具有独立经济目的？",
-    "imageFile": "images/final/09-02_current_final.png",
+    "imageFile": "09-02-main-ancillary-supply_current.png",
     "canvas": {
       "width": 1086,
       "height": 1448
     },
-    "sizeStatus": "canonical",
-    "notes": "v0.6.0 final production image. Canvas verified at 1086×1448."
+    "sizeStatus": "canonical-1086x1448",
+    "displayOrder": 5,
+    "sourceImageSha256": "3156ccc466f3d71be39dc062f2936772edbf0821bf13d05fcc3f0b6c04061953",
+    "noteIds": [
+      "note-09-02-main-ancillary-supply-source"
+    ]
   },
   {
     "sectionCode": "09-03",
-    "pageId": "09-03-work-supply-vs-service",
-    "title": "加工供货与加工服务边界",
-    "subtitle": "识别交易的实质，区分货物与服务，正确适用 VAT",
-    "imageFile": "images/final/09-03_current_final.png",
+    "pageId": "09-03-werklieferung-werkleistung",
+    "title": "加工交付与加工服务",
+    "subtitle": "Werklieferung / Werkleistung",
+    "imageFile": "09-03-werklieferung-werkleistung_current.png",
     "canvas": {
       "width": 1086,
       "height": 1448
     },
-    "sizeStatus": "canonical",
-    "notes": "v0.6.0 final production image. Canvas verified at 1086×1448."
+    "sizeStatus": "canonical-1086x1448",
+    "displayOrder": 6,
+    "sourceImageSha256": "e517da5c9eb81849446e9999907001cb726c17027c9de8259fef3b74555eb9a7",
+    "noteIds": [
+      "note-09-03-werklieferung-werkleistung-source"
+    ]
   },
   {
-    "sectionCode": "09-04",
-    "pageId": "09-04-non-monetary-transfer",
-    "title": "无偿价值转移 / 最低计税基础",
-    "subtitle": "非对价转移、最低计税基础与发票影响",
-    "imageFile": "images/final/09-04_current_final.png",
+    "sectionCode": "09-04A",
+    "pageId": "09-04a-unentgeltliche-wertabgabe",
+    "title": "无偿价值转移 / 视同销售",
+    "subtitle": "非对价转移、企业自用、员工福利与私人用场景速查",
+    "imageFile": "09-04a-unentgeltliche-wertabgabe_current.png",
     "canvas": {
       "width": 1086,
       "height": 1448
     },
-    "sizeStatus": "canonical",
-    "notes": "v0.6.0 final production image. Canvas verified at 1086×1448."
+    "sizeStatus": "canonical-1086x1448",
+    "displayOrder": 7,
+    "sourceImageSha256": "93a18a7ffac9944e1fe00397827dad8ec559d0beb97a5bcf2f4c79050934975f",
+    "noteIds": [
+      "note-09-04a-unentgeltliche-wertabgabe-source"
+    ]
+  },
+  {
+    "sectionCode": "09-04B",
+    "pageId": "09-04b-mindestbemessungsgrundlage",
+    "title": "最低计税基础",
+    "subtitle": "§ 10 Abs. 4 / 5 与 UStAE 10.6 / 10.7",
+    "imageFile": "09-04b-mindestbemessungsgrundlage_current.png",
+    "canvas": {
+      "width": 1086,
+      "height": 1448
+    },
+    "sizeStatus": "canonical-1086x1448",
+    "displayOrder": 8,
+    "sourceImageSha256": "130e82f6c4fea6425f2eabb3e238ec446fb832af5fa2380fbe817a866661efb6",
+    "noteIds": [
+      "note-09-04b-mindestbemessungsgrundlage-source"
+    ]
+  },
+  {
+    "sectionCode": "09-05A",
+    "pageId": "09-05a-schadensersatz-entgelt",
+    "title": "损害赔偿还是对价",
+    "subtitle": "Schadensersatz / Entgelt · UStAE 1.3",
+    "imageFile": "09-05a-schadensersatz-entgelt_current.png",
+    "canvas": {
+      "width": 1086,
+      "height": 1448
+    },
+    "sizeStatus": "canonical-1086x1448",
+    "displayOrder": 9,
+    "sourceImageSha256": "ae23a52e0f9d846928bcfde673a3fdc69d04f6778fe245189aa755df98a89659",
+    "noteIds": [
+      "note-09-05a-schadensersatz-entgelt-source"
+    ]
   },
   {
     "sectionCode": "09-05-B",
     "pageId": "09-05b-take-or-pay",
     "title": "最低采购义务",
     "subtitle": "为何应先审查给付交换",
-    "imageFile": "images/final/09-05-B_current_final.png",
+    "imageFile": "09-05b-take-or-pay_current.png",
     "canvas": {
       "width": 1086,
       "height": 1448
     },
-    "sizeStatus": "canonical",
-    "notes": "v0.6.0 final production image. Canvas verified at 1086×1448."
+    "sizeStatus": "canonical-1086x1448",
+    "displayOrder": 10,
+    "sourceImageSha256": "a3ff00858a57460d4fc8581126c4aec577cf36a226168c5466d464f04144b228",
+    "noteIds": [
+      "note-09-05b-take-or-pay-source"
+    ]
   },
   {
     "sectionCode": "09-06",
-    "pageId": "09-06-commission-transaction",
+    "pageId": "09-06-kommissionsgeschaeft",
     "title": "委托买卖交易（行纪）",
     "subtitle": "谁在 VAT 上被视为买方 / 卖方？",
-    "imageFile": "images/final/09-06_current_final.png",
+    "imageFile": "09-06-kommissionsgeschaeft_current.png",
     "canvas": {
       "width": 1086,
       "height": 1448
     },
-    "sizeStatus": "canonical",
-    "notes": "v0.6.0 final production image. Canvas verified at 1086×1448."
+    "sizeStatus": "canonical-1086x1448",
+    "displayOrder": 11,
+    "sourceImageSha256": "d64831eb8df3e37d226327ee3b72c190fd9d14bb98854e6ddd9aff2ccff99628",
+    "noteIds": [
+      "note-09-06-kommissionsgeschaeft-source"
+    ]
   },
   {
     "sectionCode": "09-07",
     "pageId": "09-07-vehicle-maintenance-case",
-    "title": "车辆保养、换机油与质保维修案例",
-    "subtitle": "典型案例分析与 VAT 处理要点",
-    "imageFile": "images/final/09-07_current_final.png",
+    "title": "车辆保养案例",
+    "subtitle": "Praxisfall",
+    "imageFile": "09-07-vehicle-maintenance-case_current.png",
     "canvas": {
       "width": 1086,
       "height": 1448
     },
-    "sizeStatus": "canonical",
-    "notes": "v0.6.0 final production image. Canvas verified at 1086×1448."
+    "sizeStatus": "canonical-1086x1448",
+    "displayOrder": 12,
+    "sourceImageSha256": "0a7f5c36d9e3a27d6e3ac7f7afb3841c8d47fbc9cc821ef75a032d9b4c26061e",
+    "noteIds": [
+      "note-09-07-vehicle-maintenance-case-source"
+    ]
   },
   {
     "sectionCode": "SC-01A",
     "pageId": "sc-01a-domestic-b2b",
-    "title": "德国国内 B2B：交易判断与税务处理",
-    "subtitle": "明确业务类型，正确适用 VAT",
-    "imageFile": "images/final/SC-01A_current_final.png",
+    "title": "德国国内 B2B",
+    "subtitle": "交易处理与视同销售",
+    "imageFile": "sc-01a-domestic-b2b_current.png",
     "canvas": {
       "width": 1086,
       "height": 1448
     },
-    "sizeStatus": "canonical",
-    "notes": "v0.6.0 final production image. Canvas verified at 1086×1448."
+    "sizeStatus": "canonical-1086x1448",
+    "displayOrder": 13,
+    "sourceImageSha256": "d131805d92fcdc12ab0255eab6694049bb2524a75b74ad146f35b02ef5163f85",
+    "noteIds": [
+      "note-sc-01a-domestic-b2b-source"
+    ]
   },
   {
     "sectionCode": "SC-01B",
     "pageId": "sc-01b-invoice-elements",
     "title": "德国国内 B2B：发票必要要素与开票示例",
     "subtitle": "UStG §14 发票必要要素速查",
-    "imageFile": "images/final/SC-01B_current_final.png",
+    "imageFile": "sc-01b-invoice-elements_current.png",
     "canvas": {
       "width": 1086,
       "height": 1448
     },
-    "sizeStatus": "canonical",
-    "notes": "v0.6.0 final production image. Canvas verified at 1086×1448."
+    "sizeStatus": "canonical-1086x1448",
+    "displayOrder": 14,
+    "sourceImageSha256": "e9e398e1d5530a5c53ef47936d1a522b6b69a427ee4fc7846352fd0805819f88",
+    "noteIds": [
+      "note-sc-01b-invoice-elements-source"
+    ]
   },
   {
     "sectionCode": "SC-02",
     "pageId": "sc-02-eu-goods",
     "title": "欧盟货物交易",
-    "subtitle": "销售、购置、自有调拨，还是寄售库存？",
-    "imageFile": "images/final/SC-02_current_final.png",
+    "subtitle": "欧盟内销售、欧盟内购置与自有货物调拨",
+    "imageFile": "sc-02-eu-goods_current.png",
     "canvas": {
       "width": 1086,
       "height": 1448
     },
-    "sizeStatus": "canonical",
-    "notes": "v0.6.0 final production image. Canvas verified at 1086×1448."
+    "sizeStatus": "canonical-1086x1448",
+    "displayOrder": 15,
+    "sourceImageSha256": "b6211563db7aa334238d79e7eec73643a7bed6a32d6522a81219e939059d560d",
+    "noteIds": [
+      "note-sc-02-eu-goods-source"
+    ]
   },
   {
     "sectionCode": "SC-03",
     "pageId": "sc-03-eu-b2b-services",
     "title": "欧盟 B2B 服务",
     "subtitle": "给付地点、反向征税与申报入口",
-    "imageFile": "images/final/SC-03_current_final.png",
+    "imageFile": "sc-03-eu-b2b-services_current.png",
     "canvas": {
       "width": 1086,
       "height": 1448
     },
-    "sizeStatus": "canonical",
-    "notes": "v0.6.0 final production image. Canvas verified at 1086×1448."
+    "sizeStatus": "canonical-1086x1448",
+    "displayOrder": 16,
+    "sourceImageSha256": "a7b4d4daeb24461ed67a8cee2a252c64aad81f50a57bc6626c987020ddf41615",
+    "noteIds": [
+      "note-sc-03-eu-b2b-services-source"
+    ]
   },
   {
     "sectionCode": "SC-04",
     "pageId": "sc-04-reverse-charge",
     "title": "§ 13b 反向征税",
     "subtitle": "接受方纳税义务：官方类型、发票提示与申报风险",
-    "imageFile": "images/final/SC-04_current_final.png",
+    "imageFile": "sc-04-reverse-charge_current.png",
     "canvas": {
       "width": 1086,
       "height": 1448
     },
-    "sizeStatus": "canonical",
-    "notes": "v0.6.0 final production image. Canvas verified at 1086×1448."
+    "sizeStatus": "canonical-1086x1448",
+    "displayOrder": 17,
+    "sourceImageSha256": "e542979678c83956dca85cbc6f59c6bc820c99c90a1d5cbb8f6c76930e78e019",
+    "noteIds": [
+      "note-sc-04-reverse-charge-source"
+    ]
   },
   {
     "sectionCode": "SC-05",
     "pageId": "sc-05-import-export",
     "title": "进口与出口",
     "subtitle": "第三国货物流、出口证明与进口增值税",
-    "imageFile": "images/final/SC-05_current_final.png",
+    "imageFile": "sc-05-import-export_current.png",
     "canvas": {
       "width": 1086,
       "height": 1448
     },
-    "sizeStatus": "canonical",
-    "notes": "v0.6.0 final production image. Canvas verified at 1086×1448."
+    "sizeStatus": "canonical-1086x1448",
+    "displayOrder": 18,
+    "sourceImageSha256": "abf1f72460d9338809693dab27380a778066e2ac4fd9cd9eb31bba0de9a2cb52",
+    "noteIds": [
+      "note-sc-05-import-export-source"
+    ]
   },
   {
     "sectionCode": "SC-06A",
-    "pageId": "sc-06a-chain-transaction-structure",
-    "title": "连环交易：基本结构、发票链与运输归属",
-    "subtitle": "交易链、一次运输与核心判断提示",
-    "imageFile": "images/final/SC-06A_current_final.png",
+    "pageId": "sc-06a-chain-basic",
+    "title": "连环交易：基本结构",
+    "subtitle": "发票链与运输归属",
+    "imageFile": "sc-06a-chain-basic_current.png",
     "canvas": {
       "width": 1086,
       "height": 1448
     },
-    "sizeStatus": "canonical",
-    "notes": "v0.6.0 final production image. Canvas verified at 1086×1448."
+    "sizeStatus": "canonical-1086x1448",
+    "displayOrder": 19,
+    "sourceImageSha256": "6d82a383ff86b13d8f21b7f18c8eca0dddad44464299a1ec4d6257dcb997d76c",
+    "noteIds": [
+      "note-sc-06a-chain-basic-source"
+    ]
   },
   {
     "sectionCode": "SC-06B",
-    "pageId": "sc-06b-chain-transaction-transport-allocation",
+    "pageId": "sc-06b-transport-allocation",
     "title": "连环交易：运输归属与税权判定",
-    "subtitle": "§ 3 Abs. 6a UStG：bewegte Lieferung / ruhende Lieferung / Gelangensnachweis",
-    "imageFile": "images/final/SC-06B_current_final.png",
+    "subtitle": "运输归属、VAT ID 与到达证明",
+    "imageFile": "sc-06b-transport-allocation_current.png",
     "canvas": {
       "width": 1086,
       "height": 1448
     },
-    "sizeStatus": "canonical",
-    "notes": "v0.6.0 final production image. Canvas verified at 1086×1448."
+    "sizeStatus": "canonical-1086x1448",
+    "displayOrder": 20,
+    "sourceImageSha256": "094e791dd14b17d31d35e876104d854c7e17ef24220f8efd623ca48fef839138",
+    "noteIds": [
+      "note-sc-06b-transport-allocation-source"
+    ]
   },
   {
     "sectionCode": "SC-07",
     "pageId": "sc-07-triangular-trade",
     "title": "三角贸易",
     "subtitle": "欧盟内三方简化，谁承担目的国 VAT？",
-    "imageFile": "images/final/SC-07_current_final.png",
+    "imageFile": "sc-07-triangular-trade_current.png",
     "canvas": {
       "width": 1086,
       "height": 1448
     },
-    "sizeStatus": "canonical",
-    "notes": "v0.6.0 final production image. Canvas verified at 1086×1448."
+    "sizeStatus": "canonical-1086x1448",
+    "displayOrder": 21,
+    "sourceImageSha256": "e093c890617973c81312787a20379e65d9ee0e0cccd9726d9a2f75dcbc8f3c42",
+    "noteIds": [
+      "note-sc-07-triangular-trade-source"
+    ]
   },
   {
     "sectionCode": "SC-08",
-    "pageId": "sc-08-invoicing-reporting",
+    "pageId": "sc-08-invoice-reporting",
     "title": "发票与申报",
-    "subtitle": "把 VAT 判断落到发票、申报与留痕",
-    "imageFile": "images/final/SC-08_current_final.png",
+    "subtitle": "电子发票、UStVA、ZM、Intrastat",
+    "imageFile": "sc-08-invoice-reporting_current.png",
     "canvas": {
       "width": 1086,
       "height": 1448
     },
-    "sizeStatus": "canonical",
-    "notes": "v0.6.0 final production image. Canvas verified at 1086×1448."
+    "sizeStatus": "canonical-1086x1448",
+    "displayOrder": 22,
+    "sourceImageSha256": "bb3790dfa660e7c53f781165321ee33cb7a11e5172986b8e0995618ff7717bab",
+    "noteIds": [
+      "note-sc-08-invoice-reporting-source"
+    ]
   },
   {
     "sectionCode": "G",
     "pageId": "glossary",
     "title": "术语表与悬浮提示词库",
     "subtitle": "中文主译名、德语锚点与 Tooltip 统一控制",
-    "imageFile": "images/final/G_current_final.png",
+    "imageFile": "glossary_current.png",
     "canvas": {
       "width": 1086,
       "height": 1448
     },
-    "sizeStatus": "canonical",
-    "notes": "v0.6.0 final production image. Canvas verified at 1086×1448."
+    "sizeStatus": "canonical-1086x1448",
+    "displayOrder": 23,
+    "sourceImageSha256": "3dcc24197fff8be7493bce22de03f4d1023c393d4dde78d9ad20808cc50a1c1d",
+    "noteIds": [
+      "note-glossary-source"
+    ]
   },
   {
     "sectionCode": "APP-A",
     "pageId": "appendix-a-goods-quick-reference",
     "title": "常用货物场景速查",
     "subtitle": "德国公司视角：货物流、运输、清关与证据链",
-    "imageFile": "images/final/APP-A_current_final.png",
+    "imageFile": "appendix-a-goods-quick-reference_current.png",
     "canvas": {
       "width": 1086,
       "height": 1448
     },
-    "sizeStatus": "canonical",
-    "notes": "v0.6.0 final production image. Canvas verified at 1086×1448."
+    "sizeStatus": "canonical-1086x1448",
+    "displayOrder": 24,
+    "sourceImageSha256": "67caef93b4d93baa77e617b0d2062ed6a0ae4cb3e94d79117d07dafb33510fd9",
+    "noteIds": [
+      "note-appendix-a-goods-quick-reference-source"
+    ]
+  },
+  {
+    "sectionCode": "APP-B",
+    "pageId": "appendix-b-epc_current",
+    "title": "光伏EPC项目案例",
+    "subtitle": "德国公司视角：EPC 与 fixed establishment",
+    "imageFile": "appendix-b-epc_current.png",
+    "canvas": {
+      "width": 1086,
+      "height": 1448
+    },
+    "sizeStatus": "canonical-1086x1448",
+    "displayOrder": 24,
+    "sourceImageSha256": "67caef93b4d93baa77e617b0d2062ed6a0ae4cb3e94d79117d07dafb33510fd9",
+    "noteIds": [
+      "note-appendix-a-goods-quick-reference-source"
+    ]
   }
 ]

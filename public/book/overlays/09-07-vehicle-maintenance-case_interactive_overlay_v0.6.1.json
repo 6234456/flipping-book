@@ -1,0 +1,95 @@
+{
+  "version": "0.6.1",
+  "pageId": "09-07-vehicle-maintenance-case",
+  "sectionCode": "09-07",
+  "canvas": {
+    "width": 1086,
+    "height": 1448
+  },
+  "imageFile": "images/09-07-vehicle-maintenance-case_current.png",
+  "overlayType": "refined_interactive_hotspots",
+  "textRegions": [
+    {
+      "id": "title-text",
+      "type": "textRegion",
+      "role": "title",
+      "bbox": {
+        "x": 80,
+        "y": 30,
+        "w": 920,
+        "h": 160
+      },
+      "text": "车辆保养案例",
+      "confidence": 0.8,
+      "source": "generated-from-current-layout",
+      "colorRole": "info_blue"
+    }
+  ],
+  "sections": [
+    {
+      "id": "title-band",
+      "type": "section",
+      "role": "title",
+      "bbox": {
+        "x": 0,
+        "y": 0,
+        "w": 1086,
+        "h": 220
+      },
+      "text": "车辆保养案例",
+      "confidence": 0.8,
+      "source": "generated-from-current-layout",
+      "colorRole": "info_blue"
+    },
+    {
+      "id": "main-content",
+      "type": "section",
+      "role": "detectedSection",
+      "bbox": {
+        "x": 20,
+        "y": 220,
+        "w": 1046,
+        "h": 1020
+      },
+      "text": "Praxisfall",
+      "confidence": 0.8,
+      "source": "generated-from-current-layout",
+      "colorRole": "info_blue"
+    },
+    {
+      "id": "footer",
+      "type": "section",
+      "role": "resourceFooter",
+      "bbox": {
+        "x": 0,
+        "y": 1240,
+        "w": 1086,
+        "h": 208
+      },
+      "text": "footer / legend / source area",
+      "confidence": 0.8,
+      "source": "generated-from-current-layout",
+      "colorRole": "info_blue"
+    }
+  ],
+  "gridRegions": [],
+  "imageHotspots": [
+    {
+      "id": "page-main-hotspot",
+      "type": "imageHotspot",
+      "role": "imageHotspot",
+      "bbox": {
+        "x": 20,
+        "y": 220,
+        "w": 1046,
+        "h": 1020
+      },
+      "text": "预留 drill-down / 本页主图",
+      "confidence": 0.8,
+      "source": "generated-from-current-layout",
+      "colorRole": "info_blue"
+    }
+  ],
+  "navigationRegions": [],
+  "legalAnchors": []
+}

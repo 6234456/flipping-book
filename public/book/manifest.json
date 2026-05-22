@@ -1,16 +1,58 @@
 {
   "schemaVersion": "1.0",
-  "bookId": "de-eu-vat-atlas",
-  "slug": "de-eu-vat",
-  "title": { "zh-CN": "德国 / 欧盟 VAT 财务速查图册" },
-  "subtitle": { "zh-CN": "常用 B2B 场景 · 法规提示 · 可点击 Drill-down 导览" },
-  "version": "0.6.1",
+  "bookId": "de-eu-vat-atlas-current-replaced",
+  "slug": "de-eu-vat-current-replaced",
+  "title": {
+    "zh-CN": "德国 / 欧盟 VAT 财务速查图册（当前修正版）"
+  },
+  "subtitle": {
+    "zh-CN": "已定稿页替换为当前最终版本，未修改页保留原高分辨率图"
+  },
+  "version": "0.7.2-current-replaced",
   "defaultLocale": "zh-CN",
-  "supportedLocales": ["zh-CN"],
+  "supportedLocales": [
+    "zh-CN"
+  ],
   "visualSystem": "VAT_ATLAS_MAGAZINE_V2",
   "featureFlags": {
+    "glossaryTooltips": true,
+    "notesDrawer": true,
     "comments": true,
     "debugOverlay": true,
-    "notesDrawer": false
+    "pageFlip": false,
+    "search": false,
+    "exportComments": true
+  },
+  "reader": {
+    "defaultMode": "auto",
+    "allowModeSwitch": false,
+    "transition": "fade",
+    "enableKeyboardNavigation": true,
+    "enableSwipeNavigation": true,
+    "enableProgressBar": true,
+    "enableTableOfContents": true,
+    "defaultZoom": "fit-page",
+    "spreadBehavior": {
+      "desktopDefault": "single",
+      "mobileDefault": "single",
+      "spreadPageAdvance": "by-page",
+      "keyboard": {
+        "arrowLeft": "previous",
+        "arrowRight": "next"
+      },
+      "clickZones": {
+        "enabled": false,
+        "leftEdgePercent": 0,
+        "rightEdgePercent": 0
+      }
+    }
+  },
+  "navigation": {
+    "showTopBar": true,
+    "showBottomBar": true,
+    "showPageNumbers": true,
+    "showBreadcrumbs": false,
+    "showThumbnailStrip": false,
+    "showTableOfContentsButton": true
   }
 }

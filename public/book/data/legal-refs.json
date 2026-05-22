@@ -1,0 +1,62 @@
+[
+  {
+    "legalRefId": "§ 3 Abs. 6a UStG",
+    "jurisdiction": "DE",
+    "source": "UStG",
+    "ref": "§ 3 Abs. 6a UStG",
+    "summary": {
+      "zh-CN": "连环交易中运输归属规则。"
+    },
+    "lastReviewed": "2026-05-20"
+  },
+  {
+    "legalRefId": "§ 3 Abs. 7 UStG",
+    "jurisdiction": "DE",
+    "source": "UStG",
+    "ref": "§ 3 Abs. 7 UStG",
+    "summary": {
+      "zh-CN": "静止销售的给付地点判断。"
+    },
+    "lastReviewed": "2026-05-20"
+  },
+  {
+    "legalRefId": "§ 6a UStG",
+    "jurisdiction": "DE",
+    "source": "UStG",
+    "ref": "§ 6a UStG",
+    "summary": {
+      "zh-CN": "欧盟内免税销售条件。"
+    },
+    "lastReviewed": "2026-05-20"
+  },
+  {
+    "legalRefId": "§ 13b UStG",
+    "jurisdiction": "DE",
+    "source": "UStG",
+    "ref": "§ 13b UStG",
+    "summary": {
+      "zh-CN": "反向征税规则。"
+    },
+    "lastReviewed": "2026-05-20"
+  },
+  {
+    "legalRefId": "§ 25b UStG",
+    "jurisdiction": "DE",
+    "source": "UStG",
+    "ref": "§ 25b UStG",
+    "summary": {
+      "zh-CN": "三角贸易简化规则。"
+    },
+    "lastReviewed": "2026-05-20"
+  },
+  {
+    "legalRefId": "UStAE 3.14",
+    "jurisdiction": "DE",
+    "source": "UStAE",
+    "ref": "UStAE 3.14",
+    "summary": {
+      "zh-CN": "连环交易行政解释与示例。"
+    },
+    "lastReviewed": "2026-05-20"
+  }
+]
